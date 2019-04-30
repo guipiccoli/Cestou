@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
-		E7827DBA2273919C00585AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ViewController.swift */; };
+		E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ScanViewController.swift */; };
 		E7827DBD2273919C00585AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBB2273919C00585AB3 /* Main.storyboard */; };
 		E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBE2273919D00585AB3 /* Assets.xcassets */; };
 		E7827DC22273919D00585AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7827DB92273919C00585AB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		E7827DBC2273919C00585AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7827DBE2273919D00585AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7827DC12273919D00585AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
-				E7827DB92273919C00585AB3 /* ViewController.swift */,
+				E7827DB92273919C00585AB3 /* ScanViewController.swift */,
+				04311E372278C68E00687796 /* DetailsViewController.swift */,
 				E7827DBB2273919C00585AB3 /* Main.storyboard */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
 				E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */,
@@ -135,8 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7827DBA2273919C00585AB3 /* ViewController.swift in Sources */,
+				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
+				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
 				INFOPLIST_FILE = Cestou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
 				INFOPLIST_FILE = Cestou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
