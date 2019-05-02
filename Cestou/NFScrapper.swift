@@ -9,42 +9,7 @@
 import Foundation
 import SwiftSoup
 
-
-struct Product {
-    var code: String
-    var name: String
-    var quantity: Double
-    var unityPrice: Double
-    var unity: String
-    var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unityPrice)"
-    }
-}
-
-struct Shopping {
-    var products: [Product]
-    var marketplace: Marketplace
-    var date: String
-    var balance: Double {
-        return products.reduce(0.0) { $0 + $1.quantity * $1.unityPrice}
-    }
-    var description: String {
-        let productList: String = products.reduce("") { $0.description + "\n" + $1.description}
-        return "\(marketplace.description)\nProducts: \(productList)\nAmount: R$\(balance)\nDate: \(date)"
-    }
-}
-
-struct Marketplace {
-    var name: String
-    var address: String
-    var cnpj: String
-    var stateRegistration: String
-    var description: String {
-        return "Name: \(name), Address: \(address), CNPJ: \(cnpj), State Registration: \(stateRegistration)"
-    }
-}
-
-struct DataService {
+struct NFScrapper {
     
     private static func getNFCUrl(url: String, completionHandler completion: @escaping (String?) -> Void) {
         var document: Document = Document.init("")
