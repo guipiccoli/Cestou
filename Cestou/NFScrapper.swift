@@ -116,15 +116,15 @@ struct NFScrapper {
                 let name = try product.child(1).text()
                 let _quantity = try product.child(2).text().replacingOccurrences(of: ",", with: ".")
                 let unity = try product.child(3).text()
-                let _valUnity = try product.child(4).text().replacingOccurrences(of: ",", with: ".")
+                let _valUnit = try product.child(4).text().replacingOccurrences(of: ",", with: ".")
                 guard
                     let quantity = Double(_quantity),
-                    let valUnity = Double(_valUnity)
+                    let valUnit = Double(_valUnit)
                     else {
                         print("quantity fields bad formating")
                         return nil
                 }
-                result.append(Product(code: code, name: name, quantity: quantity, unityPrice: valUnity, unity: unity))
+                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity))
             }
         }
         catch{

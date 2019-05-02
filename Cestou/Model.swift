@@ -12,10 +12,10 @@ struct Product {
     var code: String
     var name: String
     var quantity: Double
-    var unityPrice: Double
+    var unitPrice: Double
     var unity: String
     var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unityPrice)"
+        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice)"
     }
 }
 
@@ -24,7 +24,7 @@ struct Shopping {
     var marketplace: Marketplace
     var date: String
     var balance: Double {
-        return products.reduce(0.0) { $0 + $1.quantity * $1.unityPrice}
+        return products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
     }
     var description: String {
         let productList: String = products.reduce("") { $0.description + "\n" + $1.description}
@@ -46,4 +46,15 @@ struct User {
     var username: String
     var email: String
     var fullname: String
+}
+
+struct ProductCategory {
+    var name: String
+}
+
+struct ProductHistory {
+    var product: Product
+    var shopping: Shopping
+    var valueUnit: Double
+    var unity: String
 }
