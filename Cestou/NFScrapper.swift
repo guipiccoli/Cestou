@@ -78,7 +78,7 @@ struct NFScrapper {
                         guard let products = self.getProducts(html: html) else {print("error trying to parse product list info"); return}
                         guard let marketplace = self.getShoppingMarketplace(html: html) else {print("error trying to parse marketplace info"); return}
                         guard let date = self.getShoppingDate(html: html) else {print("error trying to parse date info"); return}
-                        
+
                         completion(Shopping(products: products, marketplace: marketplace, date: date))
                         return
                 }
@@ -124,7 +124,7 @@ struct NFScrapper {
                         print("quantity fields bad formating")
                         return nil
                 }
-                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity))
+                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity, productCategory: nil))
             }
         }
         catch{

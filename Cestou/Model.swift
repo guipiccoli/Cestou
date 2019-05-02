@@ -14,8 +14,9 @@ struct Product {
     var quantity: Double
     var unitPrice: Double
     var unity: String
+    var productCategory: ProductCategory?
     var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice)"
+        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice), Category: \(String(describing: productCategory))"
     }
 }
 

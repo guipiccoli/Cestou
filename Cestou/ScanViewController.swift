@@ -15,7 +15,6 @@ class ScanViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let qrCodeController = segue.destination as? DetailsViewController {
             if let QRlabel = sender as? String {
-                //print
                 qrCodeController.stringQrCode = QRlabel
             }
         }
@@ -90,7 +89,7 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
                 
                 if metadataObj.stringValue != nil {
                     captureSession.stopRunning()
-                    performSegue(withIdentifier: "QRCodeRead", sender: String(metadataObj.stringValue!))
+                    performSegue(withIdentifier: "QRCodeRead", sender: String(metadataObj.stringValue!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) )
                 }
             }
         }
