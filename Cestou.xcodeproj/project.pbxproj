@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
+		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
 		E7827DBA2273919C00585AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
+		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46D46C40227B5E1500A779F7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				46D46C3E227B5D9600A779F7 /* CestouAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		46D46C43227B655C00A779F7 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				46D46C41227B655200A779F7 /* SignInController.swift */,
+				46D7F7592278C4A900C60420 /* SignUpController.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
 		E7827DAB2273919C00585AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -59,7 +80,8 @@
 				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
 				E7827DB92273919C00585AB3 /* ViewController.swift */,
 				E7827DBB2273919C00585AB3 /* Main.storyboard */,
-				46D7F7592278C4A900C60420 /* SignUpController.swift */,
+				46D46C43227B655C00A779F7 /* Onboard */,
+				46D46C40227B5E1500A779F7 /* API */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
 				E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */,
 				E7827DC32273919D00585AB3 /* Info.plist */,
@@ -141,6 +163,8 @@
 				E7827DBA2273919C00585AB3 /* ViewController.swift in Sources */,
 				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
+				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
+				46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

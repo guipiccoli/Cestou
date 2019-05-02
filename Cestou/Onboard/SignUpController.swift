@@ -16,8 +16,8 @@ class SignUpController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var sendBtn: UIButton!
     
-    private var warningField: Bool = true
-    var response: [String: Any]?
+    private var warningField: Bool = true    
+    private let api = CestouAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,41 +33,6 @@ class SignUpController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    func reqNewUser( body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
-        let url = URL(string: "https://parseapi.back4app.com/users")!
-        var request = URLRequest(url: url)
-        let session = URLSession.shared
-        
-        request.setValue("BUocb5yrgLRYaBj6MAJv79lnkjupls9U1tZXwK74", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.setValue("fhqaBdHbm66HuuVirZX4lAdtTCQEGOyRTEqIGkJm", forHTTPHeaderField: "X-Parse-REST-API-Key")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-            return onCompletion(["error": "Error parsing data json."])
-            
-        }
-        
-        session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            guard error == nil else {
-                return onCompletion(["error": "No response."])
-            }
-            
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                    return onCompletion(json)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-                return onCompletion( ["error": "Error parsing response json."])
-                
-            }
-        }).resume()
-    }
     
     @IBAction func sendBtnClick(_ sender: Any) {
         if !warningField {
@@ -83,7 +48,7 @@ class SignUpController: UIViewController {
                     "fullname": name
                 ]
                 
-                reqNewUser(body: data, onCompletion: { result in
+                api.reqNewUser(body: data, onCompletion: { result in
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
