@@ -1,16 +1,20 @@
 PODS:
+  - CenteredCollectionView (2.2.1)
   - SwiftSoup (2.0.0)
 
 DEPENDENCIES:
+  - CenteredCollectionView
   - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CenteredCollectionView
     - SwiftSoup
 
 SPEC CHECKSUMS:
+  CenteredCollectionView: ba6e45fb7774627890621d73c8dd7dbd33391da9
   SwiftSoup: 4fe21f65cdbfa3a40559047016b7962b88d29279
 
-PODFILE CHECKSUM: 4049b7d858ce3e7cb37b950949f26334d94a886e
+PODFILE CHECKSUM: 118b1ac0795fef31f7619a29db2f2dbef36be16d
 
 COCOAPODS: 1.6.1

@@ -6,7 +6,7 @@ target 'Cestou' do
   use_frameworks!
 
   # Pods for Cestou
-
-pod "SwiftSoup"
+  pod "CenteredCollectionView"
+  pod "SwiftSoup"
 
 end
