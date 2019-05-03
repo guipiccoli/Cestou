@@ -8,5 +8,6 @@ target 'Cestou' do
   # Pods for Cestou
 
   pod "CenteredCollectionView"
+  pod "SwiftSoup"
 
 end
