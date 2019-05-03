@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
+		192999E7227CCF05003E1BBD /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192999E6227CCF05003E1BBD /* ProductTableViewCell.swift */; };
+		192999EB227CCF1F003E1BBD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192999E8227CCF1F003E1BBD /* DataService.swift */; };
+		192999EC227CCF1F003E1BBD /* NFScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192999E9227CCF1F003E1BBD /* NFScrapper.swift */; };
+		192999ED227CCF1F003E1BBD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192999EA227CCF1F003E1BBD /* Model.swift */; };
+		929F0799912480D7EA0F9384 /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0308F99498C9D6C70FCBCEAD /* Pods_Cestou.framework */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
 		E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ScanViewController.swift */; };
 		E7827DBD2273919C00585AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBB2273919C00585AB3 /* Main.storyboard */; };
@@ -16,7 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0308F99498C9D6C70FCBCEAD /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		192999E6227CCF05003E1BBD /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductTableViewCell.swift; path = /Users/eduardoribeiro/Desktop/Cestou/Cestou/ProductTableViewCell.swift; sourceTree = "<absolute>"; };
+		192999E8227CCF1F003E1BBD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		192999E9227CCF1F003E1BBD /* NFScrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFScrapper.swift; sourceTree = "<group>"; };
+		192999EA227CCF1F003E1BBD /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1B1D0099F5886F1D965429F3 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
+		2D33F601EFC8246CF06E7A0E /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929F0799912480D7EA0F9384 /* Pods_Cestou.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10C33942D89900C80AFB41FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0308F99498C9D6C70FCBCEAD /* Pods_Cestou.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38539D79B0F070FCA7B81111 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D33F601EFC8246CF06E7A0E /* Pods-Cestou.debug.xcconfig */,
+				1B1D0099F5886F1D965429F3 /* Pods-Cestou.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E7827DAB2273919C00585AB3 = {
 			isa = PBXGroup;
 			children = (
 				E7827DB62273919C00585AB3 /* Cestou */,
 				E7827DB52273919C00585AB3 /* Products */,
+				38539D79B0F070FCA7B81111 /* Pods */,
+				10C33942D89900C80AFB41FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +95,10 @@
 				E7827DBB2273919C00585AB3 /* Main.storyboard */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
 				E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */,
+				192999E6227CCF05003E1BBD /* ProductTableViewCell.swift */,
+				192999E8227CCF1F003E1BBD /* DataService.swift */,
+				192999EA227CCF1F003E1BBD /* Model.swift */,
+				192999E9227CCF1F003E1BBD /* NFScrapper.swift */,
 				E7827DC32273919D00585AB3 /* Info.plist */,
 			);
 			path = Cestou;
@@ -74,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7827DC62273919D00585AB3 /* Build configuration list for PBXNativeTarget "Cestou" */;
 			buildPhases = (
+				CC2A6D27BCF5D37C7D98C7E6 /* [CP] Check Pods Manifest.lock */,
 				E7827DB02273919C00585AB3 /* Sources */,
 				E7827DB12273919C00585AB3 /* Frameworks */,
 				E7827DB22273919C00585AB3 /* Resources */,
+				612BCC51D9420AE3171B5AAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +172,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		612BCC51D9420AE3171B5AAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC2A6D27BCF5D37C7D98C7E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cestou-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7827DB02273919C00585AB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192999ED227CCF1F003E1BBD /* Model.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
+				192999EC227CCF1F003E1BBD /* NFScrapper.swift in Sources */,
+				192999E7227CCF05003E1BBD /* ProductTableViewCell.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
+				192999EB227CCF1F003E1BBD /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,16 +374,17 @@
 		};
 		E7827DC72273919D00585AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D33F601EFC8246CF06E7A0E /* Pods-Cestou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = Cestou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gp.Cestou;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,16 +393,17 @@
 		};
 		E7827DC82273919D00585AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1D0099F5886F1D965429F3 /* Pods-Cestou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = Cestou/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gp.Cestou;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

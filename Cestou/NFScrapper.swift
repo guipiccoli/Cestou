@@ -160,13 +160,8 @@ struct NFScrapper {
             elements = try document.getElementsByClass("NFCCabecalho_Subtitulo")
             let elem = try elements.array()[2].text()
             
-            if let range = elem.range(of: "Data de Emissão: ") {
-                let _date = elem[range.upperBound...]
-                date = _date.replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: " ", with: "T") + ".000Z"
-            }
-            else {
-                return nil
-            }
+            date = convertDateFromBRtoEN(stringDate: elem)
+
         }
         catch {
             print("error parsing document")
@@ -219,6 +214,35 @@ struct NFScrapper {
             return nil
         }
         return Marketplace(name: name, address: address, cnpj: cnpj, stateRegistration: stateRegistration)
+    }
+    
+    static private func convertDateFromBRtoEN(stringDate: String) -> String {
+        var date: String
+        if let range = stringDate.range(of: "Data de Emissão: ") {
+            var _date = stringDate[range.upperBound...]
+            _date = _date.replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: " ", with: "T") + ".000Z"
+            print(_date)
+            if let _range = _date.range(of: "T") {
+                let hour = _date[_range.upperBound...] //hh:mm:ss.SSSZ
+                let udate = _date[..._range.lowerBound].replacingOccurrences(of: "-", with: "").replacingOccurrences(of: "T", with: "")  //ddmmyyyy
+                let unDayIndex = udate.index(udate.endIndex, offsetBy: -6)
+                let unDay = udate.substring(from: unDayIndex) //mmyyyy
+                let yearIndex = udate.index(udate.endIndex, offsetBy: -4)
+                let year = udate.substring(from: yearIndex) //yyyy
+                let dayIndex = udate.index(udate.startIndex, offsetBy: 2)
+                let day = udate.substring(to: dayIndex) //dd
+                let monthIndex = unDay.index(unDay.startIndex, offsetBy: 2)
+                let month = unDay.substring(to: monthIndex)
+                date = year + "-" + month + "-" + day + "T" + hour
+            }
+            else {
+                return ""
+            }
+        }
+        else {
+            return ""
+        }
+        return date
     }
     
 }
