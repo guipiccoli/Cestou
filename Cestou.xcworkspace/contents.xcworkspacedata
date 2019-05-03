@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Cestou/Cestou/Base.lproj/LaunchScreen.storyboard">
+   </FileRef>
+   <FileRef
+      location = "group:Podfile">
+   </FileRef>
+   <FileRef
       location = "group:Cestou.xcodeproj">
    </FileRef>
    <FileRef

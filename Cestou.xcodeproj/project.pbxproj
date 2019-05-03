@@ -8,22 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
+		04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* HeaderViewController.swift */; };
+		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
+		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
+		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
+		A7149E16E96465352BE7713D /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */; };
+		E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
 		E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ScanViewController.swift */; };
-		E7827DBD2273919C00585AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBB2273919C00585AB3 /* Main.storyboard */; };
 		E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBE2273919D00585AB3 /* Assets.xcassets */; };
-		E7827DC22273919D00585AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */; };
+		E7A51E66227CB65200B6419D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A51E64227CB65200B6419D /* Main.storyboard */; };
+		E7AAF952227CD23B00968A9A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF951227CD23B00968A9A /* Model.swift */; };
+		E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF953227CD23D00968A9A /* NFScrapper.swift */; };
+		E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04D892EC227CC5A000B86A45 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
+		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
+		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
+		C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
+		E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		E7827DBC2273919C00585AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = Cestou/ScanViewController.swift; sourceTree = SOURCE_ROOT; };
 		E7827DBE2273919D00585AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7827DC12273919D00585AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7827DC32273919D00585AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7A51E65227CB65200B6419D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Cestou/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7AAF951227CD23B00968A9A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E7AAF953227CD23D00968A9A /* NFScrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFScrapper.swift; sourceTree = "<group>"; };
+		E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7149E16E96465352BE7713D /* Pods_Cestou.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46D46C40227B5E1500A779F7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				46D46C3E227B5D9600A779F7 /* CestouAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		46D46C43227B655C00A779F7 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				46D46C41227B655200A779F7 /* SignInController.swift */,
+				46D7F7592278C4A900C60420 /* SignUpController.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		46F1E4256418886C0E753288 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CF13F34629A6FC56A3959B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */,
+				63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<unknown>";
+		};
 		E7827DAB2273919C00585AB3 = {
 			isa = PBXGroup;
 			children = (
 				E7827DB62273919C00585AB3 /* Cestou */,
 				E7827DB52273919C00585AB3 /* Products */,
+				6CF13F34629A6FC56A3959B3 /* Pods */,
+				46F1E4256418886C0E753288 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +111,29 @@
 		E7827DB62273919C00585AB3 /* Cestou */ = {
 			isa = PBXGroup;
 			children = (
+				E7A51E64227CB65200B6419D /* Main.storyboard */,
+				E7AAF951227CD23B00968A9A /* Model.swift */,
+				E7AAF953227CD23D00968A9A /* NFScrapper.swift */,
+				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
+				E7C77FFF227B86A600F19B55 /* Header */,
 				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
+				46D46C43227B655C00A779F7 /* Onboard */,
+				46D46C40227B5E1500A779F7 /* API */,
 				E7827DB92273919C00585AB3 /* ScanViewController.swift */,
 				04311E372278C68E00687796 /* DetailsViewController.swift */,
-				E7827DBB2273919C00585AB3 /* Main.storyboard */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
-				E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */,
 				E7827DC32273919D00585AB3 /* Info.plist */,
 			);
 			path = Cestou;
+			sourceTree = "<group>";
+		};
+		E7C77FFF227B86A600F19B55 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				04D892EC227CC5A000B86A45 /* HeaderViewController.swift */,
+				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +143,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7827DC62273919D00585AB3 /* Build configuration list for PBXNativeTarget "Cestou" */;
 			buildPhases = (
+				CC796934E98A45FE5F52EE9A /* [CP] Check Pods Manifest.lock */,
 				E7827DB02273919C00585AB3 /* Sources */,
 				E7827DB12273919C00585AB3 /* Frameworks */,
 				E7827DB22273919C00585AB3 /* Resources */,
+				0EB37B1B656BC7A14BE22118 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,19 +196,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7827DC22273919D00585AB3 /* LaunchScreen.storyboard in Resources */,
 				E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */,
-				E7827DBD2273919C00585AB3 /* Main.storyboard in Resources */,
+				E7A51E66227CB65200B6419D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB37B1B656BC7A14BE22118 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC796934E98A45FE5F52EE9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cestou-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E7827DB02273919C00585AB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7AAF952227CD23B00968A9A /* Model.swift in Sources */,
+				E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */,
+				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
+				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
+				46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */,
+				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
+				04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */,
+				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
@@ -147,20 +272,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E7827DBB2273919C00585AB3 /* Main.storyboard */ = {
+		E7A51E64227CB65200B6419D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E7827DBC2273919C00585AB3 /* Base */,
+				E7A51E65227CB65200B6419D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7827DC12273919D00585AB3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -284,6 +401,7 @@
 		};
 		E7827DC72273919D00585AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +420,7 @@
 		};
 		E7827DC82273919D00585AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
