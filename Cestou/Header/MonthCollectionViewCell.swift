@@ -10,8 +10,6 @@ import UIKit
 
 class MonthCollectionViewCell: UICollectionViewCell {
     
-    
-    
     @IBOutlet var monthLabel: UILabel!
     
 }
