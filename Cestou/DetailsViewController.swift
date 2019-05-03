@@ -10,6 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+
     @IBOutlet weak var tableView: UITableView!
     private let productCellIdentifier = "productCellIdentifier"
 
@@ -26,6 +27,17 @@ class DetailsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    @IBAction func confirmButton(_ sender: UIButton) {
+        guard let _shopping = self.shopping else {
+            print("shopping structure bad formatting")
+            fatalError()
+        }
+        
+        DataService.saveShopping(shopping: _shopping) { (result) in
+            print(result)
         }
     }
 }

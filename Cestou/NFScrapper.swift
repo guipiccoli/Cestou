@@ -75,11 +75,28 @@ struct NFScrapper {
                                 return
                         }
                         
-                        guard let products = self.getProducts(html: html) else {print("error trying to parse product list info"); return}
-                        guard let marketplace = self.getShoppingMarketplace(html: html) else {print("error trying to parse marketplace info"); return}
-                        guard let date = self.getShoppingDate(html: html) else {print("error trying to parse date info"); return}
+                        guard let products = self.getProducts(html: html) else {
+                            print("error trying to parse product list info")
+                            return
+                        }
+                        guard let marketplace = self.getShoppingMarketplace(html: html) else {
+                            print("error trying to parse marketplace info")
+                            return
+                                
+                        }
+                        guard let date = self.getShoppingDate(html: html) else {
+                            print("error trying to parse date info")
+                            return
+                            
+                        }
 
-                        completion(Shopping(products: products, marketplace: marketplace, date: date))
+                        guard let uniqueCode = self.getShoppingUniqueCode(html: html) else {
+                            print("error trying to parse Unique Code info")
+                            return
+                            
+                        }
+                        
+                        completion(Shopping(uniqueCode: uniqueCode, products: products, marketplace: marketplace, date: date))
                         return
                 }
                 
@@ -156,6 +173,23 @@ struct NFScrapper {
         }
         
         return date
+    }
+    
+    private static func getShoppingUniqueCode(html: String) -> String? {
+        var document: Document = Document.init("")
+        var elements: Elements = Elements.init()
+        var uniqueCode: String = ""
+        
+        do{
+            document = try SwiftSoup.parse(html)
+            elements = try document.getElementsByClass("NFCCabecalho_Subtitulo")
+            uniqueCode = try elements.array()[5].text()
+        }
+        catch {
+            print("error parsing document")
+        }
+        
+        return uniqueCode
     }
     
     private static func getShoppingMarketplace(html: String) -> Marketplace? {

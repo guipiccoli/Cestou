@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product {
+struct Product: Codable {
     var code: String
     var name: String
     var quantity: Double
@@ -20,7 +20,8 @@ struct Product {
     }
 }
 
-struct Shopping {
+struct Shopping: Codable {
+    var uniqueCode: String
     var products: [Product]
     var marketplace: Marketplace
     var date: String
@@ -29,11 +30,11 @@ struct Shopping {
     }
     var description: String {
         let productList: String = products.reduce("") { $0.description + "\n" + $1.description}
-        return "\(marketplace.description)\nProducts: \(productList)\nAmount: R$\(balance)\nDate: \(date)"
+        return "Unique Code: \(uniqueCode) \(marketplace.description)\nProducts: \(productList)\nAmount: R$\(balance)\nDate: \(date)"
     }
 }
 
-struct Marketplace {
+struct Marketplace: Codable {
     var name: String
     var address: String
     var cnpj: String
@@ -43,19 +44,28 @@ struct Marketplace {
     }
 }
 
-struct User {
+struct User: Codable {
     var username: String
     var email: String
     var fullname: String
+    var sessionToken: String
 }
 
-struct ProductCategory {
+struct ProductCategory: Codable {
     var name: String
 }
 
-struct ProductHistory {
+struct ProductHistory: Codable {
     var product: Product
     var shopping: Shopping
     var valueUnit: Double
     var unity: String
+}
+
+struct Balance: Codable {
+    var year: Int
+    var month: Int
+    var incoming: Double
+    var expense: Double
+    var expenseProjected: Double
 }
