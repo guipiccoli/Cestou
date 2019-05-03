@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
 		04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* HeaderViewController.swift */; };
-		192999EB227CCF1F003E1BBD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192999E8227CCF1F003E1BBD /* DataService.swift */; };
+		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
 		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
 		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
-		DAEADE991BEAA1DC37725F8F /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53AC5A762528075513AD5546 /* Pods_Cestou.framework */; };
+		A7149E16E96465352BE7713D /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */; };
 		E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
 		E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ScanViewController.swift */; };
@@ -25,18 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04D892EC227CC5A000B86A45 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
-		192999E6227CCF05003E1BBD /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductTableViewCell.swift; path = /Users/eduardoribeiro/Desktop/Cestou/Cestou/ProductTableViewCell.swift; sourceTree = "<absolute>"; };
-		192999E8227CCF1F003E1BBD /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		192999E9227CCF1F003E1BBD /* NFScrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFScrapper.swift; sourceTree = "<group>"; };
-		192999EA227CCF1F003E1BBD /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
 		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
-		53AC5A762528075513AD5546 /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C741F96DABC4F1B30510E479 /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
-		D94F10C64D1E0DEDA8658333 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
+		63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
+		C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
 		E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,20 +51,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAEADE991BEAA1DC37725F8F /* Pods_Cestou.framework in Frameworks */,
+				A7149E16E96465352BE7713D /* Pods_Cestou.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1995E098227CF2E900DF091A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		46D46C40227B5E1500A779F7 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,32 +75,30 @@
 			path = Onboard;
 			sourceTree = "<group>";
 		};
-		73133B6EEBB27A6AD5532EB2 /* Pods */ = {
+		46F1E4256418886C0E753288 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C741F96DABC4F1B30510E479 /* Pods-Cestou.debug.xcconfig */,
-				D94F10C64D1E0DEDA8658333 /* Pods-Cestou.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		BDED004A817000937D90FC71 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				53AC5A762528075513AD5546 /* Pods_Cestou.framework */,
+				0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		6CF13F34629A6FC56A3959B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */,
+				63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<unknown>";
 		};
 		E7827DAB2273919C00585AB3 = {
 			isa = PBXGroup;
 			children = (
 				E7827DB62273919C00585AB3 /* Cestou */,
 				E7827DB52273919C00585AB3 /* Products */,
-				1995E098227CF2E900DF091A /* Recovered References */,
-				73133B6EEBB27A6AD5532EB2 /* Pods */,
-				BDED004A817000937D90FC71 /* Frameworks */,
+				6CF13F34629A6FC56A3959B3 /* Pods */,
+				46F1E4256418886C0E753288 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				E7A51E64227CB65200B6419D /* Main.storyboard */,
+				1935E785227CF5E90043469F /* DataService.swift */,
 				E7AAF951227CD23B00968A9A /* Model.swift */,
 				E7AAF953227CD23D00968A9A /* NFScrapper.swift */,
 				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
@@ -136,10 +125,6 @@
 				E7827DB92273919C00585AB3 /* ScanViewController.swift */,
 				04311E372278C68E00687796 /* DetailsViewController.swift */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
-				192999E6227CCF05003E1BBD /* ProductTableViewCell.swift */,
-				192999E8227CCF1F003E1BBD /* DataService.swift */,
-				192999EA227CCF1F003E1BBD /* Model.swift */,
-				192999E9227CCF1F003E1BBD /* NFScrapper.swift */,
 				E7827DC32273919D00585AB3 /* Info.plist */,
 			);
 			path = Cestou;
@@ -161,11 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7827DC62273919D00585AB3 /* Build configuration list for PBXNativeTarget "Cestou" */;
 			buildPhases = (
-				7636A281A278DE205C026500 /* [CP] Check Pods Manifest.lock */,
+				CC796934E98A45FE5F52EE9A /* [CP] Check Pods Manifest.lock */,
 				E7827DB02273919C00585AB3 /* Sources */,
 				E7827DB12273919C00585AB3 /* Frameworks */,
 				E7827DB22273919C00585AB3 /* Resources */,
-				B0B92586EB57BC6469D998F0 /* [CP] Embed Pods Frameworks */,
+				0EB37B1B656BC7A14BE22118 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +207,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7636A281A278DE205C026500 /* [CP] Check Pods Manifest.lock */ = {
+		0EB37B1B656BC7A14BE22118 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC796934E98A45FE5F52EE9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,30 +251,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0B92586EB57BC6469D998F0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -278,6 +261,7 @@
 				E7AAF952227CD23B00968A9A /* Model.swift in Sources */,
 				E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */,
 				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
+				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
@@ -286,7 +270,6 @@
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
-				192999EB227CCF1F003E1BBD /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +405,7 @@
 		};
 		E7827DC72273919D00585AB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C741F96DABC4F1B30510E479 /* Pods-Cestou.debug.xcconfig */;
+			baseConfigurationReference = C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -441,7 +424,7 @@
 		};
 		E7827DC82273919D00585AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D94F10C64D1E0DEDA8658333 /* Pods-Cestou.release.xcconfig */;
+			baseConfigurationReference = 63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
