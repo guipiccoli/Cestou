@@ -23,6 +23,12 @@ class SignInController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let headerViewController = segue.destination as? HeaderViewController {
+            print("DEU CERTO ---------------------")
+        }
+    }
+    
     private func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
@@ -42,6 +48,9 @@ class SignInController: UIViewController {
                         }
                         else {
                             print(result)
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "logado", sender: nil)
+                            }
                         }
                     }
                     else {
