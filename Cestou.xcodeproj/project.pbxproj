@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* HeaderViewController.swift */; };
 		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
 		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
@@ -17,10 +18,10 @@
 		E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7827DBE2273919D00585AB3 /* Assets.xcassets */; };
 		E7827DC22273919D00585AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7827DC02273919D00585AB3 /* LaunchScreen.storyboard */; };
 		E7A51E66227CB65200B6419D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A51E64227CB65200B6419D /* Main.storyboard */; };
-		E7A51E6A227CB6B400B6419D /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A51E69227CB6B400B6419D /* HeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04D892EC227CC5A000B86A45 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
 		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		E7827DC12273919D00585AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7827DC32273919D00585AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A51E65227CB65200B6419D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Cestou/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E7A51E69227CB6B400B6419D /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderViewController.swift; path = /Users/gp/Desktop/cestou/Cestou/Header/HeaderViewController.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				E7A51E64227CB65200B6419D /* Main.storyboard */,
-				E7A51E69227CB6B400B6419D /* HeaderViewController.swift */,
 				E7C77FFF227B86A600F19B55 /* Header */,
 				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
 				E7093EE92278D30A00F03448 /* Podfile */,
@@ -122,6 +121,7 @@
 		E7C77FFF227B86A600F19B55 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				04D892EC227CC5A000B86A45 /* HeaderViewController.swift */,
 				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
 			);
 			path = Header;
@@ -251,9 +251,9 @@
 				E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */,
 				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
-				E7A51E6A227CB6B400B6419D /* HeaderViewController.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */,
+				04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
