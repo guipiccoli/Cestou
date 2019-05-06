@@ -35,7 +35,7 @@
 		63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
 		C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
 		E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
-		E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Cestou/View/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Cestou/View/Storyboard/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = Cestou/Controllers/Scanner/ScanViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -134,11 +134,28 @@
 		E772A6312280A70100B212B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
-				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
-				E7A51E64227CB65200B6419D /* Main.storyboard */,
+				E772A6342280C18E00B212B1 /* Storyboard */,
+				E772A6332280C17900B212B1 /* Cells */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E772A6332280C17900B212B1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
+				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E772A6342280C18E00B212B1 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E7A51E64227CB65200B6419D /* Main.storyboard */,
+				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		E7827DAB2273919C00585AB3 = {
@@ -176,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				04D892EC227CC5A000B86A45 /* HeaderViewController.swift */,
-				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
