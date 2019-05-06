@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/Controllers/Scanner/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04D892EC227CC5A000B86A45 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		0E90D7D50AE8F4CC7F32BA79 /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -35,9 +35,10 @@
 		63DC0FFC4801E1DBB5584880 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
 		C198A666B58C78408ACE029F /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
 		E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
+		E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Cestou/View/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7827DB72273919C00585AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = Cestou/ScanViewController.swift; sourceTree = SOURCE_ROOT; };
+		E7827DB92273919C00585AB3 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScanViewController.swift; path = Cestou/Controllers/Scanner/ScanViewController.swift; sourceTree = SOURCE_ROOT; };
 		E7827DBE2273919D00585AB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7827DC32273919D00585AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A51E65227CB65200B6419D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Cestou/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,12 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		46D46C40227B5E1500A779F7 /* API */ = {
+		46D46C40227B5E1500A779F7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E7AAF953227CD23D00968A9A /* NFScrapper.swift */,
+				1935E785227CF5E90043469F /* DataService.swift */,
 				46D46C3E227B5D9600A779F7 /* CestouAPI.swift */,
 			);
-			path = API;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		46D46C43227B655C00A779F7 /* Onboard */ = {
@@ -92,6 +95,52 @@
 			path = Pods;
 			sourceTree = "<unknown>";
 		};
+		E772A62C2280A5E100B212B1 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
+				E7827DC32273919D00585AB3 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		E772A62D2280A62000B212B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E772A62E2280A62B00B212B1 /* Scanner */,
+				46D46C43227B655C00A779F7 /* Onboard */,
+				E7C77FFF227B86A600F19B55 /* Header */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E772A62E2280A62B00B212B1 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				04311E372278C68E00687796 /* DetailsViewController.swift */,
+				E7827DB92273919C00585AB3 /* ScanViewController.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		E772A6302280A68100B212B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7AAF951227CD23B00968A9A /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E772A6312280A70100B212B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
+				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
+				E7A51E64227CB65200B6419D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E7827DAB2273919C00585AB3 = {
 			isa = PBXGroup;
 			children = (
@@ -113,19 +162,12 @@
 		E7827DB62273919C00585AB3 /* Cestou */ = {
 			isa = PBXGroup;
 			children = (
-				E7A51E64227CB65200B6419D /* Main.storyboard */,
-				1935E785227CF5E90043469F /* DataService.swift */,
-				E7AAF951227CD23B00968A9A /* Model.swift */,
-				E7AAF953227CD23D00968A9A /* NFScrapper.swift */,
-				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
-				E7C77FFF227B86A600F19B55 /* Header */,
-				E7827DB72273919C00585AB3 /* AppDelegate.swift */,
-				46D46C43227B655C00A779F7 /* Onboard */,
-				46D46C40227B5E1500A779F7 /* API */,
-				E7827DB92273919C00585AB3 /* ScanViewController.swift */,
-				04311E372278C68E00687796 /* DetailsViewController.swift */,
+				E772A6312280A70100B212B1 /* View */,
+				E772A6302280A68100B212B1 /* Model */,
+				E772A62D2280A62000B212B1 /* Controllers */,
+				E772A62C2280A5E100B212B1 /* Support */,
+				46D46C40227B5E1500A779F7 /* Services */,
 				E7827DBE2273919D00585AB3 /* Assets.xcassets */,
-				E7827DC32273919D00585AB3 /* Info.plist */,
 			);
 			path = Cestou;
 			sourceTree = "<group>";
@@ -409,13 +451,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSPHX5D288;
-				INFOPLIST_FILE = Cestou/Info.plist;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
+				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.Cestou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -428,13 +470,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XSPHX5D288;
-				INFOPLIST_FILE = Cestou/Info.plist;
+				DEVELOPMENT_TEAM = RL63GUXBB4;
+				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.Cestou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
