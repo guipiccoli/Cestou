@@ -10,12 +10,12 @@ import Foundation
 
 struct DataService {
     
-    static private let url: String = "https://parseapi.back4app.com/functions/saveShopping"
-    static private let token = "r:3df5169beb74f5ea36c16e2d5a169806"
-
+    static private let url: String = "https://parseapi.back4app.com"
+    static private let session = URLSession.shared
+    
     static func saveShopping(shopping: Shopping, completionHandler completion: @escaping (Bool) -> Void) {
         guard
-            let _url = URL(string: url)
+            let _url = URL(string: "\(self.url)/functions/saveShopping")
             else {
                 print("error trying to generate url")
                 completion(false)
@@ -29,13 +29,9 @@ struct DataService {
             return
         }
                 
-        var request = URLRequest(url: _url)
-        request.setValue("BUocb5yrgLRYaBj6MAJv79lnkjupls9U1tZXwK74", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.setValue("fhqaBdHbm66HuuVirZX4lAdtTCQEGOyRTEqIGkJm", forHTTPHeaderField: "X-Parse-REST-API-Key")
-        request.addValue(token, forHTTPHeaderField: "X-Parse-Session-Token")
-        request.httpMethod = "POST"
-        request.httpBody = body
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let parseRequest = ParseRequest(url: _url, body: body)
+        
+        let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
             if let error = error {
                 print("error: \(error)")
                 completion(false)
@@ -52,6 +48,62 @@ struct DataService {
         }
         task.resume()
         
+    }
+
+    static func reqNewUser(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
+        guard let urlComponents = URLComponents(string: self.url + "/users") else  { return onCompletion(["error": "Error parsing url."])}
+        guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
+        let _body: Data
+        
+        do {
+            _body = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            return onCompletion(["error": "Error parsing data json."])
+        }
+        
+        let parseRequest = ParseRequest(url: url, body: _body)
+        
+        self.session.dataTask(with: parseRequest.getRequest() , completionHandler: { data, response, error in
+            guard error == nil else {
+                return onCompletion(["error": "No response."])
+            }
+            
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
+                    return onCompletion(json)
+                }
+            } catch let error {
+                print(error.localizedDescription)
+                return onCompletion( ["error": "Error parsing response json."])
+                
+            }
+        }).resume()
+    }
+    
+    static func logIn( email: String, password: String, onCompletion: @escaping (_ result: [String:Any]) -> Void) {
+        guard let urlComponents = URLComponents(string: self.url + "/login?username=" + email + "&password=" + password) else { return onCompletion(["error": "Error parsing url."])}
+        guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
+        
+        let parseRequest = ParseRequest(url: url)
+        
+        self.session.dataTask(with: parseRequest.getRequest() as URLRequest, completionHandler: { data, response, error in
+            guard error == nil else {
+                return onCompletion(["error": "No response."])
+            }
+            
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
+                    return onCompletion(json)
+                }
+            } catch let error {
+                print(error.localizedDescription)
+                return onCompletion( ["error": "Error parsing response json."])
+                
+            }
+        }).resume()
     }
     
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import CenteredCollectionView
-
+import SwiftKeychainWrapper
 class HeaderViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
@@ -38,7 +38,6 @@ class HeaderViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-  
     }
 }
 

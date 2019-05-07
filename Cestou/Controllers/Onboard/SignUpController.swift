@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SignUpController: UIViewController {
     
@@ -17,7 +18,6 @@ class SignUpController: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     
     private var warningField: Bool = true    
-    private let api = CestouAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +48,24 @@ class SignUpController: UIViewController {
                     "fullname": name
                 ]
                 
-                api.reqNewUser(body: data, onCompletion: { result in
+                DataService.reqNewUser(body: data, onCompletion: { result in
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
                         }
                         else {
-                            print(result)
+                            guard
+                                let objectId = result["objectId"] as? String,
+                                let sessionToken = result["sessionToken"] as? String,
+                                let username = result["username"] as? String
+                                else {
+                                    print("Error trying to parse Login confirmation response from server")
+                                    fatalError()
+                            }
+                            KeychainWrapper.standard.set(sessionToken, forKey: "token")
+                            KeychainWrapper.standard.set(objectId, forKey: "objectId")
+                            KeychainWrapper.standard.set(username, forKey: "username")
+                            KeychainWrapper.standard.set(true, forKey: "newUserFlag")
                         }
                     }
                     else {
