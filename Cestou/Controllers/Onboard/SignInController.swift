@@ -12,6 +12,7 @@ class SignInController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var signInBtn: UIButton!
     
     private var warningField: Bool = true
     
@@ -19,6 +20,7 @@ class SignInController: UIViewController {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
+        self.styleSignInBtn()
         // Do any additional setup after loading the view.
     }
     
@@ -28,6 +30,11 @@ class SignInController: UIViewController {
         }
     }
     
+    private func styleSignInBtn() {
+        self.signInBtn.layer.cornerRadius = 26
+        self.signInBtn.clipsToBounds = true
+    }
+    
     private func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
@@ -35,7 +42,8 @@ class SignInController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    @IBAction func logIn(_ sender: Any) {
+
+    @IBAction func signIn(_ sender: Any) {
         if !warningField {
             if let pass = self.password.text,
                 let email = self.email.text {

@@ -11,11 +11,11 @@ import SwiftKeychainWrapper
 
 class SignUpController: UIViewController {
     
-    @IBOutlet weak var fullname: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var sendBtn: UIButton!
+
+    @IBOutlet weak var email: signUITextField!
+    @IBOutlet weak var fullname: signUITextField!
+    @IBOutlet weak var password: signUITextField!
+    @IBOutlet weak var signUpBtn: UIButton!
     
     private var warningField: Bool = true    
     
@@ -23,6 +23,7 @@ class SignUpController: UIViewController {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
+        self.styleSignUpBtn()
         // Do any additional setup after loading the view.
     }
     
@@ -33,12 +34,16 @@ class SignUpController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
+    private func styleSignUpBtn() {
+        self.signUpBtn.layer.cornerRadius = 26
+        self.signUpBtn.clipsToBounds = true
+    }
     
     @IBAction func sendBtnClick(_ sender: Any) {
         if !warningField {
             if let name = self.fullname.text,
                 let pass = self.password.text,
-                let username = self.username.text,
+                let username = self.fullname.text,
                 let email = self.email.text {
                 
                 let data: [String: String] = [
