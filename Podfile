@@ -9,4 +9,5 @@ target 'Cestou' do
   pod 'CenteredCollectionView'
   pod 'SwiftSoup'
   pod 'SwiftKeychainWrapper'
+  pod 'Charts'
 end

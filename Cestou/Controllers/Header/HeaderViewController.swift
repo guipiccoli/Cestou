@@ -19,6 +19,7 @@ class HeaderViewController: UIViewController {
 
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
+    @IBOutlet weak var graphTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class HeaderViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        graphTableView.dataSource = self
         
         centeredCollectionViewFlowLayout.itemSize = CGSize (
             width: view.bounds.width * cellPercentWidth,
@@ -100,6 +103,30 @@ extension HeaderViewController: UICollectionViewDelegate {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
+        }
+    }
+}
+
+extension HeaderViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //grafico categoria - gastos por dia - planejamento mensal
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
+            categoryCell.configure()
+            return categoryCell
+        }
+        else if indexPath.row == 2 {
+            let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
+            monthlyPlanningCell.configure()
+            return monthlyPlanningCell
+        }
+        else {
+            let cell = UITableViewCell()
+            return cell
         }
     }
 }

@@ -1,24 +1,30 @@
 PODS:
   - CenteredCollectionView (2.2.1)
+  - Charts (3.3.0):
+    - Charts/Core (= 3.3.0)
+  - Charts/Core (3.3.0)
   - SwiftKeychainWrapper (3.3.0)
   - SwiftSoup (2.0.0)
 
 DEPENDENCIES:
   - CenteredCollectionView
+  - Charts
   - SwiftKeychainWrapper
   - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CenteredCollectionView
+    - Charts
     - SwiftKeychainWrapper
     - SwiftSoup
 
 SPEC CHECKSUMS:
   CenteredCollectionView: ba6e45fb7774627890621d73c8dd7dbd33391da9
+  Charts: ec1f57f9340054155691e84d4544a1d239d382c5
   SwiftKeychainWrapper: ef5ad793bc0e08e24a5913f28345b8f7bc8e4123
   SwiftSoup: 4fe21f65cdbfa3a40559047016b7962b88d29279
 
-PODFILE CHECKSUM: 4a2535f681f5a4dfceefb6f3058ac433bd128ebc
+PODFILE CHECKSUM: 645ee72ad2b91ad5319432be1494ab9bf3f77356
 
 COCOAPODS: 1.6.1
