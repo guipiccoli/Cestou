@@ -45,9 +45,8 @@ struct Marketplace: Codable {
 }
 
 struct User: Codable {
-    var username: String
     var email: String
-    var fullname: String
+    var username: String
     var sessionToken: String
 }
 

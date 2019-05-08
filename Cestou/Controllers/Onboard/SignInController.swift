@@ -21,7 +21,15 @@ class SignInController: UIViewController {
         email.delegate = self;
         password.delegate = self;
         self.styleSignInBtn()
-        // Do any additional setup after loading the view.
+
+        if let sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
+            if sessionToken.count > 0 {
+                print(sessionToken)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "logado", sender: nil)
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,8 +55,7 @@ class SignInController: UIViewController {
         if !warningField {
             if let pass = self.password.text,
                 let email = self.email.text {
-                
-                DataService.logIn(email: email , password: pass, onCompletion:  { result in
+                DataService.logIn(email: email, password: pass, onCompletion:  { result in
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)

@@ -26,6 +26,12 @@ class SignUpController: UIViewController {
         self.styleSignUpBtn()
         // Do any additional setup after loading the view.
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let headerViewController = segue.destination as? HeaderViewController {
+            print("DEU CERTO ---------------------")
+        }
+    }
     
     private func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -41,16 +47,14 @@ class SignUpController: UIViewController {
     
     @IBAction func sendBtnClick(_ sender: Any) {
         if !warningField {
-            if let name = self.fullname.text,
-                let pass = self.password.text,
-                let username = self.email.text,
+            if  let pass = self.password.text,
+                let username = self.fullname.text,
                 let email = self.email.text {
                 
                 let data: [String: String] = [
                     "username": username,
                     "password": pass,
                     "email": email,
-                    "fullname": name
                 ]
                 
                 DataService.reqNewUser(body: data, onCompletion: { result in
@@ -59,18 +63,20 @@ class SignUpController: UIViewController {
                             print(err)
                         }
                         else {
-                            guard
-                                let objectId = result["objectId"] as? String,
-                                let sessionToken = result["sessionToken"] as? String
-                                else {
-                                    print("Error trying to parse Login confirmation response from server")
-                                    fatalError()
+                            DispatchQueue.main.async {
+                                guard
+                                    let objectId = result["objectId"] as? String,
+                                    let sessionToken = result["sessionToken"] as? String
+                                    else {
+                                        print("Error trying to parse Login confirmation response from server")
+                                        fatalError()
+                                }
+                                KeychainWrapper.standard.set(sessionToken, forKey: "sessionToken")
+                                KeychainWrapper.standard.set(objectId, forKey: "objectId")
+                                KeychainWrapper.standard.set(username, forKey: "username")
+                                KeychainWrapper.standard.set(true, forKey: "newUserFlag")
+                                self.performSegue(withIdentifier: "logado", sender: nil)
                             }
-                            KeychainWrapper.standard.set(sessionToken, forKey: "token")
-                            KeychainWrapper.standard.set(objectId, forKey: "objectId")
-                            KeychainWrapper.standard.set(username, forKey: "username")
-                            KeychainWrapper.standard.set(true, forKey: "newUserFlag")
-                            print("User created.")
                         }
                     }
                     else {

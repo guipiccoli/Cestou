@@ -10,9 +10,8 @@
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
 		04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* HeaderViewController.swift */; };
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
+		1952B4442283593B0030F21D /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1952B443228359350030F21D /* signUITextField.swift */; };
 		198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198888FA2282078D00DFACBA /* ParseRequest.swift */; };
-		46360CC12281F4D200D76D8C /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46360CC02281F4D200D76D8C /* signUITextField.swift */; };
-		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
 		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
 		6D9D430192CFAB0A94F2C15C /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E16AD09F23399853859437D /* Pods_Cestou.framework */; };
@@ -31,9 +30,8 @@
 		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/Controllers/Scanner/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04D892EC227CC5A000B86A45 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1952B443228359350030F21D /* signUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = signUITextField.swift; path = /Users/eduardoribeiro/Desktop/Cestou/Cestou/View/Cells/signUITextField.swift; sourceTree = "<absolute>"; };
 		198888FA2282078D00DFACBA /* ParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
-		46360CC02281F4D200D76D8C /* signUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = signUITextField.swift; path = /Users/jobedylbas/Desktop/Cestou/Cestou/View/Cells/signUITextField.swift; sourceTree = "<absolute>"; };
-		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
 		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		539941279E3AF2AE84D97E70 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,13 +69,6 @@
 				6E16AD09F23399853859437D /* Pods_Cestou.framework */,
 			);
 			name = Frameworks;
-		};
-		46360CC22282183300D76D8C /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				46360CC02281F4D200D76D8C /* signUITextField.swift */,
-			);
-			path = TextField;
 			sourceTree = "<group>";
 		};
 		46D46C40227B5E1500A779F7 /* Services */ = {
@@ -147,7 +138,6 @@
 		E772A6312280A70100B212B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				46360CC22282183300D76D8C /* TextField */,
 				E772A6342280C18E00B212B1 /* Storyboard */,
 				E772A6332280C17900B212B1 /* Cells */,
 			);
@@ -157,6 +147,7 @@
 		E772A6332280C17900B212B1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1952B443228359350030F21D /* signUITextField.swift */,
 				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
 				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
 			);
@@ -348,7 +339,7 @@
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
-				46360CC12281F4D200D76D8C /* signUITextField.swift in Sources */,
+				1952B4442283593B0030F21D /* signUITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +506,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,7 +13,6 @@
         <!--Sign In Controller-->
         <scene sceneID="2KW-gQ-b93">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FU9-d2-TSF" customClass="SignInController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ubg-Q3-5CE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -126,6 +125,7 @@
                         <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="gaY-kF-2EE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="-853"/>
         </scene>
@@ -186,7 +186,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="sendBtnClick:" destination="sEd-KB-AqB" eventType="touchUpInside" id="M2i-Xw-Gsc"/>
+                                            <action selector="sendBtnClick:" destination="sEd-KB-AqB" eventType="touchUpInside" id="kTJ-nf-Q8X"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fot-i8-dHA">
@@ -237,16 +237,20 @@
                         <outlet property="email" destination="5ng-mC-xAi" id="hsY-Ok-ki4"/>
                         <outlet property="fullname" destination="4wI-x9-bfW" id="qQx-bs-wpP"/>
                         <outlet property="password" destination="0GI-nK-3ZF" id="DL8-qR-4Xc"/>
-                        <outlet property="signUpBtn" destination="5PO-hf-ZkS" id="Ge9-fW-6lg"/>
+                        <outlet property="signUpBtn" destination="5PO-hf-ZkS" id="HaH-dh-vgp"/>
+                        <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="wq3-0f-KMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37U-CD-Z83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="64"/>
+            <point key="canvasLocation" x="57" y="50"/>
         </scene>
     </scenes>
     <resources>
         <image name="cestouCircle" width="112" height="112"/>
         <image name="coinsBackground" width="320" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wq3-0f-KMK"/>
+    </inferredMetricsTieBreakers>
 </document>
