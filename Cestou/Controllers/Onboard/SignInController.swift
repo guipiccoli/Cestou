@@ -22,14 +22,6 @@ class SignInController: UIViewController {
         password.delegate = self;
         self.styleSignInBtn()
 
-        if let sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
-            if sessionToken.count > 0 {
-                print(sessionToken)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "logado", sender: nil)
-                }
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
