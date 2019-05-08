@@ -62,5 +62,13 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChart.legend.verticalAlignment = .center
         categoryChart.legend.horizontalAlignment = .right
         categoryChart.data = categoryChartData
+        categoryChart.usePercentValuesEnabled = true
+
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        formatter.multiplier = 1.0
+        categoryChartDataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
     }
 }
