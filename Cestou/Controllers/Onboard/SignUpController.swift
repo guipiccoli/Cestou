@@ -43,7 +43,7 @@ class SignUpController: UIViewController {
         if !warningField {
             if let name = self.fullname.text,
                 let pass = self.password.text,
-                let username = self.fullname.text,
+                let username = self.email.text,
                 let email = self.email.text {
                 
                 let data: [String: String] = [
@@ -61,8 +61,7 @@ class SignUpController: UIViewController {
                         else {
                             guard
                                 let objectId = result["objectId"] as? String,
-                                let sessionToken = result["sessionToken"] as? String,
-                                let username = result["username"] as? String
+                                let sessionToken = result["sessionToken"] as? String
                                 else {
                                     print("Error trying to parse Login confirmation response from server")
                                     fatalError()
@@ -71,6 +70,7 @@ class SignUpController: UIViewController {
                             KeychainWrapper.standard.set(objectId, forKey: "objectId")
                             KeychainWrapper.standard.set(username, forKey: "username")
                             KeychainWrapper.standard.set(true, forKey: "newUserFlag")
+                            print("User created.")
                         }
                     }
                     else {

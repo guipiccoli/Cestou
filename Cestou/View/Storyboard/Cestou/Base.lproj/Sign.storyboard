@@ -13,6 +13,7 @@
         <!--Sign In Controller-->
         <scene sceneID="2KW-gQ-b93">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FU9-d2-TSF" customClass="SignInController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ubg-Q3-5CE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -125,7 +126,6 @@
                         <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="gaY-kF-2EE"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="-853"/>
         </scene>

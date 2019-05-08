@@ -16,12 +16,7 @@ struct ParseRequest {
     private let contentType: String = "aplication/json"
     private let revocableSession: String = "1"
     private var sessionToken: String {
-        if let _sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
-            return _sessionToken
-        }
-        else {
-            fatalError()
-        }
+        return KeychainWrapper.standard.string(forKey: "sessionToken") ?? ""
     }
     // MARK :- Post Request instantiate
     init(url: URL, body: Data) {
