@@ -13,7 +13,6 @@
         <!--Sign In Controller-->
         <scene sceneID="2KW-gQ-b93">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FU9-d2-TSF" customClass="SignInController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ubg-Q3-5CE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -42,13 +41,12 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae2-Fr-zy9">
                                         <rect key="frame" x="0.0" y="140" width="374" height="60"/>
+                                        <color key="backgroundColor" red="0.29411764705882354" green="0.88627450980392153" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="GcL-Do-o96"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="Sign In" backgroundImage="greenGradient">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="Sign In"/>
                                         <connections>
                                             <action selector="signIn:" destination="FU9-d2-TSF" eventType="touchUpInside" id="lb1-kV-NTz"/>
                                         </connections>
@@ -127,6 +125,7 @@
                         <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="gaY-kF-2EE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="-853"/>
         </scene>
@@ -178,11 +177,12 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PO-hf-ZkS">
                                         <rect key="frame" x="0.0" y="210" width="374" height="60"/>
+                                        <color key="backgroundColor" red="0.29411764705882354" green="0.88627450980392153" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="H8Y-G3-wh3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="Sign Up" backgroundImage="greenGradient">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -248,6 +248,5 @@
     <resources>
         <image name="cestouCircle" width="112" height="112"/>
         <image name="coinsBackground" width="320" height="150"/>
-        <image name="greenGradient" width="112" height="112"/>
     </resources>
 </document>

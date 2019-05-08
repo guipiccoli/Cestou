@@ -51,7 +51,7 @@ struct DataService {
     }
 
     static func reqNewUser(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
-        guard let urlComponents = URLComponents(string: self.url + "/users") else  { return onCompletion(["error": "Error parsing url."])}
+        guard let urlComponents = URLComponents(string: self.url + "/users") else { return onCompletion(["error": "Error parsing url."])}
         guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
         let _body: Data
         
