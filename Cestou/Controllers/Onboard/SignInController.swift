@@ -24,7 +24,7 @@ class SignInController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let headerViewController = segue.destination as? HeaderViewController {
+        if let headerViewController = segue.destination as? DashboardViewController {
             print("DEU CERTO ---------------------")
         }
     }

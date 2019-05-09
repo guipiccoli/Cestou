@@ -9,7 +9,7 @@
 import UIKit
 import CenteredCollectionView
 
-class HeaderViewController: UIViewController {
+class DashboardViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
 
@@ -45,7 +45,7 @@ class HeaderViewController: UIViewController {
     }
 }
 
-extension HeaderViewController: UICollectionViewDataSource {
+extension DashboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return months.count
     }
@@ -67,7 +67,7 @@ extension HeaderViewController: UICollectionViewDataSource {
     }
 }
 
-extension HeaderViewController: UICollectionViewDelegate {
+extension DashboardViewController: UICollectionViewDelegate {
     //Implementa a funcao de clicar para ir ate uma celula vizinha (alternativa ao scroll)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
@@ -107,7 +107,7 @@ extension HeaderViewController: UICollectionViewDelegate {
     }
 }
 
-extension HeaderViewController: UITableViewDataSource {
+extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //grafico categoria - gastos por dia - planejamento mensal
         return 3
@@ -119,6 +119,12 @@ extension HeaderViewController: UITableViewDataSource {
             categoryCell.configure()
             return categoryCell
         }
+        else if indexPath.row == 1 {
+            let dailyExpensesCell = graphTableView.dequeueReusableCell(withIdentifier: "DailyExpenses") as! DailyExpensesTableViewCell
+            dailyExpensesCell.getMonth = months[centeredCollectionViewFlowLayout.currentCenteredPage!]
+            dailyExpensesCell.configure()
+            return dailyExpensesCell
+        }
         else if indexPath.row == 2 {
             let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
             monthlyPlanningCell.configure()
@@ -128,5 +134,6 @@ extension HeaderViewController: UITableViewDataSource {
             let cell = UITableViewCell()
             return cell
         }
+
     }
 }
