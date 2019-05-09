@@ -28,10 +28,10 @@ struct NFScrapper {
                         let unwrappedData = data,
                         let html = String(data: unwrappedData, encoding: .utf8)
                         else {
+                            print("error trying to generate hmtl")
                             completion(nil)
                             return
                     }
-                    print(document)
                     do{
                         document = try SwiftSoup.parse(html)
                         elements = try document.getElementsByTag("iframe")
@@ -141,7 +141,7 @@ struct NFScrapper {
                         print("quantity fields bad formating")
                         return nil
                 }
-                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity, productCategory: nil))
+                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity, productCategory: ProductCategory(productName: name)))
             }
         }
         catch{
