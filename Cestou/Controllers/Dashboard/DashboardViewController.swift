@@ -8,7 +8,7 @@
 
 import UIKit
 import CenteredCollectionView
-
+import SwiftKeychainWrapper
 class DashboardViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
@@ -41,7 +41,6 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-  
     }
 }
 

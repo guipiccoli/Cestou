@@ -35,7 +35,6 @@ class DetailsViewController: UIViewController {
             print("shopping structure bad formatting")
             fatalError()
         }
-        
         DataService.saveShopping(shopping: _shopping) { (result) in
             print(result)
         }

@@ -7,26 +7,32 @@
 //
 
 import UIKit
-
+import SwiftKeychainWrapper
 class SignInController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var signInBtn: UIButton!
     
     private var warningField: Bool = true
-    private var api = CestouAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
-        // Do any additional setup after loading the view.
+        self.styleSignInBtn()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let headerViewController = segue.destination as? DashboardViewController {
             print("DEU CERTO ---------------------")
         }
+    }
+    
+    private func styleSignInBtn() {
+        self.signInBtn.layer.cornerRadius = 26
+        self.signInBtn.clipsToBounds = true
     }
     
     private func isValidEmail(testStr:String) -> Bool {
@@ -36,12 +42,12 @@ class SignInController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    @IBAction func logIn(_ sender: Any) {
+
+    @IBAction func signIn(_ sender: Any) {
         if !warningField {
             if let pass = self.password.text,
                 let email = self.email.text {
-                
-                api.logIn(email: email , password: pass, onCompletion:  { result in
+                DataService.logIn(email: email, password: pass, onCompletion:  { result in
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
@@ -49,6 +55,17 @@ class SignInController: UIViewController {
                         else {
                             print(result)
                             DispatchQueue.main.async {
+                                guard
+                                    let objectId = result["objectId"] as? String,
+                                    let sessionToken = result["sessionToken"] as? String,
+                                    let username = result["username"] as? String
+                                    else {
+                                        print("Error trying to parse Login confirmation response from server")
+                                        fatalError()
+                                }
+                                KeychainWrapper.standard.set(sessionToken, forKey: "sessionToken")
+                                KeychainWrapper.standard.set(objectId, forKey: "objectId")
+                                KeychainWrapper.standard.set(username, forKey: "username")
                                 self.performSegue(withIdentifier: "logado", sender: nil)
                             }
                         }

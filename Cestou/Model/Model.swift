@@ -14,9 +14,9 @@ struct Product: Codable {
     var quantity: Double
     var unitPrice: Double
     var unity: String
-    var productCategory: ProductCategory?
+    var productCategory: ProductCategory
     var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice), Category: \(String(describing: productCategory))"
+        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice), Category: \(productCategory.name)"
     }
 }
 
@@ -45,14 +45,9 @@ struct Marketplace: Codable {
 }
 
 struct User: Codable {
-    var username: String
     var email: String
-    var fullname: String
+    var username: String
     var sessionToken: String
-}
-
-struct ProductCategory: Codable {
-    var name: String
 }
 
 struct ProductHistory: Codable {
@@ -68,4 +63,219 @@ struct Balance: Codable {
     var incoming: Double
     var expense: Double
     var expenseProjected: Double
+}
+
+struct ProductCategory: Codable {
+    var name: String = "Outros"
+    
+    var description: String {
+        return "\(self.name)"
+    }
+    
+    init(productName: String) {
+        var arrayOfStrings = productName.split(separator: " ")
+        arrayOfStrings = arrayOfStrings.filter({$0.count > 2})
+        for (categoryName, catalog) in categories {
+            for string in arrayOfStrings {
+                if catalog.contains(String(string).lowercased()) {
+                    print(categoryName + " :: " + string)
+                    self.name = categoryName
+                    return
+                }
+            }
+        }
+        for (categoryName, catalog) in categories {
+            for element in catalog {
+                for string in arrayOfStrings {
+                    if element.contains(String(string).lowercased()) {
+                        print(element + " : " + string)
+                        self.name = categoryName
+                        return
+                    }
+                }
+            }
+        }
+    }
+    
+    var categories: [String: [String]] =
+    [
+        "Alimentos": [
+            "bacon",
+            "chester",
+            "gordura vegetal",
+            "hamburger",
+            "iogurte",
+            "leite",
+            "linguica",
+            "manteiga",
+            "margarina",
+            "mortadela",
+            "nata",
+            "pate",
+            "peito de peru",
+            "presunto",
+            "queijo",
+            "queijo ralado",
+            "requeijao",
+            "ricota",
+            "salame",
+            "ovo",
+            "achocolatado",
+            "acucar",
+            "adocante",
+            "arroz",
+            "atum",
+            "azeite",
+            "azeitona",
+            "batata palha",
+            "baunilha",
+            "biscoito",
+            "bombom",
+            "cafe",
+            "caldo",
+            "catchup",
+            "cereal",
+            "amendoim",
+            "champignon",
+            "chocolate",
+            "chocolate granulado",
+            "coco ralado",
+            "creme de leite",
+            "farinha de mandioca",
+            "farinha de milho",
+            "farinha de rosca",
+            "farinha de trigo",
+            "feijao",
+            "fermento",
+            "gelatina",
+            "geleia",
+            "leite",
+            "leite condensado",
+            "leite de coco",
+            "lentilha",
+            "macarrao",
+            "maionese",
+            "molho",
+            "mostarda",
+            "polpa de tomate",
+            "polvilho",
+            "sagu",
+            "sal",
+            "sal grosso",
+            "salsicha",
+            "sardinha",
+            "sopa",
+            "tempero",
+            "abacate",
+            "abacaxi",
+            "abobrinha",
+            "agriao",
+            "alface",
+            "alho",
+            "banana",
+            "batata",
+            "berinjela",
+            "beterraba",
+            "brocolis",
+            "cebola",
+            "cenoura",
+            "chuchu",
+            "couve",
+            "espinafre",
+            "goiaba",
+            "laranja",
+            "maca",
+            "mama",
+            "manjerica",
+            "melancia",
+            "melao",
+            "ovos",
+            "pera",
+            "pimentao",
+            "repolho",
+            "rucula",
+            "salsinha",
+            "temperinho verde",
+            "tomate",
+            "uva",
+            "vagem",
+            "frutas secas",
+            "ervilha",
+            "palmito",
+            "milho",
+            "pepino",
+            "biscoito",
+            "bolo",
+            "doce",
+            "pao",
+            "salgado",
+            "torta"
+        ],
+        "Higiene": [
+            "absorvente",
+            "acetona",
+            "algodao",
+            "antisseptico",
+            "aparelho de barbear",
+            "condicionador",
+            "cortador de unhas",
+            "cotonete",
+            "creme de barbear",
+            "desodorante",
+            "escova de dente",
+            "esmalte",
+            "fio-dental",
+            "fixador",
+            "fraldas",
+            "gel",
+            "hidratante",
+            "lamina de barbear",
+            "lenco",
+            "lixa",
+            "pente",
+            "pinca",
+            "preservativo",
+            "sabonete",
+            "xampu",
+            "talco"
+        ],
+        "Bebidas": [
+            "agua",
+            "agua de coco",
+            "agua tonica",
+            "cerveja",
+            "champanhe",
+            "licor",
+            "refrigerante",
+            "rum",
+            "suco",
+            "vinho",
+            "vodca",
+            "uisque",
+            "cha"
+        ],
+        "Limpeza": [
+            "sanitaria",
+            "alcool",
+            "alvejante",
+            "amaciante",
+            "desinfetante",
+            "detergente",
+            "esponja",
+            "guardanapo",
+            "inseticida",
+            "lava-roupa",
+            "limpa-vidro",
+            "lustra-moveis",
+            "palito de dente",
+            "pano de limpeza",
+            "pano de prato",
+            "papel higienico",
+            "purificador de ambientes",
+            "sabao",
+            "saco de lixo",
+            "toalha de papel",
+            "vassoura"
+        ]
+    ]
 }

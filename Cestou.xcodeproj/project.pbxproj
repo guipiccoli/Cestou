@@ -13,7 +13,9 @@
 		0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4C1228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift */; };
 		04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* DashboardViewController.swift */; };
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
-		46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C3E227B5D9600A779F7 /* CestouAPI.swift */; };
+		198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198888FA2282078D00DFACBA /* ParseRequest.swift */; };
+		4674F8762284967900C30E76 /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674F8752284967900C30E76 /* signUITextField.swift */; };
+		4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674F877228496CD00C30E76 /* OnBoard.storyboard */; };
 		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
 		6D9D430192CFAB0A94F2C15C /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E16AD09F23399853859437D /* Pods_Cestou.framework */; };
@@ -35,7 +37,9 @@
 		0448B4C1228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPlanningTableViewCell.swift; sourceTree = "<group>"; };
 		04D892EC227CC5A000B86A45 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		46D46C3E227B5D9600A779F7 /* CestouAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CestouAPI.swift; sourceTree = "<group>"; };
+		198888FA2282078D00DFACBA /* ParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
+		4674F8752284967900C30E76 /* signUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUITextField.swift; sourceTree = SOURCE_ROOT; };
+		4674F877228496CD00C30E76 /* OnBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoard.storyboard; sourceTree = "<group>"; };
 		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		539941279E3AF2AE84D97E70 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,7 +94,7 @@
 			children = (
 				E7AAF953227CD23D00968A9A /* NFScrapper.swift */,
 				1935E785227CF5E90043469F /* DataService.swift */,
-				46D46C3E227B5D9600A779F7 /* CestouAPI.swift */,
+				198888FA2282078D00DFACBA /* ParseRequest.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -162,6 +166,7 @@
 		E772A6332280C17900B212B1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4674F8752284967900C30E76 /* signUITextField.swift */,
 				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
 				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
 			);
@@ -174,6 +179,7 @@
 				E772A6352280C32900B212B1 /* Sign.storyboard */,
 				E7A51E64227CB65200B6419D /* Dashboard.storyboard */,
 				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
+				4674F877228496CD00C30E76 /* OnBoard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 			files = (
 				E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */,
 				E772A6372280C32900B212B1 /* Sign.storyboard in Resources */,
+				4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */,
 				E7A51E66227CB65200B6419D /* Dashboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,15 +356,17 @@
 				0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */,
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
-				46D46C3F227B5D9600A779F7 /* CestouAPI.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
 				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
+				04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */,
+				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */,
 				0448B4C0228213A300E1CC81 /* DailyExpensesTableViewCell.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
+				4674F8762284967900C30E76 /* signUITextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
