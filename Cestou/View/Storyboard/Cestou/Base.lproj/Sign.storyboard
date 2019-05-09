@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="DDy-cQ-PqB">
                                 <rect key="frame" x="20" y="374" width="374" height="249"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eL-lo-KW4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eL-lo-KW4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="k6M-4x-ceY"/>
@@ -30,7 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="njS-Dv-uDl" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="njS-Dv-uDl" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="1b4-vW-xE8"/>
@@ -46,15 +46,16 @@
                                             <constraint firstAttribute="height" constant="60" id="GcL-Do-o96"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                        <state key="normal" title="Sign In"/>
+                                        <state key="normal" title="Entrar"/>
                                         <connections>
                                             <action selector="signIn:" destination="FU9-d2-TSF" eventType="touchUpInside" id="lb1-kV-NTz"/>
+                                            <segue destination="NhK-6Y-Ggc" kind="show" identifier="logado" id="R4f-Yt-6he"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Za-fO-BD4">
                                         <rect key="frame" x="0.0" y="222" width="374" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Forgot your password?">
+                                        <state key="normal" title="Esqueceu sua senha?">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
@@ -75,10 +76,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="d77-46-vBl">
-                                <rect key="frame" x="97" y="835" width="220" height="27"/>
+                                <rect key="frame" x="110" y="835" width="194.5" height="27"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DON’T HAVE AN ACCOUNT? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFm-di-K0t">
-                                        <rect key="frame" x="0.0" y="0.0" width="166" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem uma conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFm-di-K0t">
+                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="8Vf-Z6-7TA"/>
                                         </constraints>
@@ -87,9 +88,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0r-PA-i9C">
-                                        <rect key="frame" x="169" y="0.0" width="51" height="27"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="75" height="27"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <state key="normal" title="SIGN UP">
+                                        <state key="normal" title="Cadastre-se">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -122,20 +123,19 @@
                         <outlet property="email" destination="6eL-lo-KW4" id="FuW-Zf-ydL"/>
                         <outlet property="password" destination="njS-Dv-uDl" id="g2U-gA-lnf"/>
                         <outlet property="signInBtn" destination="ae2-Fr-zy9" id="Snp-ez-VGn"/>
-                        <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="gaY-kF-2EE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="-853"/>
         </scene>
-        <!--UIViewController-SkX-Gr-5GH-->
+        <!--OnBoard-->
         <scene sceneID="L09-7w-rBL">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="UIViewController-SkX-Gr-5GH" id="v37-6G-Wfh" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="OnBoard" id="v37-6G-Wfh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uw4-lb-nwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1763.7681159420292" y="-143.30357142857142"/>
+            <point key="canvasLocation" x="824" y="67"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="zyf-FJ-vv1">
@@ -148,7 +148,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-DC-9BT">
                                 <rect key="frame" x="20" y="374" width="374" height="319"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ng-mC-xAi" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ng-mC-xAi" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="OPK-OO-wkO"/>
@@ -157,7 +157,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GI-nK-3ZF" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GI-nK-3ZF" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="JFX-cK-F5d"/>
@@ -166,7 +166,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wI-x9-bfW" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wI-x9-bfW" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="374" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="SXN-GW-zTc"/>
@@ -182,7 +182,7 @@
                                             <constraint firstAttribute="height" constant="60" id="H8Y-G3-wh3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                        <state key="normal" title="Sign Up">
+                                        <state key="normal" title="Cadastrar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -192,7 +192,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fot-i8-dHA">
                                         <rect key="frame" x="0.0" y="292" width="374" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Back to Sign In">
+                                        <state key="normal" title="Voltar à Tela de Login">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -238,19 +238,24 @@
                         <outlet property="fullname" destination="4wI-x9-bfW" id="qQx-bs-wpP"/>
                         <outlet property="password" destination="0GI-nK-3ZF" id="DL8-qR-4Xc"/>
                         <outlet property="signUpBtn" destination="5PO-hf-ZkS" id="HaH-dh-vgp"/>
-                        <segue destination="v37-6G-Wfh" kind="show" identifier="logado" id="wq3-0f-KMK"/>
+                        <segue destination="v37-6G-Wfh" kind="show" identifier="onboard" id="wq3-0f-KMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37U-CD-Z83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="50"/>
         </scene>
+        <!--Dashboard-->
+        <scene sceneID="rMQ-Lj-JCY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="NhK-6Y-Ggc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aa4-9s-xiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="-853"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cestouCircle" width="112" height="112"/>
         <image name="coinsBackground" width="320" height="150"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wq3-0f-KMK"/>
-    </inferredMetricsTieBreakers>
 </document>

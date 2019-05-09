@@ -18,13 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         var storyboardName = "Sign"
-        
+        KeychainWrapper.standard.removeAllKeys();
         if let sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
             if sessionToken.count > 0 {
                 storyboardName = "Dashboard"
             }
         }
-        
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
         let intialVC = storyboard.instantiateInitialViewController()

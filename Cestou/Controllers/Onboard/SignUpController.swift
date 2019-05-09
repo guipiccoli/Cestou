@@ -75,7 +75,7 @@ class SignUpController: UIViewController {
                                 KeychainWrapper.standard.set(objectId, forKey: "objectId")
                                 KeychainWrapper.standard.set(username, forKey: "username")
                                 KeychainWrapper.standard.set(true, forKey: "newUserFlag")
-                                self.performSegue(withIdentifier: "logado", sender: nil)
+                                self.performSegue(withIdentifier: "onboard", sender: nil)
                             }
                         }
                     }
