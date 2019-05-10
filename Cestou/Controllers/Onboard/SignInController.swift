@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+
 class SignInController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
@@ -21,7 +22,6 @@ class SignInController: UIViewController {
         email.delegate = self;
         password.delegate = self;
         self.styleSignInBtn()
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +66,7 @@ class SignInController: UIViewController {
                                 KeychainWrapper.standard.set(sessionToken, forKey: "sessionToken")
                                 KeychainWrapper.standard.set(objectId, forKey: "objectId")
                                 KeychainWrapper.standard.set(username, forKey: "username")
-                                self.performSegue(withIdentifier: "logado", sender: nil)
+                                self.performSegue(withIdentifier: "toDashboard", sender: nil)
                             }
                         }
                     }
@@ -96,6 +96,11 @@ extension SignInController: UITextFieldDelegate {
         default:
             print("default")
         }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        signIn(textField)
         return true
     }
 }

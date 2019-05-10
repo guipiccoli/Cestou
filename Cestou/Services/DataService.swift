@@ -106,6 +106,7 @@ struct DataService {
         }).resume()
     }
     
+
     static func verifySessionToken(completionHandler completion: @escaping (_ result: Bool) -> Void) {
         guard
             let urlComponents = URLComponents(string: self.url + "/user/me"),
@@ -136,6 +137,61 @@ struct DataService {
             }
         }
         task.resume()
+
+
+    static func saveBalance(body : [String: Double], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
+        guard let urlComponents = URLComponents(string: self.url + "/functions/saveBalance") else { return onCompletion(["error": "Error parsing url."])}
+        guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
+        let _body: Data
+        
+        do {
+            _body = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            return onCompletion(["error": "Error parsing data json."])
+        }
+        
+        let parseRequest = ParseRequest(url: url, body: _body)
+        
+        self.session.dataTask(with: parseRequest.getRequest() , completionHandler: { data, response, error in
+            guard error == nil else {
+                return onCompletion(["error": "No response."])
+            }
+            
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
+                    return onCompletion(json)
+                }
+            } catch let error {
+                print(error.localizedDescription)
+                return onCompletion( ["error": "Error parsing response json."])
+                
+            }
+        }).resume()
+
     }
     
+    static func reqPassReset(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
+        guard let urlComponents = URLComponents(string: self.url + "/requestPasswordReset") else { return onCompletion(["error": "Error parsing url."])}
+        guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
+        let _body: Data
+        
+        do {
+            _body = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        } catch let error {
+            print(error.localizedDescription)
+            return onCompletion(["error": "Error parsing data json."])
+        }
+        
+        let parseRequest = ParseRequest(url: url, body: _body)
+        
+        self.session.dataTask(with: parseRequest.getRequest() , completionHandler: { data, response, error in
+            guard error == nil else {
+                return onCompletion(["error": "No response."])
+            }
+            return onCompletion(["success":"true"])
+
+        }).resume()
+    }
 }
