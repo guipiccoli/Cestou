@@ -14,8 +14,13 @@
 		04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* DashboardViewController.swift */; };
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
 		198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198888FA2282078D00DFACBA /* ParseRequest.swift */; };
-		4674F8762284967900C30E76 /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674F8752284967900C30E76 /* signUITextField.swift */; };
+		466EFDBF2285EEB4009D5F7A /* signUITextField copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466EFDBE2285EEB4009D5F7A /* signUITextField copy.swift */; };
+		466EFDC12285F360009D5F7A /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466EFDC02285F360009D5F7A /* ForgotPasswordController.swift */; };
 		4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674F877228496CD00C30E76 /* OnBoard.storyboard */; };
+		4674F87A2284BABC00C30E76 /* incomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674F8792284BABC00C30E76 /* incomeController.swift */; };
+		4674F87C2284BD4D00C30E76 /* SpentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674F87B2284BD4D00C30E76 /* SpentController.swift */; };
+		46BB66E42285ECA200A16952 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB66E32285ECA200A16952 /* SegueFromLeft.swift */; };
+		46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB66E72285ED9800A16952 /* SegueFromRight.swift */; };
 		46D46C42227B655200A779F7 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D46C41227B655200A779F7 /* SignInController.swift */; };
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
 		6D9D430192CFAB0A94F2C15C /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E16AD09F23399853859437D /* Pods_Cestou.framework */; };
@@ -38,8 +43,13 @@
 		04D892EC227CC5A000B86A45 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		198888FA2282078D00DFACBA /* ParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
-		4674F8752284967900C30E76 /* signUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUITextField.swift; sourceTree = SOURCE_ROOT; };
+		466EFDBE2285EEB4009D5F7A /* signUITextField copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "signUITextField copy.swift"; sourceTree = "<group>"; };
+		466EFDC02285F360009D5F7A /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		4674F877228496CD00C30E76 /* OnBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoard.storyboard; sourceTree = "<group>"; };
+		4674F8792284BABC00C30E76 /* incomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = incomeController.swift; sourceTree = "<group>"; };
+		4674F87B2284BD4D00C30E76 /* SpentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpentController.swift; sourceTree = "<group>"; };
+		46BB66E32285ECA200A16952 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		46BB66E72285ED9800A16952 /* SegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		46D46C41227B655200A779F7 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		46D7F7592278C4A900C60420 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		539941279E3AF2AE84D97E70 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +99,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		46BB66E62285ED7C00A16952 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				46BB66E32285ECA200A16952 /* SegueFromLeft.swift */,
+				46BB66E72285ED9800A16952 /* SegueFromRight.swift */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
 		46D46C40227B5E1500A779F7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +123,9 @@
 			children = (
 				46D46C41227B655200A779F7 /* SignInController.swift */,
 				46D7F7592278C4A900C60420 /* SignUpController.swift */,
+				4674F8792284BABC00C30E76 /* incomeController.swift */,
+				4674F87B2284BD4D00C30E76 /* SpentController.swift */,
+				466EFDC02285F360009D5F7A /* ForgotPasswordController.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -157,6 +179,8 @@
 		E772A6312280A70100B212B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				466EFDBE2285EEB4009D5F7A /* signUITextField copy.swift */,
+				46BB66E62285ED7C00A16952 /* Segues */,
 				E772A6342280C18E00B212B1 /* Storyboard */,
 				E772A6332280C17900B212B1 /* Cells */,
 			);
@@ -166,7 +190,6 @@
 		E772A6332280C17900B212B1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4674F8752284967900C30E76 /* signUITextField.swift */,
 				E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */,
 				E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */,
 			);
@@ -353,20 +376,25 @@
 				E7AAF952227CD23B00968A9A /* Model.swift in Sources */,
 				E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */,
 				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
+				466EFDC12285F360009D5F7A /* ForgotPasswordController.swift in Sources */,
 				0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */,
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
 				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
-				04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */,
+				4674F87A2284BABC00C30E76 /* incomeController.swift in Sources */,
+				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
+				466EFDBF2285EEB4009D5F7A /* signUITextField copy.swift in Sources */,
 				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
+				46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
+				4674F87C2284BD4D00C30E76 /* SpentController.swift in Sources */,
 				0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */,
 				0448B4C0228213A300E1CC81 /* DailyExpensesTableViewCell.swift in Sources */,
 				04311E382278C68E00687796 /* DetailsViewController.swift in Sources */,
-				4674F8762284967900C30E76 /* signUITextField.swift in Sources */,
+				46BB66E42285ECA200A16952 /* SegueFromLeft.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
