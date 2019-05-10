@@ -141,7 +141,7 @@
         <scene sceneID="zyf-FJ-vv1">
             <objects>
                 <viewController id="sEd-KB-AqB" customClass="SignUpController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq">
+                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -232,6 +232,9 @@
                             <constraint firstItem="3ZY-bm-IaV" firstAttribute="centerX" secondItem="oJw-eC-CDq" secondAttribute="centerX" id="ygE-j1-K96"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W60-h1-0Oj"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="email" destination="5ng-mC-xAi" id="hsY-Ok-ki4"/>

@@ -326,6 +326,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
@@ -335,6 +336,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
@@ -358,7 +360,7 @@
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
 				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
-				04D892ED227CC5A000B86A45 /* HeaderViewController.swift in Sources */,
+				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
 				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
@@ -514,13 +516,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M36T693Y9P;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -533,13 +535,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M36T693Y9P;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -19,14 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var storyboardName = "Sign"
         
-        // To empty Keychainwrapper
-        //KeychainWrapper.standard.removeAllKeys();
-        
-        if let sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
-            if sessionToken.count > 0 {
+        DataService.verifySessionToken { (isValidToken) in
+            if isValidToken {
                 storyboardName = "Dashboard"
             }
+            else {
+                KeychainWrapper.standard.removeAllKeys()
+            }
         }
+        
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
         let intialVC = storyboard.instantiateInitialViewController()
