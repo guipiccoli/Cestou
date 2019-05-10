@@ -84,7 +84,7 @@
         <scene sceneID="5jJ-X1-D9N">
             <objects>
                 <viewController id="H8Q-xH-Ipv" customClass="incomeController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wlk-TQ-gci" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="wlk-TQ-gci" customClass="UIScrollView" customModule="Cestou" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -284,6 +284,7 @@
         <image name="welcome" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Pvo-bK-6Ao"/>
         <segue reference="Tzz-h1-kRS"/>
     </inferredMetricsTieBreakers>
 </document>

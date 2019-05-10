@@ -98,4 +98,9 @@ extension SignInController: UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        signIn(textField)
+        return true
+    }
 }

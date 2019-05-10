@@ -14,7 +14,7 @@
         <scene sceneID="2KW-gQ-b93">
             <objects>
                 <viewController id="FU9-d2-TSF" customClass="SignInController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ubg-Q3-5CE" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="Ubg-Q3-5CE" customClass="UIScrollView" customModule="Cestou" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -144,7 +144,7 @@
         <scene sceneID="zyf-FJ-vv1">
             <objects>
                 <viewController id="sEd-KB-AqB" customClass="SignUpController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView" customModule="Cestou" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -217,6 +217,9 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="3ZY-bm-IaV" firstAttribute="top" secondItem="W60-h1-0Oj" secondAttribute="top" id="71m-UF-kSS"/>
                             <constraint firstItem="dtB-DC-9BT" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" constant="20" id="EIo-xk-22O"/>
