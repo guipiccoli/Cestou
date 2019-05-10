@@ -14,6 +14,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     
+    @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 
@@ -41,6 +42,8 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        totalExpensesLabel.text = "R$\(1500)"
+        totalExpensesLabel.sizeToFit()
     }
 }
 
