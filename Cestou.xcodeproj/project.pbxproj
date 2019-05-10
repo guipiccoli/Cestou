@@ -384,10 +384,7 @@
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
 				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
-<<<<<<< HEAD
-=======
 				4674F87A2284BABC00C30E76 /* incomeController.swift in Sources */,
->>>>>>> development
 				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
 				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
 				46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */,
