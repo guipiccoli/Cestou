@@ -10,4 +10,5 @@ target 'Cestou' do
   pod 'SwiftSoup'
   pod 'SwiftKeychainWrapper'
   pod 'Charts'
+  pod 'IQKeyboardManagerSwift'
 end

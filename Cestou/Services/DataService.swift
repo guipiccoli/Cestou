@@ -96,7 +96,7 @@ struct DataService {
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                    return onCompletion(json)
+                    print(json)
                 }
             } catch let error {
                 print(error.localizedDescription)
@@ -107,6 +107,38 @@ struct DataService {
     }
     
 
+    static func verifySessionToken(completionHandler completion: @escaping (_ result: Bool) -> Void) {
+        guard
+            let urlComponents = URLComponents(string: self.url + "/user/me"),
+            let url = urlComponents.url else {
+            print("error trying to generate url")
+            completion(false)
+            return
+        }
+        let parseRequest = ParseRequest(url: url)
+        
+        let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+                completion(false)
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                }
+                if let data = data, let dataString = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                    if let result = dataString["code"] {
+                        print(result)
+                        completion(false)
+                    }
+                    else {
+                        completion(true)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+     
     static func saveBalance(body : [String: Double], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
         guard let urlComponents = URLComponents(string: self.url + "/functions/saveBalance") else { return onCompletion(["error": "Error parsing url."])}
         guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
@@ -137,6 +169,7 @@ struct DataService {
                 
             }
         }).resume()
+
     }
     
     static func reqPassReset(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
