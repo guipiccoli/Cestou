@@ -138,7 +138,7 @@ struct DataService {
         }
         task.resume()
     }
-    git 
+     
     static func saveBalance(body : [String: Double], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
         guard let urlComponents = URLComponents(string: self.url + "/functions/saveBalance") else { return onCompletion(["error": "Error parsing url."])}
         guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
