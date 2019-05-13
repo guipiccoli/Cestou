@@ -21,9 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PT-Qj-31d">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
-                                        <rect key="frame" x="0.0" y="146" width="414" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
+                                        <rect key="frame" x="0.0" y="138" width="414" height="57"/>
                                         <color key="backgroundColor" red="0.50052493809999998" green="0.88736051319999998" blue="0.79607123140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <collectionViewLayout key="collectionViewLayout" id="K2M-kq-o3k" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
@@ -62,38 +61,32 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.50052493809999998" green="0.88736051319999998" blue="0.79607123140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="elI-26-Ddx" secondAttribute="trailing" id="61K-Xd-Orh"/>
+                                    <constraint firstItem="AsC-rA-sTy" firstAttribute="centerX" secondItem="0PT-Qj-31d" secondAttribute="centerX" id="6O7-7O-1Gy"/>
+                                    <constraint firstItem="elI-26-Ddx" firstAttribute="leading" secondItem="0PT-Qj-31d" secondAttribute="leading" id="9wq-5P-vWk"/>
                                     <constraint firstAttribute="height" constant="195" id="EbO-Iu-oKZ"/>
-                                    <constraint firstItem="AsC-rA-sTy" firstAttribute="centerX" secondItem="0PT-Qj-31d" secondAttribute="centerX" id="LX4-vn-Usm"/>
-                                    <constraint firstItem="AsC-rA-sTy" firstAttribute="centerY" secondItem="0PT-Qj-31d" secondAttribute="centerY" id="t0B-bk-8Cm"/>
+                                    <constraint firstItem="AsC-rA-sTy" firstAttribute="centerY" secondItem="0PT-Qj-31d" secondAttribute="centerY" id="Nvr-Xl-Qk8"/>
+                                    <constraint firstItem="elI-26-Ddx" firstAttribute="top" secondItem="AsC-rA-sTy" secondAttribute="bottom" constant="23" id="ahF-Q5-xWU"/>
+                                    <constraint firstAttribute="bottom" secondItem="elI-26-Ddx" secondAttribute="bottom" id="oTE-GY-jgV"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-bQ-DWB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-bQ-DWB">
                                 <rect key="frame" x="0.0" y="193" width="414" height="620"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Category" rowHeight="200" id="YPK-Ur-et5" customClass="CategoryTableViewCell" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPK-Ur-et5" id="PI8-9F-1wh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSm-GF-RAA" customClass="PieChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="199.5" id="Cwa-er-Bze"/>
-                                                    </constraints>
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSm-GF-RAA" customClass="PieChartView" customModule="Charts">
+                                                    <rect key="frame" x="0.0" y="20" width="414" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="QSm-GF-RAA" firstAttribute="leading" secondItem="PI8-9F-1wh" secondAttribute="leading" id="1lR-l2-eTO"/>
-                                                <constraint firstItem="QSm-GF-RAA" firstAttribute="leading" secondItem="PI8-9F-1wh" secondAttribute="leading" id="EwF-b7-GFR"/>
-                                                <constraint firstAttribute="trailing" secondItem="QSm-GF-RAA" secondAttribute="trailing" id="Ibw-At-mni"/>
-                                                <constraint firstItem="QSm-GF-RAA" firstAttribute="top" secondItem="PI8-9F-1wh" secondAttribute="top" id="Yma-HI-p2t"/>
-                                                <constraint firstAttribute="trailing" secondItem="QSm-GF-RAA" secondAttribute="trailing" id="b1s-eS-P9n"/>
-                                                <constraint firstAttribute="bottom" secondItem="QSm-GF-RAA" secondAttribute="bottom" id="gbA-5O-ZR2"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryChart" destination="QSm-GF-RAA" id="rxg-OL-oiC"/>
@@ -102,24 +95,22 @@
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DailyExpenses" rowHeight="192" id="mVd-k2-Jvu" customClass="DailyExpensesTableViewCell" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="414" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mVd-k2-Jvu" id="Fcm-fP-hUw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="191.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mVd-k2-Jvu" id="Fcm-fP-hUw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crs-Jo-WkL" customClass="LineChartView" customModule="Charts">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="191.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="0.0" y="20" width="414" height="151.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="414" id="ZlV-XZ-tWJ"/>
-                                                        <constraint firstAttribute="height" constant="191.5" id="qBL-y9-XpV"/>
+                                                        <constraint firstAttribute="height" constant="151.5" id="HAs-G2-ZZS"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="crs-Jo-WkL" firstAttribute="leading" secondItem="Fcm-fP-hUw" secondAttribute="leading" id="520-DB-vP7"/>
                                                 <constraint firstAttribute="trailing" secondItem="crs-Jo-WkL" secondAttribute="trailing" id="Dc9-Pk-Hd0"/>
-                                                <constraint firstItem="crs-Jo-WkL" firstAttribute="top" secondItem="Fcm-fP-hUw" secondAttribute="top" id="L4U-1H-Cfd"/>
-                                                <constraint firstAttribute="bottom" secondItem="crs-Jo-WkL" secondAttribute="bottom" id="SoB-VN-8rz"/>
+                                                <constraint firstItem="crs-Jo-WkL" firstAttribute="top" secondItem="Fcm-fP-hUw" secondAttribute="top" constant="20" id="L4U-1H-Cfd"/>
+                                                <constraint firstAttribute="bottom" secondItem="crs-Jo-WkL" secondAttribute="bottom" constant="20" id="SoB-VN-8rz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -130,7 +121,7 @@
                                         <rect key="frame" x="0.0" y="420" width="414" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rxW-iN-3ul" id="rZm-kt-xrV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="201"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbO-V1-Iwd" customClass="BarChartView" customModule="Charts">
@@ -202,7 +193,7 @@
                     <connections>
                         <outlet property="collectionView" destination="elI-26-Ddx" id="FEv-hf-CdB"/>
                         <outlet property="graphTableView" destination="55g-bQ-DWB" id="A6q-Yi-9iI"/>
-                        <outlet property="totalExpensesLabel" destination="AsC-rA-sTy" id="Rhw-gy-Ct7"/>
+                        <outlet property="totalExpensesLabel" destination="AsC-rA-sTy" id="hoL-6R-S6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v10-qC-Y8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
