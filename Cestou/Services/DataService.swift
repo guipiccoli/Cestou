@@ -96,7 +96,7 @@ struct DataService {
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                    print(json)
+                    return onCompletion(json)
                 }
             } catch let error {
                 print(error.localizedDescription)
