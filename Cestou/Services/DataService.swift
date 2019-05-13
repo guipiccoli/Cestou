@@ -28,6 +28,8 @@ struct DataService {
             completion(false)
             return
         }
+        
+        print(body)
                 
         let parseRequest = ParseRequest(url: _url, body: body)
         
