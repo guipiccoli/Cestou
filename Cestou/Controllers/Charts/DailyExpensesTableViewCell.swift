@@ -11,6 +11,7 @@ import Charts
 
 class DailyExpensesTableViewCell: UITableViewCell {
 
+    @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var dailyExpensesChart: LineChartView!
     var getMonth: String = "Janeiro"
     
@@ -19,7 +20,11 @@ class DailyExpensesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.borderWidth = 0.5
+        backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
+        backgroundCardView.layer.masksToBounds = false
     }
 
     func configure() {

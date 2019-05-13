@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var storyboardName = "Sign"
         
         // To empty Keychainwrapper
-        KeychainWrapper.standard.removeAllKeys();
+        //KeychainWrapper.standard.removeAllKeys();
         
         if let sessionToken = KeychainWrapper.standard.string(forKey: "sessionToken") {
             if sessionToken.count > 0 {

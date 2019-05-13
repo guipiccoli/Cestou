@@ -119,44 +119,18 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
-            
             categoryCell.configure()
-            categoryCell.layer.shadowOffset = CGSize(width: 1, height: 1)
-            categoryCell.layer.shadowColor = UIColor.lightGray.cgColor
-            categoryCell.layer.shadowRadius = 3
-            
-            categoryCell.layer.shadowOpacity = 0.40
-            categoryCell.layer.masksToBounds = false
-            categoryCell.clipsToBounds = false
-            categoryCell.contentView.clipsToBounds = false
             return categoryCell
         }
         else if indexPath.row == 1 {
             let dailyExpensesCell = graphTableView.dequeueReusableCell(withIdentifier: "DailyExpenses") as! DailyExpensesTableViewCell
             dailyExpensesCell.getMonth = months[centeredCollectionViewFlowLayout.currentCenteredPage!]
             dailyExpensesCell.configure()
-            
-            dailyExpensesCell.layer.shadowOffset = CGSize(width: 1, height: 1)
-            dailyExpensesCell.layer.shadowColor = UIColor.lightGray.cgColor
-            dailyExpensesCell.layer.shadowRadius = 3
-            
-            dailyExpensesCell.layer.shadowOpacity = 0.40
-            dailyExpensesCell.layer.masksToBounds = false
-            dailyExpensesCell.clipsToBounds = false
-            dailyExpensesCell.contentView.clipsToBounds = false
             return dailyExpensesCell
         }
         else if indexPath.row == 2 {
             let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
             monthlyPlanningCell.configure()
-            monthlyPlanningCell.layer.shadowOffset = CGSize(width: 1, height: 1)
-            monthlyPlanningCell.layer.shadowColor = UIColor.lightGray.cgColor
-            monthlyPlanningCell.layer.shadowRadius = 3
-            
-            monthlyPlanningCell.layer.shadowOpacity = 0.40
-            monthlyPlanningCell.layer.masksToBounds = false
-            monthlyPlanningCell.clipsToBounds = false
-            monthlyPlanningCell.contentView.clipsToBounds = false
             return monthlyPlanningCell
         }
         else {

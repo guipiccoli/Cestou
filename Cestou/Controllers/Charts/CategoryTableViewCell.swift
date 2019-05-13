@@ -11,6 +11,7 @@ import Charts
 
 class CategoryTableViewCell: UITableViewCell {
 
+    @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var categoryChart: PieChartView!
     var mockGet: [String: Double] = ["Categoria 1":200.0, "Categoria 2":430.0, "Categoria 3":100.0, "Categoria 4":179.0]
     
@@ -18,6 +19,10 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.borderWidth = 0.5
+        backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
+        backgroundCardView.layer.masksToBounds = false
         
     }
     

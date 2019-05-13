@@ -12,10 +12,12 @@ import Charts
 class MonthlyPlanningTableViewCell: UITableViewCell {
 
     @IBOutlet weak var monthlyPlanningChart: BarChartView!
-    @IBOutlet weak var planningValueLabel: UILabel!
-    @IBOutlet weak var expensesValueLabel: UILabel!
+    @IBOutlet weak var backgroundCardView: UIView!
     
-    var mockGet: [String: Double] = ["Planning":400.00, "Expenses": 100.00]
+   // @IBOutlet weak var planningValueLabel: UILabel!
+   // @IBOutlet weak var expensesValueLabel: UILabel!
+    
+    var mockGet: [String: Double] = ["Planning":400.00, "Expenses": 2100.00, "Incoming": 1100.0]
 
     
     override func awakeFromNib() {
@@ -25,10 +27,15 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
     func configure() {
         setChart()
         
-        planningValueLabel.text = "R$\(mockGet["Planning"]!)"
-        expensesValueLabel.text = "R$\(mockGet["Expenses"]!)"
-        planningValueLabel.sizeToFit()
-        expensesValueLabel.sizeToFit()
+        //planningValueLabel.text = "R$\(mockGet["Planning"]!)"
+        //expensesValueLabel.text = "R$\(mockGet["Expenses"]!)"
+        //planningValueLabel.sizeToFit()
+        //expensesValueLabel.sizeToFit()
+        
+        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.borderWidth = 0.5
+        backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
+        backgroundCardView.layer.masksToBounds = false
 
     }
     
@@ -36,14 +43,15 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
         
         //valores de entrada pro grafico
         let entry1 = BarChartDataEntry(x: 1.0, y: mockGet["Expenses"]!)
-        let entry2 = BarChartDataEntry(x: 1.0, y: mockGet["Planning"]!)
-        
+        let entry2 = BarChartDataEntry(x: 2.0, y: mockGet["Planning"]!)
+        let entry3 = BarChartDataEntry(x: 3.0, y: mockGet["Incoming"]!)
+
         
 
         
         
         //dataset
-        let dataSet = BarChartDataSet(entries: [entry2,entry1], label: "Gastos Totais")
+        let dataSet = BarChartDataSet(entries: [entry2,entry1,entry3], label: "Gastos Totais")
         let data = BarChartData(dataSets: [dataSet])
         monthlyPlanningChart.data = data
         //barChart.chartDescription?.text = "Number of Widgets by Type"
@@ -67,7 +75,6 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
         monthlyPlanningChart.rightAxis.enabled = false
         monthlyPlanningChart.xAxis.enabled = false
         monthlyPlanningChart.leftAxis.axisMinimum = 0
-        monthlyPlanningChart.leftAxis.axisMaximum = mockGet["Planning"]!
         monthlyPlanningChart.highlightPerTapEnabled = false
         
         monthlyPlanningChart.legend.enabled = false
