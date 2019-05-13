@@ -103,4 +103,9 @@ extension SignUpController: UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendBtnClick(textField)
+        return true
+    }
 }
