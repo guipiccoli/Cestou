@@ -90,18 +90,18 @@ struct DataService {
         
         self.session.dataTask(with: parseRequest.getRequest() as URLRequest, completionHandler: { data, response, error in
             guard error == nil else {
-                return onCompletion(["error": "No response."])
+                onCompletion(["error": "No response."])
+                return
             }
             
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                    return onCompletion(json)
+                    onCompletion(json)
                 }
             } catch let error {
                 print(error.localizedDescription)
-                return onCompletion( ["error": "Error parsing response json."])
-                
+                onCompletion( ["error": "Error parsing response json."])
             }
         }).resume()
     }
@@ -142,30 +142,31 @@ struct DataService {
     static func saveBalance(body : [String: Double], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
         guard let urlComponents = URLComponents(string: self.url + "/functions/saveBalance") else { return onCompletion(["error": "Error parsing url."])}
         guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
-        let _body: Data
+        var _body: Data = Data.init()
         
         do {
             _body = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
-            return onCompletion(["error": "Error parsing data json."])
+            onCompletion(["error": "Error parsing data json."])
         }
         
         let parseRequest = ParseRequest(url: url, body: _body)
         
         self.session.dataTask(with: parseRequest.getRequest() , completionHandler: { data, response, error in
             guard error == nil else {
-                return onCompletion(["error": "No response."])
+                onCompletion(["error": "No response."])
+                return
             }
             
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] {
-                    return onCompletion(json)
+                    onCompletion(json)
                 }
             } catch let error {
                 print(error.localizedDescription)
-                return onCompletion( ["error": "Error parsing response json."])
+                onCompletion( ["error": "Error parsing response json."])
                 
             }
         }).resume()
@@ -174,23 +175,27 @@ struct DataService {
     
     static func reqPassReset(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
         guard let urlComponents = URLComponents(string: self.url + "/requestPasswordReset") else { return onCompletion(["error": "Error parsing url."])}
-        guard let url = urlComponents.url else { return onCompletion(["error": "Error parsing url."])}
-        let _body: Data
+        guard let url = urlComponents.url else {
+            onCompletion(["error": "Error parsing url."])
+            return
+        }
+        var _body = Data.init()
         
         do {
             _body = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
-            return onCompletion(["error": "Error parsing data json."])
+            onCompletion(["error": "Error parsing data json."])
         }
         
         let parseRequest = ParseRequest(url: url, body: _body)
         
         self.session.dataTask(with: parseRequest.getRequest() , completionHandler: { data, response, error in
             guard error == nil else {
-                return onCompletion(["error": "No response."])
+                onCompletion(["error": "No response."])
+                return
             }
-            return onCompletion(["success":"true"])
+            onCompletion(["success":"true"])
 
         }).resume()
     }
