@@ -24,12 +24,6 @@ class SignInController: UIViewController {
         self.styleSignInBtn()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let headerViewController = segue.destination as? DashboardViewController {
-            print("DEU CERTO ---------------------")
-        }
-    }
-    
     private func styleSignInBtn() {
         self.signInBtn.layer.cornerRadius = 26
         self.signInBtn.clipsToBounds = true
@@ -102,5 +96,11 @@ extension SignInController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         signIn(textField)
         return true
+    }
+}
+
+extension SignInController {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
