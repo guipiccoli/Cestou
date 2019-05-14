@@ -11,5 +11,6 @@ import UIKit
 class MonthCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var monthLabel: UILabel!
+    @IBOutlet var monthLabelHistorico: UILabel!
     
 }

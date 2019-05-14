@@ -375,6 +375,7 @@
                     <connections>
                         <segue destination="qhB-hD-ZqD" kind="relationship" relationship="viewControllers" id="aWh-4p-PkB"/>
                         <segue destination="SkX-Gr-5GH" kind="relationship" relationship="viewControllers" id="gnT-gX-w7g"/>
+                        <segue destination="FtD-Kj-DIf" kind="relationship" relationship="viewControllers" id="9vK-rR-vLb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llj-al-rKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -498,6 +499,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGF-Ea-IPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5186" y="678"/>
+        </scene>
+        <!--HistoricoCompras-->
+        <scene sceneID="gFE-Zf-8tq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HistoricoCompras" id="FtD-Kj-DIf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="KDV-NV-Ftx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTG-bW-4Jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="853"/>
         </scene>
     </scenes>
 </document>
