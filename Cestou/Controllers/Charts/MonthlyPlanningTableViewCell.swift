@@ -42,35 +42,27 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
     func setChart() {
         
         //valores de entrada pro grafico
-        let entry1 = BarChartDataEntry(x: 1.0, y: mockGet["Expenses"]!)
+        let entry1 = BarChartDataEntry(x: 1.0, y: mockGet["Incoming"]!)
         let entry2 = BarChartDataEntry(x: 2.0, y: mockGet["Planning"]!)
-        let entry3 = BarChartDataEntry(x: 3.0, y: mockGet["Incoming"]!)
+        let entry3 = BarChartDataEntry(x: 3.0, y: mockGet["Expenses"]!)
 
         
 
         
         
         //dataset
-        let dataSet = BarChartDataSet(entries: [entry2,entry1,entry3], label: "Gastos Totais")
+        let dataSet = BarChartDataSet(entries: [entry1,entry2,entry3], label: "Gastos Totais")
         let data = BarChartData(dataSets: [dataSet])
         monthlyPlanningChart.data = data
-        //barChart.chartDescription?.text = "Number of Widgets by Type"
+
+        let greenColor = NSUIColor.init(red: 0.0/255, green: 136.0/255, blue: 15.0/255, alpha: 1.0)
+        let blueColor = NSUIColor.init(red: 0.0/255, green: 146.0/255, blue: 186.0/255, alpha: 1.0)
+        let redColor = NSUIColor.init(red: 189.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+
         
-        //All other additions to this function will go here
+        dataSet.setColors([greenColor,blueColor,redColor], alpha: 1.0)
         
-        //cor das barras
-        dataSet.setColors([NSUIColor.green,NSUIColor.gray], alpha: 1.0)
-        
-        //cor dos textos
-       // dataSet.valueColors = [UIColor.green, UIColor.gray]
-        
-        //posicao da label X
-        //animacao
-        //monthlyPlanningChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeInBounce)
-        //monthlyPlanningChart.backgroundColor = .gray
-        //monthlyPlanningChart.xAxis.drawGridLinesEnabled = false
-        //monthlyPlanningChart.leftAxis.drawGridLinesEnabled = false
-        
+    
         monthlyPlanningChart.leftAxis.enabled = false
         monthlyPlanningChart.rightAxis.enabled = false
         monthlyPlanningChart.xAxis.enabled = false
@@ -79,14 +71,6 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
         
         monthlyPlanningChart.legend.enabled = false
         data.setDrawValues(false)
-        //monthlyPlanningChart.leftAxis.enabled = false
-       // monthlyPlanningChart.rightAxis.enabled = false
-        
-        //        barChart.xAxis.gridColor = .clear
-        //monthlyPlanningChart.leftAxis.gridColor = .clear
-        //        barChart.rightAxis.gridColor = .clear
-        
-        //This must stay at end of function
         monthlyPlanningChart.notifyDataSetChanged()
     }
 

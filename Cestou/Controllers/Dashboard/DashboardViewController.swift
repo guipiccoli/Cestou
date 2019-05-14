@@ -14,6 +14,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
@@ -26,6 +27,17 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
+        
+        let gradientLayer = CAGradientLayer()
+        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
+        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+
+        gradientLayer.colors = [leftColorGradient,rightColorGradient]
+
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = headerView.bounds
+        headerView.layer.insertSublayer(gradientLayer, at: 0)
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         

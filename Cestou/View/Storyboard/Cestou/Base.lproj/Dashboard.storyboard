@@ -23,7 +23,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
                                         <rect key="frame" x="0.0" y="119.5" width="414" height="44.5"/>
-                                        <color key="backgroundColor" red="0.50052493809999998" green="0.88736051319999998" blue="0.79607123140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="K2M-kq-o3k" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9MP-Ph-Tx4" customClass="MonthCollectionViewCell" customModule="Cestou" customModuleProvider="target">
@@ -355,6 +355,7 @@
                     <connections>
                         <outlet property="collectionView" destination="elI-26-Ddx" id="FEv-hf-CdB"/>
                         <outlet property="graphTableView" destination="55g-bQ-DWB" id="A6q-Yi-9iI"/>
+                        <outlet property="headerView" destination="0PT-Qj-31d" id="HUU-sz-mMi"/>
                         <outlet property="totalExpensesLabel" destination="AsC-rA-sTy" id="hoL-6R-S6y"/>
                     </connections>
                 </viewController>
