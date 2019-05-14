@@ -21,16 +21,22 @@ struct Product: Codable {
 }
 
 struct Shopping: Codable {
-    var uniqueCode: String
+    var accessKey: String
     var products: [Product]
     var marketplace: Marketplace
     var date: String
-    var balance: Double {
-        return products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
-    }
+    var cost: Double
     var description: String {
         let productList: String = products.reduce("") { $0.description + "\n" + $1.description}
-        return "Unique Code: \(uniqueCode) \(marketplace.description)\nProducts: \(productList)\nAmount: R$\(balance)\nDate: \(date)"
+        return "Unique Code: \(accessKey) \(marketplace.description)\nProducts: \(productList)\nAmount: R$\(cost)\nDate: \(date)"
+    }
+
+    init(accessKey: String, products: [Product], marketplace: Marketplace, date: String) {
+        self.accessKey = accessKey
+        self.products = products
+        self.marketplace = marketplace
+        self.date = date
+        cost = products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
     }
 }
 
@@ -63,6 +69,10 @@ struct Balance: Codable {
     var incoming: Double
     var expense: Double
     var expenseProjected: Double
+    var monthlyShoppings: [Shopping]?
+    var description: String {
+        return "Date: \(month)/\(year), Income: R$\(incoming), Expense: R$\(expense), Projected Expense: R$\(expenseProjected)"
+    }
 }
 
 struct ProductCategory: Codable {
@@ -96,8 +106,9 @@ struct ProductCategory: Codable {
             }
         }
     }
-    
-    var categories: [String: [String]] =
+}
+
+var categories: [String: [String]] =
     [
         "Alimentos": [
             "bacon",
@@ -277,5 +288,4 @@ struct ProductCategory: Codable {
             "toalha de papel",
             "vassoura"
         ]
-    ]
-}
+]

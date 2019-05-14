@@ -11,9 +11,10 @@ import SwiftKeychainWrapper
 
 class SignInController: UIViewController {
     
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: signUITextField!
+    @IBOutlet weak var password: signUITextField!
     @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var errorText: UILabel!
     
     private var warningField: Bool = true
     
@@ -22,12 +23,6 @@ class SignInController: UIViewController {
         email.delegate = self;
         password.delegate = self;
         self.styleSignInBtn()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let headerViewController = segue.destination as? DashboardViewController {
-            print("DEU CERTO ---------------------")
-        }
     }
     
     private func styleSignInBtn() {
@@ -47,10 +42,30 @@ class SignInController: UIViewController {
         if !warningField {
             if let pass = self.password.text,
                 let email = self.email.text {
+                
+                self.view.addSubview(loadingScreen())
+                
                 DataService.logIn(email: email, password: pass, onCompletion:  { result in
+                    DispatchQueue.main.async {
+                        if let blankScreen = self.view.viewWithTag(4095){
+                            blankScreen.removeFromSuperview()
+                        }
+                    }
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
+                            if let _ = result["code"] as? Int {
+                                DispatchQueue.main.async {
+                                    self.errorText.text = "Usuário ou senha inválidos."
+                                    self.email.border(type: "warning")
+                                    self.password.border(type: "warning")
+                                }
+                            }
+                            else {
+                                DispatchQueue.main.async {
+                                    self.errorText.text = "Servidor indisponível."
+                                }
+                            }
                         }
                         else {
                             print(result)
@@ -71,23 +86,38 @@ class SignInController: UIViewController {
                         }
                     }
                     else {
-                        print("User not created. Unknow error.")
+                        print("Unknow error.")
+                        DispatchQueue.main.async {
+                            self.errorText.text = "Servidor indisponível."
+                        }
                     }
                 })
             }
         }
         else {
             print("Incorrect field.")
+            email.border(type: "warning")
+            password.border(type: "warning")
+            errorText.text = "Os campos estão incorretos."
         }
     }
 }
 
 extension SignInController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            errorText.text = " "
+        }
+        
         switch textField {
+        
         case self.email:
-            if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
+            if self.isValidEmail(testStr: textField.text ?? "") {
+                self.warningField = false }
             else { self.warningField = true }
+        
         case self.password:
             if let password = textField.text {
                 if password.count < 8 { self.warningField = false }
@@ -99,8 +129,21 @@ extension SignInController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            errorText.text = " "
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         signIn(textField)
         return true
+    }
+}
+
+extension SignInController {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

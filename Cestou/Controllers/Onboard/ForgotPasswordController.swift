@@ -15,6 +15,7 @@ class ForgotPassowrdController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emailTextField.delegate = self
         self.styleSignInBtn()
     }
     
@@ -31,25 +32,61 @@ class ForgotPassowrdController: UIViewController {
     }
     
     @IBAction func sendEmail(_ sender: Any) {
-        print("entrouuuu")
         if let email = self.emailTextField.text {
             if isValidEmail(testStr: email){
                 
+                self.view.addSubview(loadingScreen())
+                
                 DataService.reqPassReset(body: ["email": email], onCompletion:  { result in
+                    DispatchQueue.main.async {
+                        if let blankScreen = self.view.viewWithTag(4095){
+                            blankScreen.removeFromSuperview()
+                        }
+                    }
                     if let err = result["error"] as? String {
                         print(err)
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Servidor Indisponível 😔", message: "Aguarde e tente novamente.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                     else {
                         DispatchQueue.main.async {
-                            print("entroooou 2")
-                            let alert = UIAlertController(title: "Email Enviado 😃", message: "Uma mensagem foi enviada para este e-mail, siga as instruções para recurar sua senha.", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Email Enviado 😃", message: "Uma mensagem foi enviada para este e-mail, siga as instruções para recuperar sua senha.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                         }
                     }
                 })
             }
-            
+            else {
+                self.emailTextField.border(type: "warning")
+            }
         }
+        
+    }
+}
+
+extension ForgotPassowrdController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.emailTextField.border(type: "normal")
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.emailTextField.border(type: "normal")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendEmail(textField)
+        return true
+    }
+}
+
+extension ForgotPassowrdController {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
