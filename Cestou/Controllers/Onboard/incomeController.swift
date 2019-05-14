@@ -74,3 +74,9 @@ extension incomeController: UITextFieldDelegate {
         return true
     }
 }
+
+extension incomeController {
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
