@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--Dashboard-->
         <scene sceneID="ASK-1J-FLZ">
             <objects>
                 <viewController storyboardIdentifier="UIViewController-SkX-Gr-5GH" id="SkX-Gr-5GH" customClass="DashboardViewController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,7 +350,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Emi-mA-Y9P"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="4fs-dQ-Iaq"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="pie-chart-stats" selectedImage="pie-chart-stats" id="4fs-dQ-Iaq"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="elI-26-Ddx" id="FEv-hf-CdB"/>
@@ -373,8 +373,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qhB-hD-ZqD" kind="relationship" relationship="viewControllers" id="aWh-4p-PkB"/>
                         <segue destination="SkX-Gr-5GH" kind="relationship" relationship="viewControllers" id="gnT-gX-w7g"/>
+                        <segue destination="qhB-hD-ZqD" kind="relationship" relationship="viewControllers" id="J4G-Ki-s7s"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llj-al-rKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -413,7 +413,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="gNM-uQ-lxC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scanner" id="zm2-nm-d6L"/>
+                    <tabBarItem key="tabBarItem" title="Scanner" image="scanner-icon" selectedImage="scanner-icon" id="zm2-nm-d6L"/>
                     <connections>
                         <outlet property="topbar" destination="l1J-sv-kWE" id="zqR-Dg-c4P"/>
                         <segue destination="1gb-XH-zkT" kind="show" identifier="QRCodeRead" id="zzD-qQ-z3G"/>
@@ -421,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn5-p6-IcE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3670" y="678"/>
+            <point key="canvasLocation" x="3999" y="678"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="KwU-Hj-KuE">
@@ -500,4 +500,8 @@
             <point key="canvasLocation" x="5186" y="678"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pie-chart-stats" width="26" height="26"/>
+        <image name="scanner-icon" width="26" height="26"/>
+    </resources>
 </document>
