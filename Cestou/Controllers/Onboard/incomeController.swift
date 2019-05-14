@@ -11,9 +11,11 @@ import UIKit
 class incomeController: UIViewController {
     
     @IBOutlet weak var incomeText: signUITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.incomeText.delegate = self
     }
     
     private func isValidIncome(testStr: String) -> Bool {
@@ -41,8 +43,35 @@ class incomeController: UIViewController {
                     self.performSegue(withIdentifier: "toSpent", sender: nil)
                 }
             }
+            else {
+                self.incomeText.border(type: "warning")
+                self.errorLabel.text = "O rendimento precisa ser maior que zero."
+            }
         }
-        
+    }
+}
+
+
+extension incomeController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        goToSpent(textField)
+        return true
     }
 }
 

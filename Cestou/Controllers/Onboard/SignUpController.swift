@@ -16,8 +16,9 @@ class SignUpController: UIViewController {
     @IBOutlet weak var fullname: signUITextField!
     @IBOutlet weak var password: signUITextField!
     @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
-    private var warningField: Bool = true    
+    private var warningField: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,8 @@ class SignUpController: UIViewController {
                 let username = self.fullname.text,
                 let email = self.email.text {
                 
+                self.view.addSubview(loadingScreen())
+                
                 let data: [String: String] = [
                     "username": username,
                     "password": pass,
@@ -52,9 +55,27 @@ class SignUpController: UIViewController {
                 ]
                 
                 DataService.reqNewUser(body: data, onCompletion: { result in
+                    DispatchQueue.main.async {
+                        if let blankScreen = self.view.viewWithTag(4095){
+                            blankScreen.removeFromSuperview()
+                        }
+                    }
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
+                            if (result["code"] as? Int) != nil {
+                                DispatchQueue.main.async {
+                                    self.errorLabel.text = "Usuário já cadastrado."
+                                    self.email.border(type: "warning")
+                                    self.password.border(type: "warning")
+                                    self.fullname.border(type: "warning")
+                                }
+                            }
+                            else {
+                                DispatchQueue.main.async {
+                                    self.errorLabel.text = "Servidor indisponível."
+                                }
+                            }
                         }
                         else {
                             DispatchQueue.main.async {
@@ -75,24 +96,38 @@ class SignUpController: UIViewController {
                     }
                     else {
                         print("User not created. Unknow error.")
+                        DispatchQueue.main.async {
+                            self.errorLabel.text = "Servidor indisponível."
+                        }
                     }
                 })
             }
         }
         else {
             print("Incorrect field.")
+            self.email.border(type: "warning")
+            self.password.border(type: "warning")
+            self.fullname.border(type: "warning")
+            self.errorLabel.text = "Os campos estão incorretos."
         }
     }
-
 }
 
 extension SignUpController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
+        
         switch textField {
+        
         case self.email:
             if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
             else { self.warningField = true }
+        
         case self.password:
             if let pass = textField.text {
                 if pass.count < 8 { self.warningField = false }
@@ -102,6 +137,13 @@ extension SignUpController: UITextFieldDelegate {
             print("default")
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -14,6 +14,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
 
     
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 
@@ -26,12 +28,24 @@ class DashboardViewController: UIViewController {
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         
+        let gradientLayer = CAGradientLayer()
+        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
+        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+
+        gradientLayer.colors = [leftColorGradient,rightColorGradient]
+
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.frame = headerView.bounds
+        headerView.layer.insertSublayer(gradientLayer, at: 0)
+        
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
         graphTableView.dataSource = self
+        graphTableView.delegate = self
         
         centeredCollectionViewFlowLayout.itemSize = CGSize (
             width: view.bounds.width * cellPercentWidth,
@@ -41,6 +55,8 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        totalExpensesLabel.text = "R$\(1500)"
+        totalExpensesLabel.sizeToFit()
     }
 }
 
@@ -106,7 +122,7 @@ extension DashboardViewController: UICollectionViewDelegate {
     }
 }
 
-extension DashboardViewController: UITableViewDataSource {
+extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //grafico categoria - gastos por dia - planejamento mensal
         return 3
@@ -133,6 +149,20 @@ extension DashboardViewController: UITableViewDataSource {
             let cell = UITableViewCell()
             return cell
         }
-
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        cell.contentView.layer.shadowColor = UIColor.lightGray.cgColor
+//        cell.contentView.layer.shadowRadius = 10
+//
+//        cell.contentView.layer.shadowOpacity = 0.20
+//        cell.contentView.layer.masksToBounds = false
+//        cell.clipsToBounds = false
+//
+//        cell.contentView.layer.cornerRadius = 20
+//
+//
+//    }
+    
 }

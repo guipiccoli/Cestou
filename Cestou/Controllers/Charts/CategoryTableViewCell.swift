@@ -9,15 +9,28 @@
 import UIKit
 import Charts
 
+enum PieChartColors {
+    static let lightBlue = UIColor(red: 140/255, green: 235/255, blue: 255/255, alpha: 1)
+    static let lightOrange = UIColor(red: 255/255, green: 210/255, blue: 139/255, alpha: 1)
+    static let lightYellow = UIColor(red: 255/255, green: 247/255, blue: 140/255, alpha: 1)
+    static let lightGreen = UIColor(red: 197/255, green: 255/255, blue: 139/255, alpha: 1)
+    static let lightSalmon = UIColor(red: 232/255, green: 116/255, blue: 143/255, alpha: 1)
+}
+
 class CategoryTableViewCell: UITableViewCell {
 
+    @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var categoryChart: PieChartView!
-    var mockGet: [String: Double] = ["Categoria 1":200.0, "Categoria 2":430.0, "Categoria 3":100.0, "Categoria 4":179.0]
+    var mockGet: [String: Double] = ["Categoria 1":200.00, "Categoria 2":430.00, "Categoria 3":100.00, "Categoria 4":179.00,"Categoria 5":179.00]
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.borderWidth = 0.5
+        backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
+        backgroundCardView.layer.masksToBounds = false
         
     }
     
@@ -25,8 +38,9 @@ class CategoryTableViewCell: UITableViewCell {
         var categories: [String] = []
         var valueSpent: [Double] = []
         
+        
         for entry in mockGet {
-            categories.append(entry.key)
+            categories.append( "\(entry.key): R$ \(entry.value)")
             valueSpent.append(entry.value)
         }
         
@@ -50,25 +64,29 @@ class CategoryTableViewCell: UITableViewCell {
         let categoryChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let categoryChartData = PieChartData(dataSet: categoryChartDataSet)
         
-        var colors: [UIColor] = [] //receber as cores definidas pelo Leo no processo de design
+        var colors: [UIColor] = [PieChartColors.lightBlue, PieChartColors.lightGreen, PieChartColors.lightOrange, PieChartColors.lightYellow, PieChartColors.lightSalmon] //receber as cores definidas pelo Leo no processo de design
+        
         
         categoryChart.drawEntryLabelsEnabled = false
         categoryChart.highlightPerTapEnabled = false
-        categoryChartDataSet.colors = ChartColorTemplates.pastel()
+        categoryChartDataSet.colors = colors
         categoryChart.notifyDataSetChanged()
         
-        categoryChart.legend.font = UIFont.systemFont(ofSize: 20)
+        //categoryChart.extraRightOffset = 50
+        
+        categoryChart.legend.font = UIFont.systemFont(ofSize: 16)
         categoryChart.legend.orientation = .vertical
         categoryChart.legend.verticalAlignment = .center
         categoryChart.legend.horizontalAlignment = .right
         categoryChart.data = categoryChartData
-        categoryChart.usePercentValuesEnabled = true
+        //categoryChart.usePercentValuesEnabled = true
 
+        categoryChartDataSet.drawValuesEnabled = false
         
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 1
-        formatter.multiplier = 1.0
-        categoryChartDataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .percent
+//        formatter.maximumFractionDigits = 1
+//        formatter.multiplier = 1.0
+//        categoryChartDataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
     }
 }
