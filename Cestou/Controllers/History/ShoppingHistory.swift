@@ -15,15 +15,26 @@ class ShoppingHistoryController: UIViewController {
     @IBOutlet weak var balance: UILabel!
     private let ShoppingCellIdentifier = "ShoppingCellIdentifier"
     var shoppings: [Shopping] = []
-    var monthlyBalance: Double = 0
-    
+    var monthlyBalance: Double = 0.0
+    var month = "May"
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        monthlyBalance = shoppings.reduce(0.0) { $0 + $1.balance }
-        balance.text = "R$" + String(monthlyBalance)
+        DataService.getShopping(month: month) { (balance) in
+            guard let _balance = balance else {
+                fatalError()
+            }
+            self.monthlyBalance = -_balance.expense
+            guard let _shoppings = balance?.monthlyShoppings else {
+                return
+            }
+            self.shoppings = _shoppings
+            self.balance.text = "R$" + String(self.monthlyBalance)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -38,7 +49,7 @@ extension ShoppingHistoryController: UITableViewDelegate, UITableViewDataSource 
         let shopping = shoppings[indexPath.row]
         
         cell.marketplace.text = shopping.marketplace.name
-        cell.balance.text = String(shopping.balance)
+        cell.balance.text = String(shopping.cost)
         cell.date.text = shopping.date
 
         return cell

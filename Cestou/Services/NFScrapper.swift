@@ -96,7 +96,7 @@ struct NFScrapper {
                             
                         }
                         
-                        completion(Shopping(uniqueCode: uniqueCode, products: products, marketplace: marketplace, date: date))
+                        completion(Shopping(accessKey: uniqueCode, products: products, marketplace: marketplace, date: date))
                         return
                 }
                 
@@ -221,7 +221,6 @@ struct NFScrapper {
         if let range = stringDate.range(of: "Data de Emissão: ") {
             var _date = stringDate[range.upperBound...]
             _date = _date.replacingOccurrences(of: "/", with: "-").replacingOccurrences(of: " ", with: "T") + ".000Z"
-            print(_date)
             if let _range = _date.range(of: "T") {
                 let hour = _date[_range.upperBound...] //hh:mm:ss.SSSZ
                 let udate = _date[..._range.lowerBound].replacingOccurrences(of: "-", with: "").replacingOccurrences(of: "T", with: "")  //ddmmyyyy

@@ -39,6 +39,7 @@ class DetailsViewController: UIViewController {
             print(result)
         }
     }
+    
 }
 
 
@@ -53,11 +54,10 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: productCellIdentifier, for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
         
         guard let product = shopping?.products[indexPath.row] else {fatalError()}
-        
-        cell.productName.text = product.name
-        cell.quantity.text = String(product.quantity)
-        cell.unit.text = String(product.unity)
-        cell.totalPrice.text = String( (product.unitPrice) * (product.quantity) )
+        cell.productName.text = product.name.lowercased()
+        cell.quantity.text = String(product.quantity).lowercased()
+        cell.unit.text = String(product.unity).lowercased()
+        cell.totalPrice.text = String( (product.unitPrice.rounded()) * (product.quantity.rounded()) ).lowercased()
         
         return cell
     }

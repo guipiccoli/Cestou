@@ -10,7 +10,7 @@ import Foundation
 
 struct DataService {
     
-    static private let url: String = "https://parseapi.back4app.com"
+    static private let url: String = "http://api.cestou.mocka.site/parse"
     static private let session = URLSession.shared
     
     static func saveShopping(shopping: Shopping, completionHandler completion: @escaping (Bool) -> Void) {
@@ -28,9 +28,10 @@ struct DataService {
             completion(false)
             return
         }
+        if let requestBody = String(data: body, encoding: .utf8){
+            print(requestBody)
+        }
         
-        print(body)
-                
         let parseRequest = ParseRequest(url: _url, body: body)
         
         let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
@@ -45,6 +46,36 @@ struct DataService {
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                     print("data: \(dataString)")
                     completion(false)
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
+    static func getShopping(month: String, completionHandler completion: @escaping (Balance?) -> Void) {
+        guard
+            let _url = URL(string: "\(self.url)/functions/monthlyBalance")
+            else {
+                print("error trying to generate url")
+                completion(nil)
+                return
+            }
+        
+        let parseRequest = ParseRequest(url: _url)
+        
+        let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+                completion(nil)
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                    completion(nil)
+                }
+                if let data = data, let balance = try? JSONDecoder().decode(Balance.self, from: data) {
+                    print("data: \(balance.description)")
+                    completion(balance)
                 }
             }
         }
@@ -111,7 +142,7 @@ struct DataService {
 
     static func verifySessionToken(completionHandler completion: @escaping (_ result: Bool) -> Void) {
         guard
-            let urlComponents = URLComponents(string: self.url + "/user/me"),
+            let urlComponents = URLComponents(string: self.url + "/users/me"),
             let url = urlComponents.url else {
             print("error trying to generate url")
             completion(false)
@@ -126,14 +157,11 @@ struct DataService {
             } else {
                 if let response = response as? HTTPURLResponse {
                     print("statusCode: \(response.statusCode)")
-                }
-                if let data = data, let dataString = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                    if let result = dataString["code"] {
-                        print(result)
-                        completion(false)
+                    if response.statusCode == 200 {
+                        completion(true)
                     }
                     else {
-                        completion(true)
+                        completion(false)
                     }
                 }
             }
