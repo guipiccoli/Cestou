@@ -26,35 +26,19 @@ class SpentController: UIViewController {
         if numberTest.evaluate(with: testStr) {
             let testStrDouble: Double = Double(testStr) ?? 0.0
             if let incoming: Double = self.income {
-                return testStrDouble <= incoming
+                return (testStrDouble <= incoming && testStrDouble >= 0)
             }
         }
         return false
-    }
-    
-    private func lineColor(view: signUITextField, type: String) {
-        DispatchQueue.main.async {
-            _ = view.layer.sublayers?.map {
-                if $0.name == "border" {
-                    if type == "warning"{
-                        $0.borderColor = UIColor.red.cgColor
-                    }
-                    else{
-                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
-                        self.errorLabel.text = " "
-                    }
-                }
-            }
-        }
     }
     
     @IBAction func goToDashboard(_ sender: Any) {
         if let spentText = spent.text,
             let _ = income {
             if isValidSpent(testStr: spentText) {
-                DispatchQueue.main.async {
-                    self.view.addSubview(loadingScreen())
-                }
+                
+                self.view.addSubview(loadingScreen())
+                
                 let newBalance: [String: Double] = ["incoming": self.income ?? 0.0, "expenseProjected": Double(spentText) ?? 0.0]
                 
                 DataService.saveBalance(body: newBalance, onCompletion: { result in
@@ -66,6 +50,10 @@ class SpentController: UIViewController {
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
+                            DispatchQueue.main.async {
+                                self.errorLabel.text = "Servidor indisponível."
+                                self.spent.border(type: "warning")
+                            }
                         }
                         else {
                             print(result)
@@ -77,10 +65,8 @@ class SpentController: UIViewController {
                 })
             }
             else {
-                DispatchQueue.main.async {
-                    self.lineColor(view: self.spent, type: "warning")
-                    self.errorLabel.text = "O rendimento precisa ser maior que zero."
-                }
+                self.spent.border(type: "warning")
+                self.errorLabel.text = "O Gasto Projetado deve ser menor que o Rendimento."
             }
         }
     }
@@ -89,12 +75,18 @@ class SpentController: UIViewController {
 extension SpentController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

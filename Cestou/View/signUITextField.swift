@@ -33,4 +33,16 @@ open class signUITextField: UITextField {
         setup()
     }
 
+    open func border(type: String) {
+        let _ = self.layer.sublayers?.map {
+            if $0.name == "border" {
+                if type == "warning" {
+                    $0.borderColor = UIColor.red.cgColor
+                }
+                else {
+                   $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+                }
+            }
+        }
+    }
 }

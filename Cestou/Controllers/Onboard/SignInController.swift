@@ -43,9 +43,7 @@ class SignInController: UIViewController {
             if let pass = self.password.text,
                 let email = self.email.text {
                 
-                DispatchQueue.main.async {
-                    self.view.addSubview(loadingScreen())
-                }
+                self.view.addSubview(loadingScreen())
                 
                 DataService.logIn(email: email, password: pass, onCompletion:  { result in
                     DispatchQueue.main.async {
@@ -59,8 +57,13 @@ class SignInController: UIViewController {
                             if let _ = result["code"] as? Int {
                                 DispatchQueue.main.async {
                                     self.errorText.text = "Usuário ou senha inválidos."
-                                    self.lineColor(view: self.email, type: "warning")
-                                    self.lineColor(view: self.password, type: "warning")
+                                    self.email.border(type: "warning")
+                                    self.password.border(type: "warning")
+                                }
+                            }
+                            else {
+                                DispatchQueue.main.async {
+                                    self.errorText.text = "Servidor indisponível."
                                 }
                             }
                         }
@@ -83,43 +86,38 @@ class SignInController: UIViewController {
                         }
                     }
                     else {
-                        print("Usuário já existe.")
+                        print("Unknow error.")
+                        DispatchQueue.main.async {
+                            self.errorText.text = "Servidor indisponível."
+                        }
                     }
                 })
             }
         }
         else {
             print("Incorrect field.")
-            self.lineColor(view: self.email, type: "warning")
-            self.lineColor(view: self.password, type: "warning")
-        }
-    }
-    
-    private func lineColor(view: signUITextField, type: String) {
-        DispatchQueue.main.async {
-            _ = view.layer.sublayers?.map {
-                if $0.name == "border" {
-                    if type == "warning"{
-                        $0.borderColor = UIColor.red.cgColor
-                    }
-                    else{
-                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
-//                        self.errorLabel.text = ""
-                    }
-                }
-            }
+            email.border(type: "warning")
+            password.border(type: "warning")
+            errorText.text = "Os campos estão incorretos."
         }
     }
 }
 
 extension SignInController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            errorText.text = " "
+        }
+        
         switch textField {
+        
         case self.email:
             if self.isValidEmail(testStr: textField.text ?? "") {
                 self.warningField = false }
             else { self.warningField = true }
+        
         case self.password:
             if let password = textField.text {
                 if password.count < 8 { self.warningField = false }
@@ -132,7 +130,10 @@ extension SignInController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            errorText.text = " "
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -46,9 +46,7 @@ class SignUpController: UIViewController {
                 let username = self.fullname.text,
                 let email = self.email.text {
                 
-                DispatchQueue.main.async {
-                    self.view.addSubview(loadingScreen())
-                }
+                self.view.addSubview(loadingScreen())
                 
                 let data: [String: String] = [
                     "username": username,
@@ -68,9 +66,14 @@ class SignUpController: UIViewController {
                             if (result["code"] as? Int) != nil {
                                 DispatchQueue.main.async {
                                     self.errorLabel.text = "Usuário já cadastrado."
-                                    self.lineColor(view: self.email, type: "warning")
-                                    self.lineColor(view: self.password, type: "warning")
-                                    self.lineColor(view: self.fullname, type: "warning")
+                                    self.email.border(type: "warning")
+                                    self.password.border(type: "warning")
+                                    self.fullname.border(type: "warning")
+                                }
+                            }
+                            else {
+                                DispatchQueue.main.async {
+                                    self.errorLabel.text = "Servidor indisponível."
                                 }
                             }
                         }
@@ -93,31 +96,19 @@ class SignUpController: UIViewController {
                     }
                     else {
                         print("User not created. Unknow error.")
+                        DispatchQueue.main.async {
+                            self.errorLabel.text = "Servidor indisponível."
+                        }
                     }
                 })
             }
         }
         else {
             print("Incorrect field.")
-            self.lineColor(view: self.email, type: "warning")
-            self.lineColor(view: self.password, type: "warning")
-            self.lineColor(view: self.fullname, type: "warning")
-        }
-    }
-    
-    private func lineColor(view: signUITextField, type: String) {
-        DispatchQueue.main.async {
-            _ = view.layer.sublayers?.map {
-                if $0.name == "border" {
-                    if type == "warning"{
-                        $0.borderColor = UIColor.red.cgColor
-                    }
-                    else{
-                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
-                        self.errorLabel.text = ""
-                    }
-                }
-            }
+            self.email.border(type: "warning")
+            self.password.border(type: "warning")
+            self.fullname.border(type: "warning")
+            self.errorLabel.text = "Os campos estão incorretos."
         }
     }
 }
@@ -125,11 +116,18 @@ class SignUpController: UIViewController {
 extension SignUpController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
+        
         switch textField {
+        
         case self.email:
             if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
             else { self.warningField = true }
+        
         case self.password:
             if let pass = textField.text {
                 if pass.count < 8 { self.warningField = false }
@@ -142,7 +140,10 @@ extension SignUpController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        if let field = textField as? signUITextField{
+            field.border(type: "normal")
+            self.errorLabel.text = " "
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

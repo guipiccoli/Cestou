@@ -31,28 +31,12 @@ class ForgotPassowrdController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    private func lineColor(view: signUITextField, type: String) {
-        DispatchQueue.main.async {
-            _ = view.layer.sublayers?.map {
-                if $0.name == "border" {
-                    if type == "warning"{
-                        $0.borderColor = UIColor.red.cgColor
-                    }
-                    else{
-                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
-                        //                        self.errorLabel.text = ""
-                    }
-                }
-            }
-        }
-    }
-    
     @IBAction func sendEmail(_ sender: Any) {
         if let email = self.emailTextField.text {
             if isValidEmail(testStr: email){
-                DispatchQueue.main.async {
-                    self.view.addSubview(loadingScreen())
-                }
+                
+                self.view.addSubview(loadingScreen())
+                
                 DataService.reqPassReset(body: ["email": email], onCompletion:  { result in
                     DispatchQueue.main.async {
                         if let blankScreen = self.view.viewWithTag(4095){
@@ -61,10 +45,14 @@ class ForgotPassowrdController: UIViewController {
                     }
                     if let err = result["error"] as? String {
                         print(err)
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Servidor Indisponível 😔", message: "Aguarde e tente novamente.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
                     else {
                         DispatchQueue.main.async {
-                            print("entroooou 2")
                             let alert = UIAlertController(title: "Email Enviado 😃", message: "Uma mensagem foi enviada para este e-mail, siga as instruções para recuperar sua senha.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
@@ -73,7 +61,7 @@ class ForgotPassowrdController: UIViewController {
                 })
             }
             else {
-                self.lineColor(view: self.emailTextField, type: "warning")
+                self.emailTextField.border(type: "warning")
             }
         }
         
@@ -83,12 +71,12 @@ class ForgotPassowrdController: UIViewController {
 extension ForgotPassowrdController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        self.emailTextField.border(type: "normal")
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.lineColor(view: textField as! signUITextField, type: "normal")
+        self.emailTextField.border(type: "normal")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
