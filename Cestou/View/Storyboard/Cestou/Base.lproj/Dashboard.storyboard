@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--Dashboard-->
         <scene sceneID="ASK-1J-FLZ">
             <objects>
                 <viewController storyboardIdentifier="UIViewController-SkX-Gr-5GH" id="SkX-Gr-5GH" customClass="DashboardViewController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,7 +350,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Emi-mA-Y9P"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="4fs-dQ-Iaq"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="pie-chart-stats" id="4fs-dQ-Iaq"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="elI-26-Ddx" id="FEv-hf-CdB"/>
@@ -382,7 +382,7 @@
             </objects>
             <point key="canvasLocation" x="2177" y="562"/>
         </scene>
-        <!--Scanner-->
+        <!--Scan-->
         <scene sceneID="S6a-6T-Esd">
             <objects>
                 <viewController id="qhB-hD-ZqD" customClass="ScanViewController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
@@ -414,7 +414,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="gNM-uQ-lxC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scanner" id="zm2-nm-d6L"/>
+                    <tabBarItem key="tabBarItem" title="Scan" image="blackberry-qr-code-variant" id="zm2-nm-d6L"/>
                     <connections>
                         <outlet property="topbar" destination="l1J-sv-kWE" id="zqR-Dg-c4P"/>
                         <segue destination="1gb-XH-zkT" kind="show" identifier="QRCodeRead" id="zzD-qQ-z3G"/>
@@ -511,4 +511,8 @@
             <point key="canvasLocation" x="3006" y="853"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blackberry-qr-code-variant" width="31" height="31"/>
+        <image name="pie-chart-stats" width="31" height="31"/>
+    </resources>
 </document>

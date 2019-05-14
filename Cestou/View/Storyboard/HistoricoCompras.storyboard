@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Historico Compras Controller-->
+        <!--Historico-->
         <scene sceneID="TM0-ZP-lhw">
             <objects>
                 <viewController id="MJ2-Fj-wtX" customClass="HistoricoComprasController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,9 +89,8 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groceries" translatesAutoresizingMaskIntoConstraints="NO" id="0U1-Mk-8XD">
                                                                     <rect key="frame" x="22" y="28" width="96" height="112"/>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-g6-299">
-                                                                    <rect key="frame" x="152" y="38" width="168" height="91"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-g6-299">
+                                                                    <rect key="frame" x="152" y="57" width="168" height="81"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carrefour" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0d5-7K-kvH">
                                                                             <rect key="frame" x="0.0" y="0.0" width="160" height="18"/>
@@ -109,47 +108,58 @@
                                                                                 <constraint firstAttribute="height" constant="1" id="jmp-jJ-8E9"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jzm-K1-qA2">
-                                                                            <rect key="frame" x="0.0" y="27" width="89" height="30"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="zvq-Tk-vZz">
+                                                                            <rect key="frame" x="0.0" y="27" width="106.5" height="54"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-sign-and-piles-of-coins" translatesAutoresizingMaskIntoConstraints="NO" id="YK2-fL-Reu">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBZ-bR-t4H">
-                                                                                    <rect key="frame" x="27" y="0.0" width="62" height="30"/>
-                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jzm-K1-qA2">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
+                                                                                    <subviews>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-sign-and-piles-of-coins" translatesAutoresizingMaskIntoConstraints="NO" id="YK2-fL-Reu">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
+                                                                                        </imageView>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBZ-bR-t4H">
+                                                                                            <rect key="frame" x="27" y="0.0" width="62" height="30"/>
+                                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                                            <nil key="textColor"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="30" id="cKF-Gu-Agi"/>
+                                                                                    </constraints>
+                                                                                </stackView>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m7H-la-Okx">
+                                                                                    <rect key="frame" x="0.0" y="24" width="106.5" height="30"/>
+                                                                                    <subviews>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-with-a-clock-time-tools" translatesAutoresizingMaskIntoConstraints="NO" id="8MQ-Xn-het">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
+                                                                                        </imageView>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07/05/1985" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-aN-tHc">
+                                                                                            <rect key="frame" x="27" y="0.0" width="79.5" height="30"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                            <color key="textColor" red="0.55698436500000004" green="0.55655932429999999" blue="0.57647353410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="30" id="WgP-Ms-4iV"/>
+                                                                                    </constraints>
+                                                                                </stackView>
                                                                             </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="30" id="cKF-Gu-Agi"/>
-                                                                            </constraints>
-                                                                        </stackView>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m7H-la-Okx">
-                                                                            <rect key="frame" x="0.0" y="61" width="106.5" height="30"/>
-                                                                            <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-with-a-clock-time-tools" translatesAutoresizingMaskIntoConstraints="NO" id="8MQ-Xn-het">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="19" height="30"/>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07/05/1985" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBw-aN-tHc">
-                                                                                    <rect key="frame" x="27" y="0.0" width="79.5" height="30"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                                    <color key="textColor" red="0.55698436500000004" green="0.55655932429999999" blue="0.57647353410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="30" id="WgP-Ms-4iV"/>
-                                                                            </constraints>
                                                                         </stackView>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Puo-fe-ac3" firstAttribute="leading" secondItem="bhb-g6-299" secondAttribute="leading" id="WUx-Pl-hyb"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Puo-fe-ac3" secondAttribute="trailing" id="mbS-18-5el"/>
+                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="bhb-g6-299" secondAttribute="trailing" constant="48" id="1De-Oa-Zb5"/>
                                                                 <constraint firstItem="0U1-Mk-8XD" firstAttribute="top" secondItem="ZCl-8b-38u" secondAttribute="top" constant="28" id="AXI-vf-WRd"/>
                                                                 <constraint firstAttribute="bottom" secondItem="0U1-Mk-8XD" secondAttribute="bottom" constant="28" id="TbB-c6-Gov"/>
+                                                                <constraint firstAttribute="bottom" secondItem="bhb-g6-299" secondAttribute="bottom" constant="30" id="fUD-EH-UDG"/>
                                                                 <constraint firstItem="0U1-Mk-8XD" firstAttribute="leading" secondItem="ZCl-8b-38u" secondAttribute="leading" constant="22" id="z55-7u-XOl"/>
                                                             </constraints>
                                                         </view>
@@ -172,6 +182,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backgroundCardView" destination="TZo-UF-WIq" id="KRf-Ax-1o1"/>
+                                            <outlet property="dataCompra" destination="wBw-aN-tHc" id="ru5-Ym-zwJ"/>
+                                            <outlet property="totalCompra" destination="WBZ-bR-t4H" id="nsZ-0r-IXb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -189,6 +201,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gH5-hP-C0b"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Historico" image="history-clock-button" id="Vca-sR-yrf"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="nGR-fT-BtL" id="b9Q-nk-emQ"/>
                         <outlet property="headerView" destination="wq7-Lp-tSF" id="xt1-9h-B2c"/>
@@ -205,5 +219,6 @@
         <image name="calendar-with-a-clock-time-tools" width="19" height="16"/>
         <image name="dollar-sign-and-piles-of-coins" width="19" height="16"/>
         <image name="groceries" width="96" height="102"/>
+        <image name="history-clock-button" width="31" height="29"/>
     </resources>
 </document>

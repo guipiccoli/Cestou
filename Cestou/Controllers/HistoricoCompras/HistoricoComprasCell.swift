@@ -13,6 +13,8 @@ import UIKit
 class HistoricoComprasCell: UITableViewCell {
     
     @IBOutlet weak var backgroundCardView: UIView!
+    @IBOutlet var totalCompra: UILabel!
+    @IBOutlet var dataCompra: UILabel!
     
     
     override func awakeFromNib() {
