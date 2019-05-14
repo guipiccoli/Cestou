@@ -16,8 +16,9 @@ class SignUpController: UIViewController {
     @IBOutlet weak var fullname: signUITextField!
     @IBOutlet weak var password: signUITextField!
     @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
-    private var warningField: Bool = true    
+    private var warningField: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,10 @@ class SignUpController: UIViewController {
                 let username = self.fullname.text,
                 let email = self.email.text {
                 
+                DispatchQueue.main.async {
+                    self.view.addSubview(loadingScreen())
+                }
+                
                 let data: [String: String] = [
                     "username": username,
                     "password": pass,
@@ -52,9 +57,22 @@ class SignUpController: UIViewController {
                 ]
                 
                 DataService.reqNewUser(body: data, onCompletion: { result in
+                    DispatchQueue.main.async {
+                        if let blankScreen = self.view.viewWithTag(4095){
+                            blankScreen.removeFromSuperview()
+                        }
+                    }
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
+                            if (result["code"] as? Int) != nil {
+                                DispatchQueue.main.async {
+                                    self.errorLabel.text = "Usuário já cadastrado."
+                                    self.lineColor(view: self.email, type: "warning")
+                                    self.lineColor(view: self.password, type: "warning")
+                                    self.lineColor(view: self.fullname, type: "warning")
+                                }
+                            }
                         }
                         else {
                             DispatchQueue.main.async {
@@ -81,14 +99,33 @@ class SignUpController: UIViewController {
         }
         else {
             print("Incorrect field.")
+            self.lineColor(view: self.email, type: "warning")
+            self.lineColor(view: self.password, type: "warning")
+            self.lineColor(view: self.fullname, type: "warning")
         }
     }
-
+    
+    private func lineColor(view: signUITextField, type: String) {
+        DispatchQueue.main.async {
+            _ = view.layer.sublayers?.map {
+                if $0.name == "border" {
+                    if type == "warning"{
+                        $0.borderColor = UIColor.red.cgColor
+                    }
+                    else{
+                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+                        self.errorLabel.text = ""
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension SignUpController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
         switch textField {
         case self.email:
             if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
@@ -102,6 +139,10 @@ extension SignUpController: UITextFieldDelegate {
             print("default")
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -11,9 +11,10 @@ import SwiftKeychainWrapper
 
 class SignInController: UIViewController {
     
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: signUITextField!
+    @IBOutlet weak var password: signUITextField!
     @IBOutlet weak var signInBtn: UIButton!
+    @IBOutlet weak var errorText: UILabel!
     
     private var warningField: Bool = true
     
@@ -22,12 +23,6 @@ class SignInController: UIViewController {
         email.delegate = self;
         password.delegate = self;
         self.styleSignInBtn()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let headerViewController = segue.destination as? DashboardViewController {
-            print("DEU CERTO ---------------------")
-        }
     }
     
     private func styleSignInBtn() {
@@ -47,10 +42,27 @@ class SignInController: UIViewController {
         if !warningField {
             if let pass = self.password.text,
                 let email = self.email.text {
+                
+                DispatchQueue.main.async {
+                    self.view.addSubview(loadingScreen())
+                }
+                
                 DataService.logIn(email: email, password: pass, onCompletion:  { result in
+                    DispatchQueue.main.async {
+                        if let blankScreen = self.view.viewWithTag(4095){
+                            blankScreen.removeFromSuperview()
+                        }
+                    }
                     if result.count != 0 {
                         if let err = result["error"] as? String {
                             print(err)
+                            if let _ = result["code"] as? Int {
+                                DispatchQueue.main.async {
+                                    self.errorText.text = "Usuário ou senha inválidos."
+                                    self.lineColor(view: self.email, type: "warning")
+                                    self.lineColor(view: self.password, type: "warning")
+                                }
+                            }
                         }
                         else {
                             print(result)
@@ -71,22 +83,42 @@ class SignInController: UIViewController {
                         }
                     }
                     else {
-                        print("User not created. Unknow error.")
+                        print("Usuário já existe.")
                     }
                 })
             }
         }
         else {
             print("Incorrect field.")
+            self.lineColor(view: self.email, type: "warning")
+            self.lineColor(view: self.password, type: "warning")
+        }
+    }
+    
+    private func lineColor(view: signUITextField, type: String) {
+        DispatchQueue.main.async {
+            _ = view.layer.sublayers?.map {
+                if $0.name == "border" {
+                    if type == "warning"{
+                        $0.borderColor = UIColor.red.cgColor
+                    }
+                    else{
+                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+//                        self.errorLabel.text = ""
+                    }
+                }
+            }
         }
     }
 }
 
 extension SignInController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
         switch textField {
         case self.email:
-            if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
+            if self.isValidEmail(testStr: textField.text ?? "") {
+                self.warningField = false }
             else { self.warningField = true }
         case self.password:
             if let password = textField.text {
@@ -97,6 +129,10 @@ extension SignInController: UITextFieldDelegate {
             print("default")
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

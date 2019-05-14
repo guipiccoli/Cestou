@@ -11,9 +11,11 @@ import UIKit
 class incomeController: UIViewController {
     
     @IBOutlet weak var incomeText: signUITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.incomeText.delegate = self
     }
     
     private func isValidIncome(testStr: String) -> Bool {
@@ -25,6 +27,22 @@ class incomeController: UIViewController {
             return testStrDouble > 0.0
         }
         return false
+    }
+    
+    private func lineColor(view: signUITextField, type: String) {
+        DispatchQueue.main.async {
+            _ = view.layer.sublayers?.map {
+                if $0.name == "border" {
+                    if type == "warning"{
+                        $0.borderColor = UIColor.red.cgColor
+                    }
+                    else{
+                        $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+                        self.errorLabel.text = " "
+                    }
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,7 +59,30 @@ class incomeController: UIViewController {
                     self.performSegue(withIdentifier: "toSpent", sender: nil)
                 }
             }
+            else {
+                DispatchQueue.main.async {
+                    self.lineColor(view: self.incomeText, type: "warning")
+                    self.errorLabel.text = "O rendimento precisa ser maior que zero."
+                }
+            }
         }
-        
+    }
+}
+
+
+extension incomeController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.lineColor(view: textField as! signUITextField, type: "normal")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        goToSpent(textField)
+        return true
     }
 }
