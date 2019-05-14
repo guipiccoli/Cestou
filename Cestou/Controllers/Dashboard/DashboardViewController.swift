@@ -18,6 +18,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+    var totalExpenses: Double = 1500
 
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -55,7 +56,8 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        totalExpensesLabel.text = "R$\(1500)"
+        var totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
+        totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
     }
 }
