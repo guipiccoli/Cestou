@@ -11,11 +11,11 @@
 		0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BD2282137800E1CC81 /* CategoryTableViewCell.swift */; };
 		0448B4C0228213A300E1CC81 /* DailyExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BF228213A300E1CC81 /* DailyExpensesTableViewCell.swift */; };
 		0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4C1228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift */; };
-		04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* DashboardViewController.swift */; };
 		190B7E5C2289EBEA00B6AB1F /* ShoppingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B7E5B2289EBEA00B6AB1F /* ShoppingHistory.swift */; };
 		190B7E5F2289ECD200B6AB1F /* ShoppingHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190B7E5E2289ECD200B6AB1F /* ShoppingHistory.storyboard */; };
 		190B7E612289EEB700B6AB1F /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B7E602289EEB700B6AB1F /* ShoppingTableViewCell.swift */; };
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
+		19515801228B5C60008001E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D892EC227CC5A000B86A45 /* DashboardViewController.swift */; };
 		198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198888FA2282078D00DFACBA /* ParseRequest.swift */; };
 		19EA6FF3228610B100CBE0D0 /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6FF2228610B100CBE0D0 /* signUITextField.swift */; };
 		465842F1228A3D430077C451 /* loadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465842F0228A3D430077C451 /* loadingScreen.swift */; };
@@ -405,9 +405,8 @@
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
-				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
+				19515801228B5C60008001E8 /* DashboardViewController.swift in Sources */,
 				4674F87A2284BABC00C30E76 /* incomeController.swift in Sources */,
-				04D892ED227CC5A000B86A45 /* DashboardViewController.swift in Sources */,
 				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
 				46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
@@ -568,13 +567,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,13 +586,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z39J8HS946;
+				DEVELOPMENT_TEAM = XSPHX5D288;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
