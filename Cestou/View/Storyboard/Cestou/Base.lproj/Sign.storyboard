@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="DDy-cQ-PqB">
-                                <rect key="frame" x="20" y="374" width="374" height="249"/>
+                                <rect key="frame" x="20" y="374" width="374" height="200"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eL-lo-KW4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -49,16 +49,6 @@
                                         <state key="normal" title="Entrar"/>
                                         <connections>
                                             <action selector="signIn:" destination="FU9-d2-TSF" eventType="touchUpInside" id="cb2-ku-vHF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Za-fO-BD4">
-                                        <rect key="frame" x="0.0" y="222" width="374" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Esqueceu sua senha?">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="fui-hD-O6c" kind="show" id="XaT-IN-cwX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,28 +91,51 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Za-fO-BD4">
+                                <rect key="frame" x="145" y="596" width="124" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Esqueceu sua senha?">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fui-hD-O6c" kind="show" id="XaT-IN-cwX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KQ-GZ-fRc">
+                                <rect key="frame" x="20" y="352" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DDy-cQ-PqB" firstAttribute="top" secondItem="3KQ-GZ-fRc" secondAttribute="bottom" constant="22" id="6Wb-QJ-ytc"/>
                             <constraint firstItem="Ysu-Wn-urv" firstAttribute="top" secondItem="FbZ-zb-12t" secondAttribute="top" constant="38" id="BMe-KB-PrW"/>
                             <constraint firstItem="FbZ-zb-12t" firstAttribute="trailing" secondItem="Ysu-Wn-urv" secondAttribute="trailing" constant="137" id="EZ2-sl-OhB"/>
                             <constraint firstItem="Ysu-Wn-urv" firstAttribute="leading" secondItem="FbZ-zb-12t" secondAttribute="leading" constant="137" id="Edw-Wr-kCc"/>
+                            <constraint firstItem="3KQ-GZ-fRc" firstAttribute="leading" secondItem="FbZ-zb-12t" secondAttribute="leading" constant="20" id="JGs-6X-Pnr"/>
                             <constraint firstItem="d77-46-vBl" firstAttribute="centerX" secondItem="Ubg-Q3-5CE" secondAttribute="centerX" id="L7R-oX-WVS"/>
                             <constraint firstItem="FbZ-zb-12t" firstAttribute="trailing" secondItem="7Mm-O4-Lh0" secondAttribute="trailing" id="M8z-oz-tYC"/>
+                            <constraint firstItem="5Za-fO-BD4" firstAttribute="leading" secondItem="FbZ-zb-12t" secondAttribute="leading" constant="145" id="NRF-oi-ory"/>
                             <constraint firstItem="FbZ-zb-12t" firstAttribute="trailing" secondItem="DDy-cQ-PqB" secondAttribute="trailing" constant="20" id="Ndr-vW-evs"/>
                             <constraint firstItem="DDy-cQ-PqB" firstAttribute="centerX" secondItem="Ubg-Q3-5CE" secondAttribute="centerX" id="QxA-uG-0Sh"/>
                             <constraint firstItem="DDy-cQ-PqB" firstAttribute="leading" secondItem="FbZ-zb-12t" secondAttribute="leading" constant="20" id="U6L-VA-Q2y"/>
                             <constraint firstItem="7Mm-O4-Lh0" firstAttribute="top" secondItem="FbZ-zb-12t" secondAttribute="top" id="V4y-KQ-zFF"/>
+                            <constraint firstItem="FbZ-zb-12t" firstAttribute="trailing" secondItem="3KQ-GZ-fRc" secondAttribute="trailing" constant="20" id="Xiz-je-KJC"/>
                             <constraint firstItem="DDy-cQ-PqB" firstAttribute="top" secondItem="Ysu-Wn-urv" secondAttribute="bottom" constant="152" id="dW9-LP-sTI"/>
+                            <constraint firstItem="5Za-fO-BD4" firstAttribute="top" secondItem="DDy-cQ-PqB" secondAttribute="bottom" constant="22" id="eDy-vf-iOR"/>
                             <constraint firstItem="d77-46-vBl" firstAttribute="bottom" secondItem="FbZ-zb-12t" secondAttribute="bottom" id="h2U-qU-6ln"/>
                             <constraint firstItem="7Mm-O4-Lh0" firstAttribute="centerX" secondItem="Ubg-Q3-5CE" secondAttribute="centerX" id="kMx-xe-zMB"/>
                             <constraint firstItem="Ysu-Wn-urv" firstAttribute="centerX" secondItem="Ubg-Q3-5CE" secondAttribute="centerX" id="nK9-Ui-EXi"/>
                             <constraint firstItem="7Mm-O4-Lh0" firstAttribute="leading" secondItem="FbZ-zb-12t" secondAttribute="leading" id="xKf-4l-1PU"/>
+                            <constraint firstItem="FbZ-zb-12t" firstAttribute="trailing" secondItem="5Za-fO-BD4" secondAttribute="trailing" constant="145" id="yBH-5U-I8G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FbZ-zb-12t"/>
                     </view>
                     <connections>
                         <outlet property="email" destination="6eL-lo-KW4" id="LxE-5I-lpI"/>
+                        <outlet property="errorText" destination="3KQ-GZ-fRc" id="yj5-xw-KFP"/>
                         <outlet property="password" destination="njS-Dv-uDl" id="k1t-IX-yxu"/>
                         <outlet property="signInBtn" destination="ae2-Fr-zy9" id="zz0-vc-Vpu"/>
                         <segue destination="NhK-6Y-Ggc" kind="show" identifier="toDashboard" id="rAb-fv-Y4L"/>
@@ -130,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOr-tx-D6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="-853"/>
+            <point key="canvasLocation" x="27.536231884057973" y="-853.125"/>
         </scene>
         <!--OnBoard-->
         <scene sceneID="L09-7w-rBL">
@@ -144,12 +157,12 @@
         <scene sceneID="zyf-FJ-vv1">
             <objects>
                 <viewController id="sEd-KB-AqB" customClass="SignUpController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView" customModule="Cestou" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-DC-9BT">
-                                <rect key="frame" x="20" y="374" width="374" height="319"/>
+                                <rect key="frame" x="20" y="374" width="374" height="270"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ng-mC-xAi" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -192,13 +205,6 @@
                                             <action selector="sendBtnClick:" destination="sEd-KB-AqB" eventType="touchUpInside" id="kTJ-nf-Q8X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fot-i8-dHA">
-                                        <rect key="frame" x="0.0" y="292" width="374" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Voltar à Tela de Login">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="3ZY-bm-IaV">
@@ -215,29 +221,55 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="pyd-Hj-94W"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fot-i8-dHA">
+                                <rect key="frame" x="143" y="666" width="128" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Voltar à Tela de Login">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FU9-d2-TSF" kind="show" id="iam-DA-g23"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqe-pD-Zvb">
+                                <rect key="frame" x="20" y="352" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
                         </accessibility>
                         <constraints>
+                            <constraint firstItem="tqe-pD-Zvb" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" constant="20" id="3vv-kV-E2D"/>
                             <constraint firstItem="3ZY-bm-IaV" firstAttribute="top" secondItem="W60-h1-0Oj" secondAttribute="top" id="71m-UF-kSS"/>
                             <constraint firstItem="dtB-DC-9BT" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" constant="20" id="EIo-xk-22O"/>
                             <constraint firstItem="dtB-DC-9BT" firstAttribute="top" secondItem="Ud4-Hy-yB8" secondAttribute="bottom" constant="152" id="EIy-xA-L8W"/>
                             <constraint firstItem="Ud4-Hy-yB8" firstAttribute="top" secondItem="W60-h1-0Oj" secondAttribute="top" constant="38" id="H9n-eW-Ltk"/>
+                            <constraint firstItem="fot-i8-dHA" firstAttribute="top" secondItem="dtB-DC-9BT" secondAttribute="bottom" constant="22" id="P8k-me-hvN"/>
+                            <constraint firstItem="fot-i8-dHA" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" constant="143" id="XYc-Su-h8c"/>
                             <constraint firstItem="3ZY-bm-IaV" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" id="c64-81-ewg"/>
                             <constraint firstItem="W60-h1-0Oj" firstAttribute="trailing" secondItem="Ud4-Hy-yB8" secondAttribute="trailing" constant="137" id="ggA-VH-W91"/>
                             <constraint firstItem="W60-h1-0Oj" firstAttribute="trailing" secondItem="dtB-DC-9BT" secondAttribute="trailing" constant="20" id="iB4-qh-RLH"/>
+                            <constraint firstItem="W60-h1-0Oj" firstAttribute="trailing" secondItem="fot-i8-dHA" secondAttribute="trailing" constant="143" id="ill-5K-ip9"/>
                             <constraint firstItem="W60-h1-0Oj" firstAttribute="trailing" secondItem="3ZY-bm-IaV" secondAttribute="trailing" id="jLR-sa-2nB"/>
                             <constraint firstItem="Ud4-Hy-yB8" firstAttribute="leading" secondItem="W60-h1-0Oj" secondAttribute="leading" constant="137" id="nb2-rI-iZ6"/>
                             <constraint firstItem="dtB-DC-9BT" firstAttribute="centerX" secondItem="oJw-eC-CDq" secondAttribute="centerX" id="oOc-zc-cle"/>
+                            <constraint firstItem="W60-h1-0Oj" firstAttribute="trailing" secondItem="tqe-pD-Zvb" secondAttribute="trailing" constant="20" id="rP5-Xm-8MN"/>
                             <constraint firstItem="Ud4-Hy-yB8" firstAttribute="centerX" secondItem="oJw-eC-CDq" secondAttribute="centerX" id="sAo-Uk-pgH"/>
+                            <constraint firstItem="dtB-DC-9BT" firstAttribute="top" secondItem="tqe-pD-Zvb" secondAttribute="bottom" constant="22" id="ugs-bi-afn"/>
                             <constraint firstItem="3ZY-bm-IaV" firstAttribute="centerX" secondItem="oJw-eC-CDq" secondAttribute="centerX" id="ygE-j1-K96"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W60-h1-0Oj"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="email" destination="5ng-mC-xAi" id="hsY-Ok-ki4"/>
+                        <outlet property="errorLabel" destination="tqe-pD-Zvb" id="I2N-lb-QAr"/>
                         <outlet property="fullname" destination="4wI-x9-bfW" id="qQx-bs-wpP"/>
                         <outlet property="password" destination="0GI-nK-3ZF" id="DL8-qR-4Xc"/>
                         <outlet property="signUpBtn" destination="5PO-hf-ZkS" id="HaH-dh-vgp"/>
@@ -246,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37U-CD-Z83" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="50"/>
+            <point key="canvasLocation" x="28" y="35"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="rMQ-Lj-JCY">
@@ -260,12 +292,12 @@
         <scene sceneID="9Xh-Ow-GbK">
             <objects>
                 <viewController id="fui-hD-O6c" customClass="ForgotPassowrdController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="22e-6v-lb5" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="22e-6v-lb5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Aip-Rd-Ud9">
-                                <rect key="frame" x="20" y="374" width="374" height="179"/>
+                                <rect key="frame" x="20" y="374" width="374" height="130"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glQ-8x-Qyz" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -290,16 +322,6 @@
                                             <action selector="sendEmail:" destination="fui-hD-O6c" eventType="touchUpInside" id="QLW-yl-tiq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4u-0G-gcf">
-                                        <rect key="frame" x="0.0" y="152" width="374" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Voltar à Tela de Login">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="FU9-d2-TSF" kind="show" id="EjU-Bb-aMd"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinsBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Zh4-qi-V4q">
@@ -316,6 +338,16 @@
                                     <constraint firstAttribute="width" secondItem="tT2-cA-6sN" secondAttribute="height" multiplier="1:1" id="SNN-tf-8op"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4u-0G-gcf">
+                                <rect key="frame" x="137" y="526" width="140" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Voltar à Tela de Login">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FU9-d2-TSF" kind="show" id="EjU-Bb-aMd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -323,11 +355,14 @@
                             <constraint firstItem="Zh4-qi-V4q" firstAttribute="top" secondItem="Udd-FN-fZB" secondAttribute="top" id="1yF-zT-aTf"/>
                             <constraint firstItem="Zh4-qi-V4q" firstAttribute="centerX" secondItem="22e-6v-lb5" secondAttribute="centerX" id="2yl-4C-8u3"/>
                             <constraint firstItem="Aip-Rd-Ud9" firstAttribute="centerX" secondItem="22e-6v-lb5" secondAttribute="centerX" id="F7K-Bk-Hm9"/>
+                            <constraint firstItem="E4u-0G-gcf" firstAttribute="top" secondItem="Aip-Rd-Ud9" secondAttribute="bottom" constant="22" id="NXP-i5-jX4"/>
                             <constraint firstItem="Aip-Rd-Ud9" firstAttribute="leading" secondItem="Udd-FN-fZB" secondAttribute="leading" constant="20" id="S6m-Eq-AIg"/>
                             <constraint firstItem="Udd-FN-fZB" firstAttribute="trailing" secondItem="Zh4-qi-V4q" secondAttribute="trailing" id="a69-mH-Iug"/>
                             <constraint firstItem="Udd-FN-fZB" firstAttribute="trailing" secondItem="Aip-Rd-Ud9" secondAttribute="trailing" constant="20" id="cko-7s-loZ"/>
                             <constraint firstItem="tT2-cA-6sN" firstAttribute="leading" secondItem="Udd-FN-fZB" secondAttribute="leading" constant="137" id="hGS-Y7-llt"/>
+                            <constraint firstItem="E4u-0G-gcf" firstAttribute="leading" secondItem="Udd-FN-fZB" secondAttribute="leading" constant="137" id="hhn-zj-7UL"/>
                             <constraint firstItem="Zh4-qi-V4q" firstAttribute="leading" secondItem="Udd-FN-fZB" secondAttribute="leading" id="iqp-DX-ijU"/>
+                            <constraint firstItem="Udd-FN-fZB" firstAttribute="trailing" secondItem="E4u-0G-gcf" secondAttribute="trailing" constant="137" id="lwc-wK-21r"/>
                             <constraint firstItem="Aip-Rd-Ud9" firstAttribute="top" secondItem="tT2-cA-6sN" secondAttribute="bottom" constant="152" id="mY9-xW-bDj"/>
                             <constraint firstItem="tT2-cA-6sN" firstAttribute="centerX" secondItem="22e-6v-lb5" secondAttribute="centerX" id="smf-dQ-JyK"/>
                             <constraint firstItem="Udd-FN-fZB" firstAttribute="trailing" secondItem="tT2-cA-6sN" secondAttribute="trailing" constant="137" id="ztm-YI-YD6"/>
@@ -341,11 +376,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCc-b9-UTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-403"/>
+            <point key="canvasLocation" x="979.71014492753636" y="-403.125"/>
         </scene>
     </scenes>
     <resources>
         <image name="cestouCircle" width="112" height="112"/>
         <image name="coinsBackground" width="320" height="150"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EjU-Bb-aMd"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,7 @@
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
 		198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198888FA2282078D00DFACBA /* ParseRequest.swift */; };
 		19EA6FF3228610B100CBE0D0 /* signUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EA6FF2228610B100CBE0D0 /* signUITextField.swift */; };
+		465842F1228A3D430077C451 /* loadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465842F0228A3D430077C451 /* loadingScreen.swift */; };
 		466EFDC12285F360009D5F7A /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466EFDC02285F360009D5F7A /* ForgotPasswordController.swift */; };
 		4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674F877228496CD00C30E76 /* OnBoard.storyboard */; };
 		4674F87A2284BABC00C30E76 /* incomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4674F8792284BABC00C30E76 /* incomeController.swift */; };
@@ -44,6 +45,7 @@
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		198888FA2282078D00DFACBA /* ParseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseRequest.swift; sourceTree = "<group>"; };
 		19EA6FF2228610B100CBE0D0 /* signUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUITextField.swift; sourceTree = "<group>"; };
+		465842F0228A3D430077C451 /* loadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingScreen.swift; sourceTree = "<group>"; };
 		466EFDC02285F360009D5F7A /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		4674F877228496CD00C30E76 /* OnBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoard.storyboard; sourceTree = "<group>"; };
 		4674F8792284BABC00C30E76 /* incomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = incomeController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		E772A6312280A70100B212B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				465842F0228A3D430077C451 /* loadingScreen.swift */,
 				19EA6FF2228610B100CBE0D0 /* signUITextField.swift */,
 				46BB66E62285ED7C00A16952 /* Segues */,
 				E772A6342280C18E00B212B1 /* Storyboard */,
@@ -349,6 +352,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Cestou/Pods-Cestou-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
@@ -358,6 +362,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
@@ -388,6 +393,7 @@
 				46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
+				465842F1228A3D430077C451 /* loadingScreen.swift in Sources */,
 				E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */,
 				4674F87C2284BD4D00C30E76 /* SpentController.swift in Sources */,
 				0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */,
@@ -548,7 +554,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.aa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -561,13 +567,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = Z39J8HS946;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.aa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

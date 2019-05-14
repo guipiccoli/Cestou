@@ -111,7 +111,7 @@
                                 <rect key="frame" x="182" y="758" width="50" height="10"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rendimento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSB-tm-YRY" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                <rect key="frame" x="20" y="566.5" width="374" height="48"/>
+                                <rect key="frame" x="20" y="574.5" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9xd-dz-st4"/>
                                 </constraints>
@@ -139,18 +139,25 @@
                                     <segue destination="xsE-3n-Z5T" kind="show" customClass="SegueFromLeft" customModule="Cestou" customModuleProvider="target" id="h7r-wn-P4y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90l-8e-70b">
+                                <rect key="frame" x="20" y="546.5" width="374" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="qTd-qN-Em7" secondAttribute="trailing" constant="20" id="1uY-Fv-hf2"/>
                             <constraint firstItem="eb9-8I-aBP" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="20" id="3k4-Qd-qx3"/>
+                            <constraint firstItem="90l-8e-70b" firstAttribute="top" secondItem="eb9-8I-aBP" secondAttribute="bottom" constant="30" id="8yO-eb-cdh"/>
                             <constraint firstItem="qTd-qN-Em7" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="20" id="AkM-du-2SE"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="bottom" secondItem="oUs-rW-5un" secondAttribute="bottom" constant="10" id="DMi-4h-T1T"/>
+                            <constraint firstItem="90l-8e-70b" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="20" id="N1V-xR-J0r"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="5Sx-Tl-Bqn" secondAttribute="trailing" constant="182" id="PNi-Dv-4gF"/>
                             <constraint firstItem="JSB-tm-YRY" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="20" id="UOf-Ak-Pii"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="eb9-8I-aBP" secondAttribute="trailing" constant="20" id="US3-kP-cBw"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="bottom" secondItem="KnD-1n-Whv" secondAttribute="bottom" constant="10" id="X0O-Et-1j0"/>
-                            <constraint firstItem="JSB-tm-YRY" firstAttribute="top" secondItem="eb9-8I-aBP" secondAttribute="bottom" constant="50" id="YCf-4s-1xc"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="AQG-j2-60i" secondAttribute="trailing" constant="107" id="dPC-Gk-kQO"/>
                             <constraint firstItem="eb9-8I-aBP" firstAttribute="top" secondItem="qTd-qN-Em7" secondAttribute="bottom" constant="50" id="hOl-6V-ii7"/>
                             <constraint firstItem="AQG-j2-60i" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="107" id="jZi-tV-i4P"/>
@@ -158,13 +165,16 @@
                             <constraint firstItem="5Sx-Tl-Bqn" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="182" id="l5Q-jA-LMi"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="oUs-rW-5un" secondAttribute="trailing" constant="50" id="lHN-F2-czp"/>
                             <constraint firstItem="qTd-qN-Em7" firstAttribute="top" secondItem="AQG-j2-60i" secondAttribute="bottom" constant="30" id="n7f-O3-Qy5"/>
+                            <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="90l-8e-70b" secondAttribute="trailing" constant="20" id="oNv-Cb-C11"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="JSB-tm-YRY" secondAttribute="trailing" constant="20" id="pes-ez-n3K"/>
+                            <constraint firstItem="JSB-tm-YRY" firstAttribute="top" secondItem="90l-8e-70b" secondAttribute="bottom" constant="10" id="qZR-mc-TaM"/>
                             <constraint firstItem="KnD-1n-Whv" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="50" id="tfd-tq-O7y"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="bottom" secondItem="5Sx-Tl-Bqn" secondAttribute="bottom" constant="94" id="yQH-N6-now"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dGX-fC-2hv"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="90l-8e-70b" id="WPV-ww-cB8"/>
                         <outlet property="incomeText" destination="JSB-tm-YRY" id="xi2-YK-kdL"/>
                         <segue destination="J9e-Le-WfL" kind="show" identifier="toSpent" customClass="SegueFromRight" customModule="Cestou" customModuleProvider="target" id="Pvo-bK-6Ao"/>
                     </connections>
@@ -203,15 +213,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balls3" translatesAutoresizingMaskIntoConstraints="NO" id="APk-jg-jrM">
                                 <rect key="frame" x="182" y="758" width="50" height="10"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gasto Projetado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ope-Zh-mEj" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                <rect key="frame" x="20" y="566.5" width="374" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="uQG-vY-kNn"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDw-ee-bbu">
                                 <rect key="frame" x="312" y="819" width="62" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -232,6 +233,21 @@
                                     <segue destination="H8Q-xH-Ipv" kind="show" customClass="SegueFromLeft" customModule="Cestou" customModuleProvider="target" id="Tzz-h1-kRS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7R-kg-x7l">
+                                <rect key="frame" x="20" y="546.5" width="374" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gasto Projetado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ope-Zh-mEj" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                <rect key="frame" x="20" y="574.5" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="uQG-vY-kNn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -241,23 +257,27 @@
                             <constraint firstItem="6VH-c2-seC" firstAttribute="bottom" secondItem="APk-jg-jrM" secondAttribute="bottom" constant="94" id="6yC-iR-Rhe"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="APk-jg-jrM" secondAttribute="trailing" constant="182" id="8Ls-4E-TxJ"/>
                             <constraint firstItem="oSa-xe-19e" firstAttribute="top" secondItem="APm-OD-JUb" secondAttribute="bottom" constant="50" id="958-CR-pd8"/>
+                            <constraint firstItem="Ope-Zh-mEj" firstAttribute="top" secondItem="T7R-kg-x7l" secondAttribute="bottom" constant="10" id="DbM-Bz-NGv"/>
                             <constraint firstItem="Ope-Zh-mEj" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="20" id="FPa-Rm-ltX"/>
+                            <constraint firstItem="T7R-kg-x7l" firstAttribute="top" secondItem="oSa-xe-19e" secondAttribute="bottom" constant="30" id="HNU-Ba-Rrr"/>
                             <constraint firstItem="APk-jg-jrM" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="182" id="KiM-s9-c9k"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="oSa-xe-19e" secondAttribute="trailing" constant="20" id="LiY-fL-xyZ"/>
+                            <constraint firstItem="T7R-kg-x7l" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="20" id="OCc-cx-smF"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="GDw-ee-bbu" secondAttribute="trailing" constant="40" id="SPD-an-gmu"/>
                             <constraint firstItem="HII-Zo-w8P" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="50" id="Who-FU-pqi"/>
                             <constraint firstItem="oSa-xe-19e" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="20" id="Wsa-mE-RFz"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="bottom" secondItem="HII-Zo-w8P" secondAttribute="bottom" constant="10" id="YyX-XP-0lV"/>
-                            <constraint firstItem="Ope-Zh-mEj" firstAttribute="top" secondItem="oSa-xe-19e" secondAttribute="bottom" constant="50" id="bwA-Sq-Ez1"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="DEU-1g-bQ8" secondAttribute="trailing" constant="107" id="elw-6B-CUG"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="Ope-Zh-mEj" secondAttribute="trailing" constant="20" id="f3j-AA-q4K"/>
                             <constraint firstItem="DEU-1g-bQ8" firstAttribute="top" secondItem="6VH-c2-seC" secondAttribute="top" constant="70" id="kxF-QW-9uf"/>
+                            <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="T7R-kg-x7l" secondAttribute="trailing" constant="20" id="oWh-9N-wLw"/>
                             <constraint firstItem="6VH-c2-seC" firstAttribute="trailing" secondItem="APm-OD-JUb" secondAttribute="trailing" constant="20" id="pFd-st-V1u"/>
                             <constraint firstItem="APm-OD-JUb" firstAttribute="leading" secondItem="6VH-c2-seC" secondAttribute="leading" constant="20" id="vOE-0Y-gb5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6VH-c2-seC"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="T7R-kg-x7l" id="fz0-lJ-M2u"/>
                         <outlet property="spent" destination="Ope-Zh-mEj" id="2s4-ut-OE0"/>
                         <segue destination="rTT-r0-7lq" kind="show" identifier="toDashboard" customClass="SegueFromRight" customModule="Cestou" customModuleProvider="target" id="c7A-8h-q7L"/>
                     </connections>
@@ -284,7 +304,6 @@
         <image name="welcome" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pvo-bK-6Ao"/>
         <segue reference="Tzz-h1-kRS"/>
     </inferredMetricsTieBreakers>
 </document>
