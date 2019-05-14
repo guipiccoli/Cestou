@@ -11,6 +11,7 @@ import CenteredCollectionView
 import SwiftKeychainWrapper
 class HistoricoComprasController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var totalExpensesLabel: UILabel!
@@ -25,6 +26,9 @@ class HistoricoComprasController: UIViewController {
         super.viewDidLoad()
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         let gradientLayer = CAGradientLayer()
         let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
@@ -114,5 +118,18 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
+    }
+}
+
+extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //grafico categoria - gastos por dia - planejamento mensal
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
+        return cell
+        
     }
 }

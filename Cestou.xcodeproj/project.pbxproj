@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0409A481228B401C004FA62F /* HistoricoCompras.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0409A480228B401C004FA62F /* HistoricoCompras.storyboard */; };
 		0409A484228B40EE004FA62F /* HistoricoComprasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409A483228B40EE004FA62F /* HistoricoComprasController.swift */; };
+		0409A486228B51EC004FA62F /* HistoricoComprasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */; };
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
 		0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BD2282137800E1CC81 /* CategoryTableViewCell.swift */; };
 		0448B4C0228213A300E1CC81 /* DailyExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BF228213A300E1CC81 /* DailyExpensesTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		0409A480228B401C004FA62F /* HistoricoCompras.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoricoCompras.storyboard; sourceTree = "<group>"; };
 		0409A483228B40EE004FA62F /* HistoricoComprasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoComprasController.swift; sourceTree = "<group>"; };
+		0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoComprasCell.swift; sourceTree = "<group>"; };
 		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/Controllers/Scanner/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		0448B4BD2282137800E1CC81 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		0448B4BF228213A300E1CC81 /* DailyExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpensesTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				0409A483228B40EE004FA62F /* HistoricoComprasController.swift */,
+				0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */,
 			);
 			path = HistoricoCompras;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				466EFDC12285F360009D5F7A /* ForgotPasswordController.swift in Sources */,
 				0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */,
 				0409A484228B40EE004FA62F /* HistoricoComprasController.swift in Sources */,
+				0409A486228B51EC004FA62F /* HistoricoComprasCell.swift in Sources */,
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
