@@ -18,7 +18,10 @@ class DashboardViewController: UIViewController {
     @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-    var totalExpenses: Double = 1500
+    //var totalExpenses: Double = 0
+    var incoming: Double = 0
+    var expensesPlanned: Double = 0
+    var balances: [Balance] = [] //Um array contendo os 12 balancos, enumerados de 0 a 11
 
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -56,7 +59,8 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        var totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
+        
+        let totalExpensesRounded = String(format: "%.2f", balances[0].expense) //Arredonda o Double para 2 digitos
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
     }
@@ -121,6 +125,8 @@ extension DashboardViewController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
+        
+        self.totalExpensesLabel.text = String(format: "%.2f", balances[indexPath.row].expense)
     }
 }
 
