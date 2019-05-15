@@ -11,6 +11,7 @@ import Charts
 
 class DailyExpensesTableViewCell: UITableViewCell {
 
+    @IBOutlet var noDataText: UILabel!
     @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var dailyExpensesChart: LineChartView!
     var getMonth: String = "Janeiro"
@@ -21,6 +22,8 @@ class DailyExpensesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        noDataText.isHidden = false
+        dailyExpensesChart.noDataText = ""
         backgroundCardView.layer.cornerRadius = 12
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
@@ -42,7 +45,11 @@ class DailyExpensesTableViewCell: UITableViewCell {
             }
         }
         
-        setChart(dataPoints: days, values: valueSpent)
+        if mockGet.count > 0 {
+            noDataText.isHidden = true
+            setChart(dataPoints: days, values: valueSpent)
+        }
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

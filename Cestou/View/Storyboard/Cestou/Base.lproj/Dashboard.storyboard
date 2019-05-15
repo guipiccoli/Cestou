@@ -89,8 +89,22 @@
                                                     <subviews>
                                                         <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSm-GF-RAA" customClass="PieChartView" customModule="Charts">
                                                             <rect key="frame" x="2" y="45" width="364" height="170"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh6-oo-DNb">
+                                                                    <rect key="frame" x="20.5" y="55" width="323" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="323" id="UJo-Qe-T5s"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="ZoB-31-Phg"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="kh6-oo-DNb" firstAttribute="centerX" secondItem="QSm-GF-RAA" secondAttribute="centerX" id="7ph-Vq-JmF"/>
+                                                                <constraint firstItem="kh6-oo-DNb" firstAttribute="centerY" secondItem="QSm-GF-RAA" secondAttribute="centerY" id="HSr-SH-9Xh"/>
                                                                 <constraint firstAttribute="height" constant="170" id="axC-94-151"/>
                                                             </constraints>
                                                         </view>
@@ -132,6 +146,7 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="heG-no-h9y" id="TNP-Hp-CTS"/>
                                             <outlet property="categoryChart" destination="QSm-GF-RAA" id="rxg-OL-oiC"/>
+                                            <outlet property="noDataText" destination="kh6-oo-DNb" id="hlh-ny-xoG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DailyExpenses" rowHeight="230" id="mVd-k2-Jvu" customClass="DailyExpensesTableViewCell" customModule="Cestou" customModuleProvider="target">
@@ -159,8 +174,22 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crs-Jo-WkL" customClass="LineChartView" customModule="Charts">
                                                             <rect key="frame" x="5" y="45" width="361" height="170"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-aV-XQv">
+                                                                    <rect key="frame" x="19" y="55" width="323" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="323" id="8QI-Ul-yA7"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="yxT-Ma-JFP"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerY" secondItem="crs-Jo-WkL" secondAttribute="centerY" id="Y1D-5b-PBZ"/>
+                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerX" secondItem="crs-Jo-WkL" secondAttribute="centerX" id="fFU-8d-iuR"/>
                                                                 <constraint firstAttribute="height" constant="170" id="zfz-2b-Ary"/>
                                                             </constraints>
                                                         </view>
@@ -189,6 +218,7 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="tlo-hk-259" id="Ude-gF-eID"/>
                                             <outlet property="dailyExpensesChart" destination="crs-Jo-WkL" id="Tg5-dR-I4v"/>
+                                            <outlet property="noDataText" destination="Gvo-aV-XQv" id="Rxi-ZE-Nol"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MonthlyPlanning" rowHeight="185" id="rxW-iN-3ul" customClass="MonthlyPlanningTableViewCell" customModule="Cestou" customModuleProvider="target">
@@ -310,6 +340,20 @@
                                                                 <constraint firstAttribute="height" constant="130" id="H8Q-tS-iWW"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCv-Qo-nhU">
+                                                            <rect key="frame" x="0.0" y="45" width="368" height="130"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DW-ZH-plX">
+                                                                    <rect key="frame" x="26" y="25" width="317" height="49"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -337,6 +381,8 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="r6S-oO-Cy8" id="bW8-HK-sWb"/>
                                             <outlet property="monthlyPlanningChart" destination="dbO-V1-Iwd" id="d7Z-7L-5K2"/>
+                                            <outlet property="noDataText" destination="8DW-ZH-plX" id="baz-Ty-AqC"/>
+                                            <outlet property="noDataView" destination="YCv-Qo-nhU" id="Lch-HB-cIj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
