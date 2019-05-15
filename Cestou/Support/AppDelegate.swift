@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var storyboardName = "Sign"
         DataService.verifySessionToken { (isValidToken) in
             if isValidToken {
+                print("-------- DEU CERTO")
                 storyboardName = "Dashboard"
             }
             else {
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        
+        self.window?.rootViewController = storyboard.instantiateInitialViewController()
         self.window?.makeKeyAndVisible()
         return true
     }
