@@ -367,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="3202.898550724638" y="-123.21428571428571"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="bt3-Fo-M3t">
             <objects>
-                <tabBarController id="Wbf-4c-ZLW" sceneMemberID="viewController">
+                <tabBarController id="Wbf-4c-ZLW" customClass="TabBarViewController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JKP-dy-eeb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

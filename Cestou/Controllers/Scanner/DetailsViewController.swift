@@ -50,7 +50,7 @@ class DetailsViewController: UIViewController {
                 self.marketplaceNameLabel.text = self.shopping?.marketplace.name
                 self.marketplaceNameLabel.adjustsFontSizeToFitWidth = true
                 
-                self.shoppingDateLabel.text = self.shopping?.date
+                self.shoppingDateLabel.text = self.shopping?.prettyDate()
                 
                 
                 if let loadView = self.view.viewWithTag(4095){

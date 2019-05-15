@@ -205,6 +205,47 @@ struct DataService {
 
     }
     
+    static func getDashboard(completionHandler completion: @escaping (_ result: [Balance]?) -> Void) {
+        let date = Date()
+        var result: [Balance] = []
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        guard
+            let _url = URL(string: "\(self.url)/functions/Dashboard/\(year)")
+            else {
+                print("error trying to generate url")
+                completion(nil)
+                return
+        }
+        
+        let parseRequest = ParseRequest(url: _url)
+        
+        let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
+            if let error = error {
+                print("error: \(error)")
+                completion(nil)
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    print("statusCode: \(response.statusCode)")
+                    if (response.statusCode != 400) {
+                        completion(nil)
+                    }
+                }
+                if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    
+                    for (_, balance) in json {
+                        if let _balance = balance as? Balance {
+                            result.append(_balance)
+                        }
+                    }
+                    completion(result)
+                }
+            }
+        }
+        task.resume()
+        
+    }
+    
     static func reqPassReset(body : [String: String], onCompletion: @escaping (_ result: [String:Any]) -> Void) {
         guard let urlComponents = URLComponents(string: self.url + "/requestPasswordReset") else { return onCompletion(["error": "Error parsing url."])}
         guard let url = urlComponents.url else {
