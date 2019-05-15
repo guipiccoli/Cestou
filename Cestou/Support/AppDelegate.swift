@@ -13,23 +13,26 @@ import SwiftKeychainWrapper
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboardName = "Sign"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        var storyboardName = "Sign"
         DataService.verifySessionToken { (isValidToken) in
             if isValidToken {
-                storyboardName = "Dashboard"
+                print("entoru")
+                self.storyboardName = "Dashboard"
             }
             else {
                 KeychainWrapper.standard.removeAllKeys()
             }
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: self.storyboardName, bundle: nil)
+                self.window?.rootViewController = storyboard.instantiateInitialViewController()
+                self.window?.makeKeyAndVisible()
+            }
         }
         
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        
-        self.window?.makeKeyAndVisible()
         return true
     }
 
