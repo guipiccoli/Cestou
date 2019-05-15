@@ -183,6 +183,7 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="TZo-UF-WIq" id="KRf-Ax-1o1"/>
                                             <outlet property="dataCompra" destination="wBw-aN-tHc" id="ru5-Ym-zwJ"/>
+                                            <outlet property="marketplaceCompra" destination="0d5-7K-kvH" id="r6t-tQ-wJP"/>
                                             <outlet property="totalCompra" destination="WBZ-bR-t4H" id="nsZ-0r-IXb"/>
                                         </connections>
                                     </tableViewCell>

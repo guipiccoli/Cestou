@@ -19,6 +19,7 @@ class HistoricoComprasController: UIViewController {
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     var totalExpenses: Double = 1500
+    var shoppings: [Shopping] = []
     
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -57,6 +58,21 @@ class HistoricoComprasController: UIViewController {
         var totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
+        
+        DataService.getShopping(month: months[0]) { (balance) in
+            guard let _balance = balance else {
+                fatalError()
+            }
+            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+            guard let _shoppings = balance?.monthlyShoppings else {
+                return
+            }
+            self.shoppings = _shoppings
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+
     }
 }
 
@@ -119,17 +135,35 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
+        DataService.getShopping(month: months[indexPath.row]) { (balance) in
+            guard let _balance = balance else {
+                fatalError()
+            }
+            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+            guard let _shoppings = balance?.monthlyShoppings else {
+                return
+            }
+            self.shoppings = _shoppings
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
 extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //grafico categoria - gastos por dia - planejamento mensal
-        return 3
+        return self.shoppings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
+        let shopping = shoppings[indexPath.row]
+        
+        cell.marketplaceCompra.text = shopping.marketplace.name
+        cell.totalCompra.text = String(shopping.cost)
+        cell.dataCompra.text = shopping.date
+        
         return cell
         
     }

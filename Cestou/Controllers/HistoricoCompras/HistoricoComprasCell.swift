@@ -15,6 +15,7 @@ class HistoricoComprasCell: UITableViewCell {
     @IBOutlet weak var backgroundCardView: UIView!
     @IBOutlet var totalCompra: UILabel!
     @IBOutlet var dataCompra: UILabel!
+    @IBOutlet var marketplaceCompra: UILabel!
     
     
     override func awakeFromNib() {
