@@ -187,7 +187,7 @@
         <scene sceneID="tXT-UL-2tv">
             <objects>
                 <viewController id="J9e-Le-WfL" customClass="SpentController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="M7w-dO-pFD" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="M7w-dO-pFD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

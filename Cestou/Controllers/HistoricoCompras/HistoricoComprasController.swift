@@ -59,20 +59,21 @@ class HistoricoComprasController: UIViewController {
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
         
-        DataService.getShopping(month: months[0]) { (balance) in
-            guard let _balance = balance else {
-                fatalError()
-            }
-            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
-            guard let _shoppings = balance?.monthlyShoppings else {
-                return
-            }
-            self.shoppings = _shoppings
+        DataService.getShopping(month: 4) { (balance) in
             DispatchQueue.main.async {
+                guard let _balance = balance else {
+                    self.totalExpensesLabel.text = "R$0.00"
+                    return
+                }
+                self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+                guard let _shoppings = balance?.monthlyShoppings else {
+                    return
+                }
+                self.shoppings = _shoppings
                 self.tableView.reloadData()
             }
         }
-
+        
     }
 }
 
@@ -135,7 +136,8 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
-        DataService.getShopping(month: months[indexPath.row]) { (balance) in
+        DataService.getShopping(month: indexPath.row) { (balance) in
+            DispatchQueue.main.async {
             guard let _balance = balance else {
                 fatalError()
             }
@@ -144,7 +146,7 @@ extension HistoricoComprasController: UICollectionViewDelegate {
                 return
             }
             self.shoppings = _shoppings
-            DispatchQueue.main.async {
+            
                 self.tableView.reloadData()
             }
         }

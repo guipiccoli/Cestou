@@ -16,12 +16,12 @@ class ShoppingHistoryController: UIViewController {
     private let ShoppingCellIdentifier = "ShoppingCellIdentifier"
     var shoppings: [Shopping] = []
     var monthlyBalance: Double = 0.0
-    var month = "May"
+    var month: Int = 4
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        DataService.getShopping(month: month) { (balance) in
+        DataService.getShopping(month: 4) { (balance) in
             guard let _balance = balance else {
                 fatalError()
             }

@@ -53,9 +53,9 @@ struct DataService {
         
     }
     
-    static func getShopping(month: String, completionHandler completion: @escaping (Balance?) -> Void) {
+    static func getShopping(month: Int, completionHandler completion: @escaping (Balance?) -> Void) {
         guard
-            let _url = URL(string: "\(self.url)/functions/monthlyBalance")
+            let _url = URL(string: "\(self.url)/functions/monthlyBalance/\(month)")
             else {
                 print("error trying to generate url")
                 completion(nil)
@@ -71,7 +71,9 @@ struct DataService {
             } else {
                 if let response = response as? HTTPURLResponse {
                     print("statusCode: \(response.statusCode)")
-                    completion(nil)
+                    if (response.statusCode != 400) {
+                        completion(nil)
+                    }
                 }
                 if let data = data, let balance = try? JSONDecoder().decode(Balance.self, from: data) {
                     print("data: \(balance.description)")

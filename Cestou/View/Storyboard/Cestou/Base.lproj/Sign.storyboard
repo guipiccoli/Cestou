@@ -157,7 +157,7 @@
         <scene sceneID="zyf-FJ-vv1">
             <objects>
                 <viewController id="sEd-KB-AqB" customClass="SignUpController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="oJw-eC-CDq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -384,6 +384,6 @@
         <image name="coinsBackground" width="320" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EjU-Bb-aMd"/>
+        <segue reference="iam-DA-g23"/>
     </inferredMetricsTieBreakers>
 </document>
