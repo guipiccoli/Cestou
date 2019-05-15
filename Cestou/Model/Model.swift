@@ -49,6 +49,17 @@ struct Shopping: Codable {
         self.date = date
         cost = products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
     }
+    
+    func prettyDate() ->String {
+        if let range = self.date.range(of: "T") {
+            let _date = self.date[range.upperBound...]
+            let arrayOfDateComp = _date.components(separatedBy: "-")
+            return arrayOfDateComp[2] + "/" + arrayOfDateComp[1] + "/" + arrayOfDateComp[0]
+        }
+        else {
+            return "00/00/0000"
+        }
+    }
 }
 
 struct Marketplace: Codable {
