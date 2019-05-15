@@ -9,6 +9,7 @@
 import Foundation
 
 struct Product: Codable {
+    
     var code: String
     var name: String
     var quantity: Double
@@ -33,7 +34,17 @@ struct Shopping: Codable {
 
     init(accessKey: String, products: [Product], marketplace: Marketplace, date: String) {
         self.accessKey = accessKey
-        self.products = products
+        var mapProducts = Dictionary<String, Product>()
+        for product in products {
+            if let _product = mapProducts[product.name] {
+                mapProducts[product.name] = product
+                mapProducts[product.name]?.quantity += _product.quantity
+            }
+            else {
+                mapProducts[product.name] = product
+            }
+        }
+        self.products = mapProducts.map {$0.value}
         self.marketplace = marketplace
         self.date = date
         cost = products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
