@@ -1,40 +1,42 @@
 //
-//  ViewController.swift
+//  HistoricoComprasController.swift
 //  Cestou
 //
-//  Created by Guilherme Piccoli on 26/04/19.
+//  Created by Rafael Ferreira on 14/05/19.
 //  Copyright © 2019 Guilherme Piccoli. All rights reserved.
 //
 
 import UIKit
 import CenteredCollectionView
 import SwiftKeychainWrapper
-class DashboardViewController: UIViewController {
-
-    @IBOutlet var collectionView: UICollectionView!
-
+class HistoricoComprasController: UIViewController {
     
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var totalExpensesLabel: UILabel!
+    
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     var totalExpenses: Double = 1500
-
-    var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
+    var shoppings: [Shopping] = []
     
-    @IBOutlet weak var graphTableView: UITableView!
+    var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         let gradientLayer = CAGradientLayer()
         let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
         let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
-
+        
         gradientLayer.colors = [leftColorGradient,rightColorGradient]
-
+        
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.frame = headerView.bounds
@@ -45,13 +47,10 @@ class DashboardViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        graphTableView.dataSource = self
-        graphTableView.delegate = self
-        
         centeredCollectionViewFlowLayout.itemSize = CGSize (
             width: view.bounds.width * cellPercentWidth,
             height: view.bounds.height * cellPercentWidth * cellPercentWidth)
-
+        
         centeredCollectionViewFlowLayout.minimumLineSpacing = 40
         
         collectionView.showsHorizontalScrollIndicator = false
@@ -59,17 +58,33 @@ class DashboardViewController: UIViewController {
         var totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
+        
+        DataService.getShopping(month: 4) { (balance) in
+            DispatchQueue.main.async {
+                guard let _balance = balance else {
+                    self.totalExpensesLabel.text = "R$0.00"
+                    return
+                }
+                self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+                guard let _shoppings = balance?.monthlyShoppings else {
+                    return
+                }
+                self.shoppings = _shoppings
+                self.tableView.reloadData()
+            }
+        }
+        
     }
 }
 
-extension DashboardViewController: UICollectionViewDataSource {
+extension HistoricoComprasController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return months.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MonthCollectionViewCell
-        cell.monthLabel.text = months[indexPath.row]
+        cell.monthLabelHistorico.text = months[indexPath.row]
         
         //sets the alpha for all the cells to 0.5
         cell.alpha = 0.5
@@ -84,7 +99,7 @@ extension DashboardViewController: UICollectionViewDataSource {
     }
 }
 
-extension DashboardViewController: UICollectionViewDelegate {
+extension HistoricoComprasController: UICollectionViewDelegate {
     //Implementa a funcao de clicar para ir ate uma celula vizinha (alternativa ao scroll)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
@@ -121,50 +136,37 @@ extension DashboardViewController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
+        DataService.getShopping(month: indexPath.row) { (balance) in
+            DispatchQueue.main.async {
+            guard let _balance = balance else {
+                fatalError()
+            }
+            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+            guard let _shoppings = balance?.monthlyShoppings else {
+                return
+            }
+            self.shoppings = _shoppings
+            
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
-extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
+extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //grafico categoria - gastos por dia - planejamento mensal
-        return 3
+        return self.shoppings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
-            categoryCell.configure()
-            return categoryCell
-        }
-        else if indexPath.row == 1 {
-            let dailyExpensesCell = graphTableView.dequeueReusableCell(withIdentifier: "DailyExpenses") as! DailyExpensesTableViewCell
-            dailyExpensesCell.getMonth = months[centeredCollectionViewFlowLayout.currentCenteredPage!]
-            dailyExpensesCell.configure()
-            return dailyExpensesCell
-        }
-        else if indexPath.row == 2 {
-            let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
-            monthlyPlanningCell.configure()
-            return monthlyPlanningCell
-        }
-        else {
-            let cell = UITableViewCell()
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
+        let shopping = shoppings[indexPath.row]
+        
+        cell.marketplaceCompra.text = shopping.marketplace.name
+        cell.totalCompra.text = String(shopping.cost)
+        cell.dataCompra.text = shopping.date
+        
+        return cell
+        
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        cell.contentView.layer.shadowColor = UIColor.lightGray.cgColor
-//        cell.contentView.layer.shadowRadius = 10
-//
-//        cell.contentView.layer.shadowOpacity = 0.20
-//        cell.contentView.layer.masksToBounds = false
-//        cell.clipsToBounds = false
-//
-//        cell.contentView.layer.cornerRadius = 20
-//
-//
-//    }
-    
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0409A481228B401C004FA62F /* HistoricoCompras.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0409A480228B401C004FA62F /* HistoricoCompras.storyboard */; };
+		0409A484228B40EE004FA62F /* HistoricoComprasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409A483228B40EE004FA62F /* HistoricoComprasController.swift */; };
+		0409A486228B51EC004FA62F /* HistoricoComprasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */; };
 		04311E382278C68E00687796 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04311E372278C68E00687796 /* DetailsViewController.swift */; };
 		0448B4BE2282137800E1CC81 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BD2282137800E1CC81 /* CategoryTableViewCell.swift */; };
 		0448B4C0228213A300E1CC81 /* DailyExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4BF228213A300E1CC81 /* DailyExpensesTableViewCell.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0409A480228B401C004FA62F /* HistoricoCompras.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoricoCompras.storyboard; sourceTree = "<group>"; };
+		0409A483228B40EE004FA62F /* HistoricoComprasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoComprasController.swift; sourceTree = "<group>"; };
+		0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoComprasCell.swift; sourceTree = "<group>"; };
 		04311E372278C68E00687796 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Cestou/Controllers/Scanner/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		0448B4BD2282137800E1CC81 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		0448B4BF228213A300E1CC81 /* DailyExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpensesTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0409A482228B40BE004FA62F /* HistoricoCompras */ = {
+			isa = PBXGroup;
+			children = (
+				0409A483228B40EE004FA62F /* HistoricoComprasController.swift */,
+				0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */,
+			);
+			path = HistoricoCompras;
+			sourceTree = "<group>";
+		};
 		0496962422820D3C0060BE59 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +184,7 @@
 		E772A62D2280A62000B212B1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0409A482228B40BE004FA62F /* HistoricoCompras */,
 				0496962422820D3C0060BE59 /* Charts */,
 				E772A62E2280A62B00B212B1 /* Scanner */,
 				46D46C43227B655C00A779F7 /* Onboard */,
@@ -221,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E772A6352280C32900B212B1 /* Sign.storyboard */,
+				0409A480228B401C004FA62F /* HistoricoCompras.storyboard */,
 				E7A51E64227CB65200B6419D /* Dashboard.storyboard */,
 				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
 				4674F877228496CD00C30E76 /* OnBoard.storyboard */,
@@ -331,6 +348,7 @@
 			files = (
 				E7827DBF2273919D00585AB3 /* Assets.xcassets in Resources */,
 				E772A6372280C32900B212B1 /* Sign.storyboard in Resources */,
+				0409A481228B401C004FA62F /* HistoricoCompras.storyboard in Resources */,
 				4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */,
 				E7A51E66227CB65200B6419D /* Dashboard.storyboard in Resources */,
 				190B7E5F2289ECD200B6AB1F /* ShoppingHistory.storyboard in Resources */,
@@ -405,6 +423,8 @@
 				46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */,
 				466EFDC12285F360009D5F7A /* ForgotPasswordController.swift in Sources */,
 				0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */,
+				0409A484228B40EE004FA62F /* HistoricoComprasController.swift in Sources */,
+				0409A486228B51EC004FA62F /* HistoricoComprasCell.swift in Sources */,
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
@@ -577,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.derp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,7 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.eduardo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.derp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

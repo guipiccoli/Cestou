@@ -83,7 +83,8 @@ struct ProductCategory: Codable {
     }
     
     init(productName: String) {
-        var arrayOfStrings = productName.split(separator: " ")
+        let _productName = productName.replacingOccurrences(of: "&", with: "")
+        var arrayOfStrings = _productName.split(separator: " ")
         arrayOfStrings = arrayOfStrings.filter({$0.count > 2})
         for (categoryName, catalog) in categories {
             for string in arrayOfStrings {

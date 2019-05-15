@@ -130,7 +130,7 @@ struct NFScrapper {
         do {
             for product in products {
                 let code = try product.child(0).text()
-                let name = try product.child(1).text()
+                let name = try product.child(1).text().replacingOccurrences(of: "&", with: "")
                 let _quantity = try product.child(2).text().replacingOccurrences(of: ",", with: ".")
                 let unity = try product.child(3).text()
                 let _valUnit = try product.child(4).text().replacingOccurrences(of: ",", with: ".")

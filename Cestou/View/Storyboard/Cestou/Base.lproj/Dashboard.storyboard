@@ -379,6 +379,7 @@
                     <connections>
                         <segue destination="SkX-Gr-5GH" kind="relationship" relationship="viewControllers" id="gnT-gX-w7g"/>
                         <segue destination="qhB-hD-ZqD" kind="relationship" relationship="viewControllers" id="J4G-Ki-s7s"/>
+                        <segue destination="FtD-Kj-DIf" kind="relationship" relationship="viewControllers" id="QXM-CN-lY3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llj-al-rKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,9 +576,19 @@
             </objects>
             <point key="canvasLocation" x="5185.507246376812" y="677.67857142857144"/>
         </scene>
+        <!--HistoricoCompras-->
+        <scene sceneID="gFE-Zf-8tq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HistoricoCompras" id="FtD-Kj-DIf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="KDV-NV-Ftx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTG-bW-4Jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="853"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="pie-chart-stats" width="26" height="26"/>
+        <image name="pie-chart-stats" width="31" height="31"/>
         <image name="scanner-icon" width="26" height="26"/>
     </resources>
 </document>
