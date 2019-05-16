@@ -52,7 +52,8 @@ struct Shopping: Codable {
     
     func prettyDate() ->String {
         if let range = self.date.range(of: "T") {
-            let _date = self.date[range.upperBound...]
+            print("Versao inicial", self.date)
+            let _date = self.date[...range.lowerBound].replacingOccurrences(of: "T", with: "")
             let arrayOfDateComp = _date.components(separatedBy: "-")
             return arrayOfDateComp[2] + "/" + arrayOfDateComp[1] + "/" + arrayOfDateComp[0]
         }
