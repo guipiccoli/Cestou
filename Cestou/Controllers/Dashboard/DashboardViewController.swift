@@ -164,6 +164,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         guard let balances = balances else {return UITableViewCell()}
         if indexPath.row == 0 {
             let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
+            categoryCell.balanceMonth = self.balances![month]
             categoryCell.configure()
             return categoryCell
         }

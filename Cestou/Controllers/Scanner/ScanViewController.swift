@@ -23,14 +23,12 @@ class ScanViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if DetailsViewController.didConfirm{
-            self.tabBarController?.selectedIndex = 2
-        }
-    }
-    
-    override func viewDidLoad() {
+    func setCamera() {
+        
+        
+//        captureSession.stopRunning()
+        captureSession = AVCaptureSession()
+        
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else {
             print("Failed to access the camera")
             return
@@ -71,11 +69,23 @@ class ScanViewController: UIViewController {
             print(error)
             return
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if DetailsViewController.didConfirm{
+            self.tabBarController?.selectedIndex = 2
+            DetailsViewController.didConfirm = false
+        } else {
+            setCamera()
+        }
+    }
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    var captureSession = AVCaptureSession()
+    var captureSession: AVCaptureSession!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
 }

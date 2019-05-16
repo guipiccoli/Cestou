@@ -22,6 +22,8 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet var noDataText: UILabel!
     @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var categoryChart: PieChartView!
+    var balanceMonth: Balance?
+    var categories: [String: Double] = [:]
     var mockGet: [String: Double] = ["Categoria 1":200.00, "Categoria 2":430.00, "Categoria 3":100.00, "Categoria 4":179.00,"Categoria 5":179.00]
     
     
@@ -36,16 +38,30 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     func configure() {
-        var categories: [String] = []
+        var categoriesA: [String] = []
         var valueSpent: [Double] = []
         
+        if let _balanceMonth = self.balanceMonth, let shoppings = _balanceMonth.monthlyShoppings {
+            for nota in shoppings {
+                for item in nota.products {
+                    if categories[item.productCategory.name] != nil {
+                        self.categories[item.productCategory.name]! += (item.unitPrice * item.quantity)
+                    }
+                    else {
+                        self.categories[item.productCategory.name] = (item.unitPrice * item.quantity)
+                    }
+                }
+            }
+        }
         
-        for entry in mockGet {
-            categories.append( "\(entry.key): R$ \(entry.value)")
+        print(categories)
+        
+        for entry in categories {
+            categoriesA.append( "\(entry.key): R$ \(entry.value)")
             valueSpent.append(entry.value)
         }
         
-        setChart(dataPoints: categories, values: valueSpent)
+        setChart(dataPoints: categoriesA, values: valueSpent)
         if mockGet.count == 0 {
             noDataText.isHidden = false
         }
