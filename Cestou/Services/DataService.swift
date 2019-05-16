@@ -210,15 +210,22 @@ struct DataService {
         var result: [Balance] = []
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
+        
+        guard let body = try? JSONEncoder().encode(["year": year]) else {
+            print("error trying to encode json data")
+            completion(nil)
+            return
+        }
+        
         guard
-            let _url = URL(string: "\(self.url)/functions/Dashboard/\(year)")
+            let _url = URL(string: "\(self.url)/functions/balances")
             else {
                 print("error trying to generate url")
                 completion(nil)
                 return
         }
         
-        let parseRequest = ParseRequest(url: _url)
+        let parseRequest = ParseRequest(url: _url, body: body)
         
         let task = session.dataTask(with: parseRequest.getRequest()) { (data, response, error) in
             if let error = error {
@@ -227,15 +234,21 @@ struct DataService {
             } else {
                 if let response = response as? HTTPURLResponse {
                     print("statusCode: \(response.statusCode)")
-                    if (response.statusCode != 400) {
+                    print(body)
+                    if (response.statusCode != 200) {
                         completion(nil)
                     }
                 }
-                if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    for (_, balance) in json {
-                        if let _balance = balance as? Balance {
-                            result.append(_balance)
+                if let data = data, let json = try? JSONSerialization.jsonObject(with: data) as? [String: NSArray] {
+                    guard let _json = json["result"] else {
+                        return
+                    }
+                    print(_json)
+                    for (balance) in _json {
+                        let b = balance as? [String: Any]
+                        if let _balance = try? JSONSerialization.data(withJSONObject: b as Any, options: []), let __balance = try? JSONDecoder().decode(Balance.self, from: _balance)  {
+                            print(__balance.description)
+                            result.append(__balance)
                         }
                     }
                     completion(result)

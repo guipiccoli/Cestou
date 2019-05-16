@@ -13,6 +13,8 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
 
     @IBOutlet weak var monthlyPlanningChart: BarChartView!
     @IBOutlet weak var backgroundCardView: UIView!
+    @IBOutlet var noDataView: UIView!
+    @IBOutlet var noDataText: UILabel!
     
    // @IBOutlet weak var planningValueLabel: UILabel!
    // @IBOutlet weak var expensesValueLabel: UILabel!
@@ -22,10 +24,16 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if mockGet.count > 0 {
+            noDataView.isHidden = true
+            noDataText.isHidden = true
+        }
     }
 
     func configure() {
-        setChart()
+        if mockGet.count > 0 {
+            setChart()
+        }
         
         //planningValueLabel.text = "R$\(mockGet["Planning"]!)"
         //expensesValueLabel.text = "R$\(mockGet["Expenses"]!)"

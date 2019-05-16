@@ -20,6 +20,7 @@ class SignUpController: UIViewController {
     
     private var warningField: Bool = true
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         email.delegate = self;

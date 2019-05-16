@@ -10,14 +10,14 @@ import Foundation
 
 struct Product: Codable {
     
-    var code: String
+    var marketplaceCode: String
     var name: String
     var quantity: Double
     var unitPrice: Double
-    var unity: String
+    var unit: String
     var productCategory: ProductCategory
     var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice), Category: \(productCategory.name)"
+        return "Quantity: \(quantity)\(unit) Code: \(marketplaceCode), Name: \(name), Unity Price: \(unitPrice), Category: \(productCategory.name)"
     }
 }
 
@@ -52,7 +52,8 @@ struct Shopping: Codable {
     
     func prettyDate() ->String {
         if let range = self.date.range(of: "T") {
-            let _date = self.date[range.upperBound...]
+            print("Versao inicial", self.date)
+            let _date = self.date[...range.lowerBound].replacingOccurrences(of: "T", with: "")
             let arrayOfDateComp = _date.components(separatedBy: "-")
             return arrayOfDateComp[2] + "/" + arrayOfDateComp[1] + "/" + arrayOfDateComp[0]
         }

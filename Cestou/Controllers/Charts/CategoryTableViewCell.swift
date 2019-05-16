@@ -19,6 +19,7 @@ enum PieChartColors {
 
 class CategoryTableViewCell: UITableViewCell {
 
+    @IBOutlet var noDataText: UILabel!
     @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var categoryChart: PieChartView!
     var mockGet: [String: Double] = ["Categoria 1":200.00, "Categoria 2":430.00, "Categoria 3":100.00, "Categoria 4":179.00,"Categoria 5":179.00]
@@ -31,7 +32,7 @@ class CategoryTableViewCell: UITableViewCell {
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false
-        
+        noDataText.isHidden = true
     }
     
     func configure() {
@@ -45,6 +46,9 @@ class CategoryTableViewCell: UITableViewCell {
         }
         
         setChart(dataPoints: categories, values: valueSpent)
+        if mockGet.count == 0 {
+            noDataText.isHidden = false
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

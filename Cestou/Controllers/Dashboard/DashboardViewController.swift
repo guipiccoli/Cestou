@@ -27,6 +27,10 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var graphTableView: UITableView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //initializes our collectionViewLayout as a FlowLayout (pod)
@@ -59,10 +63,15 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        
-        let totalExpensesRounded = String(format: "%.2f", balances[0].expense) //Arredonda o Double para 2 digitos
+        let totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
+        
+        //TESTE DO REQUEST DE DADOS DO SERVIDOR
+        DataService.getDashboard { (result: [Balance]?) in
+            //print(result)
+        }
+        
     }
 }
 

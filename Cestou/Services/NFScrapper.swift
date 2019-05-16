@@ -141,7 +141,7 @@ struct NFScrapper {
                         print("quantity fields bad formating")
                         return nil
                 }
-                result.append(Product(code: code, name: name, quantity: quantity, unitPrice: valUnit, unity: unity, productCategory: ProductCategory(productName: name)))
+                result.append(Product(marketplaceCode: code, name: name, quantity: quantity, unitPrice: valUnit, unit: unity, productCategory: ProductCategory(productName: name)))
             }
         }
         catch{

@@ -17,6 +17,11 @@ class ShoppingHistoryController: UIViewController {
     var shoppings: [Shopping] = []
     var monthlyBalance: Double = 0.0
     var month: Int = 4
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
