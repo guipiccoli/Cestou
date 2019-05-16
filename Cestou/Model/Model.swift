@@ -10,14 +10,14 @@ import Foundation
 
 struct Product: Codable {
     
-    var code: String
+    var marketplaceCode: String
     var name: String
     var quantity: Double
     var unitPrice: Double
-    var unity: String
+    var unit: String
     var productCategory: ProductCategory
     var description: String {
-        return "Quantity: \(quantity)\(unity) Code: \(code), Name: \(name), Unity Price: \(unitPrice), Category: \(productCategory.name)"
+        return "Quantity: \(quantity)\(unit) Code: \(marketplaceCode), Name: \(name), Unity Price: \(unitPrice), Category: \(productCategory.name)"
     }
 }
 

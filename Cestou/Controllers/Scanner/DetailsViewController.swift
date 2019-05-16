@@ -56,7 +56,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let product = shopping?.products[indexPath.row] else {fatalError()}
         cell.productName.text = product.name.lowercased()
         cell.quantity.text = String(product.quantity).lowercased()
-        cell.unit.text = String(product.unity).lowercased()
+        cell.unit.text = String(product.unit).lowercased()
         cell.totalPrice.text = String( (product.unitPrice.rounded()) * (product.quantity.rounded()) ).lowercased()
         
         return cell
