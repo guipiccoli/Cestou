@@ -21,8 +21,14 @@ class DetailsViewController: UIViewController {
     var stringQrCode: String?
     var shopping: Shopping? = nil
     
+    
+    static var didConfirm = false
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -74,8 +80,10 @@ class DetailsViewController: UIViewController {
         DataService.saveShopping(shopping: _shopping) { (result) in
             print(result)
         }
+        
+        DetailsViewController.didConfirm = true
+        self.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 

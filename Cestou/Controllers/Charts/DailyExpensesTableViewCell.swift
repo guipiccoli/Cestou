@@ -14,10 +14,11 @@ class DailyExpensesTableViewCell: UITableViewCell {
     @IBOutlet var noDataText: UILabel!
     @IBOutlet var backgroundCardView: UIView!
     @IBOutlet weak var dailyExpensesChart: LineChartView!
-    var getMonth: String = "Janeiro"
+    var getMonth: Int = 0
+    var balanceMonth: Balance?
     
-    var mockGet: [Int: Double] = [3: 400.00, 5: 100.00, 10: 200.0, 20:300, 30:400, 25:100]
-    var daysPerMonth: [String:Int] = ["Janeiro":31,"Fevereiro":29, "Marco":31, "Abril":30, "Maio":31, "Junho":30, "Julho":31, "Agosto":31, "Setembro":30, "Outubro":31, "Novembro":30, "Dezembro":31]
+    var expenses: [Int: Double] = [:]
+    var daysPerMonth: [Int] = [31,29,31,30,31,30,31,31,30,31,30,31]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,11 +34,23 @@ class DailyExpensesTableViewCell: UITableViewCell {
     func configure() {
         var days: [Int] = []
         var valueSpent: [Double] = []
-        
-        for i in 0 ..< daysPerMonth[getMonth]! {
-            if mockGet[i] != nil {
+        expenses = [:]
+        if let _balanceMonth = self.balanceMonth, let shoppings = _balanceMonth.monthlyShoppings {
+            for item in shoppings {
+                if var expense = expenses[Int(String(item.prettyDate().prefix(2)))! ] {
+                    expense += item.cost
+                    expenses[Int(String(item.prettyDate().prefix(2)))!] = expense
+                }
+                else {
+                    expenses[Int(String(item.prettyDate().prefix(2)))!] = item.cost
+                }
+            }
+        }
+        print(expenses)
+        for i in 0 ..< daysPerMonth[getMonth] {
+            if expenses[i] != nil {
                 days.append(i)
-                valueSpent.append(mockGet[i]!)
+                valueSpent.append(expenses[i]!)
             }
             else {
                 days.append(i)
@@ -45,17 +58,24 @@ class DailyExpensesTableViewCell: UITableViewCell {
             }
         }
         
-        if mockGet.count > 0 {
+        if expenses.count > 0 {
             noDataText.isHidden = true
+            dailyExpensesChart.isHidden = false
             setChart(dataPoints: days, values: valueSpent)
         }
+        else {
+//           falta trazer a mensagem de erro
+            noDataText.isHidden = false
+            dailyExpensesChart.isHidden = true
+            
+        }
+        
+        
         
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     func setChart(dataPoints: [Int], values: [Double]) {

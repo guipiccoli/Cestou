@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="bottom" secondItem="elI-26-Ddx" secondAttribute="bottom" id="oTE-GY-jgV"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-bQ-DWB">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-bQ-DWB">
                                 <rect key="frame" x="0.0" y="164" width="414" height="753"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -173,24 +173,19 @@
                                                                 <constraint firstAttribute="height" constant="1" id="TG9-XN-38J"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-aV-XQv">
+                                                            <rect key="frame" x="22" y="80" width="323" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="90" id="fhf-zF-3u3"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crs-Jo-WkL" customClass="LineChartView" customModule="Charts">
                                                             <rect key="frame" x="5" y="45" width="361" height="170"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-aV-XQv">
-                                                                    <rect key="frame" x="19" y="55" width="323" height="60"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="323" id="8QI-Ul-yA7"/>
-                                                                        <constraint firstAttribute="height" constant="60" id="yxT-Ma-JFP"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerY" secondItem="crs-Jo-WkL" secondAttribute="centerY" id="Y1D-5b-PBZ"/>
-                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerX" secondItem="crs-Jo-WkL" secondAttribute="centerX" id="fFU-8d-iuR"/>
                                                                 <constraint firstAttribute="height" constant="170" id="zfz-2b-Ary"/>
                                                             </constraints>
                                                         </view>
@@ -198,6 +193,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="crs-Jo-WkL" firstAttribute="leading" secondItem="tlo-hk-259" secondAttribute="leading" constant="5" id="3m8-QE-Ut8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Gvo-aV-XQv" secondAttribute="trailing" constant="23" id="7T7-ER-ZtB"/>
                                                         <constraint firstAttribute="bottom" secondItem="crs-Jo-WkL" secondAttribute="bottom" constant="5" id="Amp-2C-4uO"/>
                                                         <constraint firstAttribute="trailing" secondItem="crs-Jo-WkL" secondAttribute="trailing" constant="2" id="JWY-cz-8ZD"/>
                                                         <constraint firstItem="vJy-9R-DH9" firstAttribute="top" secondItem="tlo-hk-259" secondAttribute="topMargin" constant="8" id="MuR-91-IXW"/>
@@ -205,6 +201,8 @@
                                                         <constraint firstItem="P8C-4F-hHW" firstAttribute="top" secondItem="vJy-9R-DH9" secondAttribute="bottom" constant="8" id="Xdw-Zq-MAa"/>
                                                         <constraint firstItem="crs-Jo-WkL" firstAttribute="top" secondItem="P8C-4F-hHW" secondAttribute="bottom" constant="5" id="aXT-cO-vJP"/>
                                                         <constraint firstAttribute="trailing" secondItem="P8C-4F-hHW" secondAttribute="trailing" constant="10" id="dTM-RE-Grx"/>
+                                                        <constraint firstItem="Gvo-aV-XQv" firstAttribute="top" secondItem="P8C-4F-hHW" secondAttribute="bottom" constant="40" id="dpB-iy-1ay"/>
+                                                        <constraint firstItem="Gvo-aV-XQv" firstAttribute="leading" secondItem="tlo-hk-259" secondAttribute="leading" constant="22" id="kqv-Xl-aF6"/>
                                                         <constraint firstItem="P8C-4F-hHW" firstAttribute="leading" secondItem="tlo-hk-259" secondAttribute="leading" constant="10" id="vbE-GF-A38"/>
                                                     </constraints>
                                                 </view>
@@ -222,7 +220,7 @@
                                             <outlet property="noDataText" destination="Gvo-aV-XQv" id="Rxi-ZE-Nol"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MonthlyPlanning" rowHeight="185" id="rxW-iN-3ul" customClass="MonthlyPlanningTableViewCell" customModule="Cestou" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MonthlyPlanning" rowHeight="185" id="rxW-iN-3ul" customClass="MonthlyPlanningTableViewCell" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="488" width="414" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rxW-iN-3ul" id="rZm-kt-xrV">
@@ -497,7 +495,7 @@
                                                 </constraints>
                                                 <state key="normal" image="backButton"/>
                                                 <connections>
-                                                    <segue destination="Wbf-4c-ZLW" kind="show" id="tmq-6f-u8h"/>
+                                                    <action selector="backButtonPressed:" destination="1gb-XH-zkT" eventType="touchUpInside" id="gTF-bA-exu"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -725,7 +723,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTG-bW-4Jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="853"/>
+            <point key="canvasLocation" x="3875" y="1196"/>
         </scene>
     </scenes>
     <resources>

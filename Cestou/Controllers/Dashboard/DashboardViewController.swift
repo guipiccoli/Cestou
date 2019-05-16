@@ -169,7 +169,8 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else if indexPath.row == 1 {
             let dailyExpensesCell = graphTableView.dequeueReusableCell(withIdentifier: "DailyExpenses") as! DailyExpensesTableViewCell
-            dailyExpensesCell.getMonth = months[centeredCollectionViewFlowLayout.currentCenteredPage!]
+            dailyExpensesCell.getMonth = self.month
+            dailyExpensesCell.balanceMonth = self.balances![month]
             dailyExpensesCell.configure()
             return dailyExpensesCell
         }
@@ -194,6 +195,5 @@ extension DashboardViewController {
         self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         self.month = index.row
         self.graphTableView.reloadData()
-        
     }
 }

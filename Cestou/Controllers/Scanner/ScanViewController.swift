@@ -23,6 +23,13 @@ class ScanViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if DetailsViewController.didConfirm{
+            self.tabBarController?.selectedIndex = 2
+        }
+    }
+    
     override func viewDidLoad() {
         guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else {
             print("Failed to access the camera")
