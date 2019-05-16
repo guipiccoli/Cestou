@@ -13,7 +13,7 @@ class DashboardViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
 
-    
+    var month: Int = 4
     @IBOutlet weak var headerView: UIView!
     @IBOutlet var totalExpensesLabel: UILabel!
     let cellPercentWidth: CGFloat = 0.2
@@ -21,7 +21,7 @@ class DashboardViewController: UIViewController {
     //var totalExpenses: Double = 0
     var incoming: Double = 0
     var expensesPlanned: Double = 0
-    var balances: [Balance] = [] //Um array contendo os 12 balancos, enumerados de 0 a 11
+    var balances: [Balance]? //Um array contendo os 12 balancos, enumerados de 0 a 11
 
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -66,12 +66,18 @@ class DashboardViewController: UIViewController {
         totalExpensesLabel.sizeToFit()
         
         //TESTE DO REQUEST DE DADOS DO SERVIDOR
-        centeredCollectionViewFlowLayout.scrollToPage(index: 4, animated: true)
+        let date = Date()
+        let calendar = Calendar.current
+        self.month = calendar.component(.month, from: date) - 1
+        
+        
+        centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
                 self.balances = result ?? []
-                
-                let totalExpensesRounded = String(format: "%.2f", (result?[4].expense)!)
+                self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
+                self.graphTableView.reloadData()
+                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
             }
         }
@@ -107,8 +113,8 @@ extension DashboardViewController: UICollectionViewDelegate {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
-            let totalExpensesRounded = String(format: "%.2f", (balances[indexPath.row].expense))
-            self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+            refreshDataPerMonth(index: indexPath)
+
         }
     }
     
@@ -131,8 +137,8 @@ extension DashboardViewController: UICollectionViewDelegate {
         cellCentered.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         cellCentered.alpha = 1.0
         
-        let totalExpensesRounded = String(format: "%.2f", (balances[index.row].expense))
-        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+        refreshDataPerMonth(index: index)
+
     }
     
     //Centers the collectionView on a cell if the user didnt centered it
@@ -144,8 +150,7 @@ extension DashboardViewController: UICollectionViewDelegate {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
         
-        let totalExpensesRounded = String(format: "%.2f", (balances[indexPath.row].expense))
-        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+        refreshDataPerMonth(index: indexPath)
     }
 }
 
@@ -156,6 +161,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let balances = balances else {return UITableViewCell()}
         if indexPath.row == 0 {
             let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
             categoryCell.configure()
@@ -169,6 +175,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         }
         else if indexPath.row == 2 {
             let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
+            monthlyPlanningCell.balanceMonth = self.balances![month]
             monthlyPlanningCell.configure()
             return monthlyPlanningCell
         }
@@ -177,19 +184,16 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
+}
+
+extension DashboardViewController {
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        cell.contentView.layer.shadowColor = UIColor.lightGray.cgColor
-//        cell.contentView.layer.shadowRadius = 10
-//
-//        cell.contentView.layer.shadowOpacity = 0.20
-//        cell.contentView.layer.masksToBounds = false
-//        cell.clipsToBounds = false
-//
-//        cell.contentView.layer.cornerRadius = 20
-//
-//
-//    }
-    
+    func refreshDataPerMonth(index: IndexPath) {
+        
+        let totalExpensesRounded = String(format: "%.2f", (balances![index.row].expense))
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+        self.month = index.row
+        self.graphTableView.reloadData()
+        
+    }
 }

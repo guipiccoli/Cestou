@@ -381,9 +381,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="backgroundCardView" destination="r6S-oO-Cy8" id="bW8-HK-sWb"/>
+                                            <outlet property="balancoLabel" destination="J9v-S1-jLz" id="VS3-gc-7Nr"/>
+                                            <outlet property="gastoProjetadoLabel" destination="Ztw-fb-BkM" id="P9U-bR-a94"/>
+                                            <outlet property="gastosLabel" destination="QIQ-Ub-8X4" id="Cts-Vm-eBP"/>
                                             <outlet property="monthlyPlanningChart" destination="dbO-V1-Iwd" id="d7Z-7L-5K2"/>
                                             <outlet property="noDataText" destination="8DW-ZH-plX" id="baz-Ty-AqC"/>
                                             <outlet property="noDataView" destination="YCv-Qo-nhU" id="Lch-HB-cIj"/>
+                                            <outlet property="rendaLabel" destination="tXB-kp-d0F" id="W7s-2J-Htn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

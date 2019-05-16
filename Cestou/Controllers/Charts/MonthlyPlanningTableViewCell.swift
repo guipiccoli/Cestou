@@ -10,54 +10,62 @@ import UIKit
 import Charts
 
 class MonthlyPlanningTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var balancoLabel: UILabel!
+    @IBOutlet var gastoProjetadoLabel: UILabel!
+    @IBOutlet var rendaLabel: UILabel!
+    @IBOutlet var gastosLabel: UILabel!
+    
     @IBOutlet weak var monthlyPlanningChart: BarChartView!
     @IBOutlet weak var backgroundCardView: UIView!
     @IBOutlet var noDataView: UIView!
     @IBOutlet var noDataText: UILabel!
     
-   // @IBOutlet weak var planningValueLabel: UILabel!
-   // @IBOutlet weak var expensesValueLabel: UILabel!
-    
-    var mockGet: [String: Double] = ["Planning":400.00, "Expenses": 2100.00, "Incoming": 1100.0]
+    var balanceMonth: Balance?
+    var getBalance: [String: Double] = [:]
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if mockGet.count > 0 {
+        if getBalance.count > 0 {
             noDataView.isHidden = true
             noDataText.isHidden = true
         }
     }
 
     func configure() {
-        if mockGet.count > 0 {
-            setChart()
-        }
         
-        //planningValueLabel.text = "R$\(mockGet["Planning"]!)"
-        //expensesValueLabel.text = "R$\(mockGet["Expenses"]!)"
-        //planningValueLabel.sizeToFit()
-        //expensesValueLabel.sizeToFit()
+        self.getBalance["Planning"] = self.balanceMonth?.expenseProjected
+        self.getBalance["Expenses"] = self.balanceMonth?.expense
+        self.getBalance["Incoming"] = self.balanceMonth?.incoming
+        
+        if getBalance.count > 0 {
+            setChart()
+            noDataView.isHidden = true
+            noDataText.isHidden = true
+        }
         
         backgroundCardView.layer.cornerRadius = 12
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false
+        
+        
+        
+        balancoLabel.text = String(format: "R$%.2f", (self.getBalance["Incoming"]! - self.getBalance["Expenses"]!))
+        gastoProjetadoLabel.text = String(format: "R$%.2f", (self.getBalance["Planning"]!))
+        rendaLabel.text = String(format: "R$%.2f", (self.getBalance["Incoming"]!))
+        gastosLabel.text = String(format: "R$%.2f", (self.getBalance["Expenses"]!))
 
     }
     
     func setChart() {
         
         //valores de entrada pro grafico
-        let entry1 = BarChartDataEntry(x: 1.0, y: mockGet["Incoming"]!)
-        let entry2 = BarChartDataEntry(x: 2.0, y: mockGet["Planning"]!)
-        let entry3 = BarChartDataEntry(x: 3.0, y: mockGet["Expenses"]!)
+        let entry1 = BarChartDataEntry(x: 1.0, y: getBalance["Incoming"]!)
+        let entry2 = BarChartDataEntry(x: 2.0, y: getBalance["Planning"]!)
+        let entry3 = BarChartDataEntry(x: 3.0, y: getBalance["Expenses"]!)
 
-        
-
-        
-        
         //dataset
         let dataSet = BarChartDataSet(entries: [entry1,entry2,entry3], label: "Gastos Totais")
         let data = BarChartData(dataSets: [dataSet])
