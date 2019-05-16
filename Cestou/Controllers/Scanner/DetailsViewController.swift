@@ -98,7 +98,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
         //cell.quantity.text = String(product.quantity).lowercased()
-        cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unity).lowercased()
+        cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unit).lowercased()
         cell.totalPrice.text = "R$" + String(format: "%.2f",(product.unitPrice) * (product.quantity)).lowercased()
         
         return cell

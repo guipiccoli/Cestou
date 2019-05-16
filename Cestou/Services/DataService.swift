@@ -234,7 +234,7 @@ struct DataService {
             } else {
                 if let response = response as? HTTPURLResponse {
                     print("statusCode: \(response.statusCode)")
-                    print(body)
+                    //print(body)
                     if (response.statusCode != 200) {
                         completion(nil)
                     }
@@ -243,15 +243,15 @@ struct DataService {
                     guard let _json = json["result"] else {
                         return
                     }
-                    print(_json)
+                    //print(_json)
                     for (balance) in _json {
                         let b = balance as? [String: Any]
                         if let _balance = try? JSONSerialization.data(withJSONObject: b as Any, options: []), let __balance = try? JSONDecoder().decode(Balance.self, from: _balance)  {
-                            print(__balance.description)
+                            //print(__balance.description)
                             result.append(__balance)
                         }
                     }
-                    completion(result)
+                    completion(result) //TESTE DE O QUE RETORNAR PARA O DASH
                 }
             }
         }

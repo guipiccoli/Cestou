@@ -63,13 +63,17 @@ class DashboardViewController: UIViewController {
         
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        let totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
-        totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
         
         //TESTE DO REQUEST DE DADOS DO SERVIDOR
+        centeredCollectionViewFlowLayout.scrollToPage(index: 4, animated: true)
         DataService.getDashboard { (result: [Balance]?) in
-            //print(result)
+            DispatchQueue.main.async {
+                self.balances = result ?? []
+                
+                let totalExpensesRounded = String(format: "%.2f", (result?[4].expense)!)
+                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+            }
         }
         
     }
@@ -103,6 +107,8 @@ extension DashboardViewController: UICollectionViewDelegate {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
+            let totalExpensesRounded = String(format: "%.2f", (balances[indexPath.row].expense))
+            self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         }
     }
     
@@ -124,6 +130,9 @@ extension DashboardViewController: UICollectionViewDelegate {
         //sets the alpha and size of the centered cell everytime the user scrolls
         cellCentered.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         cellCentered.alpha = 1.0
+        
+        let totalExpensesRounded = String(format: "%.2f", (balances[index.row].expense))
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
     }
     
     //Centers the collectionView on a cell if the user didnt centered it
@@ -135,7 +144,8 @@ extension DashboardViewController: UICollectionViewDelegate {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
         
-        self.totalExpensesLabel.text = String(format: "%.2f", balances[indexPath.row].expense)
+        let totalExpensesRounded = String(format: "%.2f", (balances[indexPath.row].expense))
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
     }
 }
 
