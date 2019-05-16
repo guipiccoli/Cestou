@@ -18,6 +18,7 @@ class incomeController: UIViewController {
         self.incomeText.delegate = self
     }
     
+    
     private func isValidIncome(testStr: String) -> Bool {
         let numberRegex = "^[0-9]+$"
         let numberTest = NSPredicate(format:"SELF MATCHES %@", numberRegex)

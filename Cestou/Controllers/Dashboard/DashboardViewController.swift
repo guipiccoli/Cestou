@@ -24,6 +24,10 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var graphTableView: UITableView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //initializes our collectionViewLayout as a FlowLayout (pod)

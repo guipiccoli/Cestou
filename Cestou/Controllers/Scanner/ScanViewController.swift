@@ -10,8 +10,11 @@ import UIKit
 import AVFoundation
 
 class ScanViewController: UIViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
-    @IBOutlet private weak var topbar: UIView!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let qrCodeController = segue.destination as? DetailsViewController {
             if let QRlabel = sender as? String {
@@ -46,7 +49,6 @@ class ScanViewController: UIViewController {
             captureSession.startRunning()
             
             //Move the message label and top bar to the front
-            view.bringSubviewToFront(topbar)
             
             //initializing the green box
             qrCodeFrameView = UIView()

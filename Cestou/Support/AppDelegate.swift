@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //KeychainWrapper.standard.removeAllKeys() //Descomentar essa linha se quiser que peca o login sempre
         DataService.verifySessionToken { (isValidToken) in
             if isValidToken {
-                print("entoru")
                 self.storyboardName = "Dashboard"
             }
             else {
@@ -32,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = storyboard.instantiateInitialViewController()
                 self.window?.makeKeyAndVisible()
             }
-        }git 
+        }
         
         return true
     }
