@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
-                                        <rect key="frame" x="0.0" y="119.5" width="414" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="126.5" width="414" height="37.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="K2M-kq-o3k" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
@@ -38,8 +38,9 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUe-Eh-qW8">
-                                                            <rect key="frame" x="62.5" y="13.5" width="40" height="19"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="62" y="13.5" width="41.5" height="19"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -56,9 +57,9 @@
                                         </cells>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsC-rA-sTy">
-                                        <rect key="frame" x="178" y="67.5" width="58" height="29"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="164" y="60.5" width="86.5" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -89,8 +90,22 @@
                                                     <subviews>
                                                         <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSm-GF-RAA" customClass="PieChartView" customModule="Charts">
                                                             <rect key="frame" x="2" y="45" width="364" height="170"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh6-oo-DNb">
+                                                                    <rect key="frame" x="20.5" y="55" width="323" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="323" id="UJo-Qe-T5s"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="ZoB-31-Phg"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="kh6-oo-DNb" firstAttribute="centerX" secondItem="QSm-GF-RAA" secondAttribute="centerX" id="7ph-Vq-JmF"/>
+                                                                <constraint firstItem="kh6-oo-DNb" firstAttribute="centerY" secondItem="QSm-GF-RAA" secondAttribute="centerY" id="HSr-SH-9Xh"/>
                                                                 <constraint firstAttribute="height" constant="170" id="axC-94-151"/>
                                                             </constraints>
                                                         </view>
@@ -132,6 +147,7 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="heG-no-h9y" id="TNP-Hp-CTS"/>
                                             <outlet property="categoryChart" destination="QSm-GF-RAA" id="rxg-OL-oiC"/>
+                                            <outlet property="noDataText" destination="kh6-oo-DNb" id="hlh-ny-xoG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DailyExpenses" rowHeight="230" id="mVd-k2-Jvu" customClass="DailyExpensesTableViewCell" customModule="Cestou" customModuleProvider="target">
@@ -159,8 +175,22 @@
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crs-Jo-WkL" customClass="LineChartView" customModule="Charts">
                                                             <rect key="frame" x="5" y="45" width="361" height="170"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-aV-XQv">
+                                                                    <rect key="frame" x="19" y="55" width="323" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="323" id="8QI-Ul-yA7"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="yxT-Ma-JFP"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerY" secondItem="crs-Jo-WkL" secondAttribute="centerY" id="Y1D-5b-PBZ"/>
+                                                                <constraint firstItem="Gvo-aV-XQv" firstAttribute="centerX" secondItem="crs-Jo-WkL" secondAttribute="centerX" id="fFU-8d-iuR"/>
                                                                 <constraint firstAttribute="height" constant="170" id="zfz-2b-Ary"/>
                                                             </constraints>
                                                         </view>
@@ -189,6 +219,7 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="tlo-hk-259" id="Ude-gF-eID"/>
                                             <outlet property="dailyExpensesChart" destination="crs-Jo-WkL" id="Tg5-dR-I4v"/>
+                                            <outlet property="noDataText" destination="Gvo-aV-XQv" id="Rxi-ZE-Nol"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MonthlyPlanning" rowHeight="185" id="rxW-iN-3ul" customClass="MonthlyPlanningTableViewCell" customModule="Cestou" customModuleProvider="target">
@@ -310,6 +341,20 @@
                                                                 <constraint firstAttribute="height" constant="130" id="H8Q-tS-iWW"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCv-Qo-nhU">
+                                                            <rect key="frame" x="0.0" y="45" width="368" height="130"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desculpe, mas não conseguimos gerar nenhum gráfico com as suas informações :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DW-ZH-plX">
+                                                                    <rect key="frame" x="26" y="25" width="317" height="49"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -337,6 +382,8 @@
                                         <connections>
                                             <outlet property="backgroundCardView" destination="r6S-oO-Cy8" id="bW8-HK-sWb"/>
                                             <outlet property="monthlyPlanningChart" destination="dbO-V1-Iwd" id="d7Z-7L-5K2"/>
+                                            <outlet property="noDataText" destination="8DW-ZH-plX" id="baz-Ty-AqC"/>
+                                            <outlet property="noDataView" destination="YCv-Qo-nhU" id="Lch-HB-cIj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -397,33 +444,10 @@
                     <view key="view" contentMode="scaleToFill" id="khz-jK-NFC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1J-sv-kWE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXC-4k-eaT">
-                                        <rect key="frame" x="34" y="51" width="61" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="X"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJv-Wi-lvg">
-                                        <rect key="frame" x="188" y="58" width="39" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scanner" image="scanner-icon" selectedImage="scanner-icon" id="zm2-nm-d6L"/>
                     <connections>
-                        <outlet property="topbar" destination="l1J-sv-kWE" id="zqR-Dg-c4P"/>
                         <segue destination="1gb-XH-zkT" kind="show" identifier="QRCodeRead" id="zzD-qQ-z3G"/>
                     </connections>
                 </viewController>
@@ -456,21 +480,36 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15/04/2019" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRr-q0-nXg">
-                                                <rect key="frame" x="100" y="124" width="214" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="100" y="122.5" width="214" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud7-Cz-aGQ">
+                                                <rect key="frame" x="20" y="62.5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="XbK-VC-IRS"/>
+                                                    <constraint firstAttribute="width" constant="25" id="dHT-Cj-YcI"/>
+                                                </constraints>
+                                                <state key="normal" image="backButton"/>
+                                                <connections>
+                                                    <segue destination="Wbf-4c-ZLW" kind="show" id="tmq-6f-u8h"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.42578940539999999" green="1" blue="0.76901495769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ud7-Cz-aGQ" secondAttribute="bottom" constant="62.5" id="1bC-ve-LjB"/>
                                             <constraint firstAttribute="height" constant="150" id="1eq-lT-ePo"/>
                                             <constraint firstItem="gRr-q0-nXg" firstAttribute="leading" secondItem="Zt9-Zd-uX7" secondAttribute="leading" constant="100" id="3Rm-HY-6mw"/>
                                             <constraint firstAttribute="trailing" secondItem="Lfk-AA-HNh" secondAttribute="trailing" constant="100" id="7sG-gD-kTR"/>
                                             <constraint firstAttribute="bottom" secondItem="gRr-q0-nXg" secondAttribute="bottom" constant="8" id="83t-mq-EV2"/>
                                             <constraint firstItem="Lfk-AA-HNh" firstAttribute="leading" secondItem="Zt9-Zd-uX7" secondAttribute="leading" constant="100" id="AIZ-Ta-xxc"/>
+                                            <constraint firstItem="ud7-Cz-aGQ" firstAttribute="leading" secondItem="Zt9-Zd-uX7" secondAttribute="leading" constant="20" id="R3c-5v-OgT"/>
+                                            <constraint firstItem="ud7-Cz-aGQ" firstAttribute="top" secondItem="Zt9-Zd-uX7" secondAttribute="top" constant="62.5" id="aIV-QH-RJp"/>
                                             <constraint firstItem="Lfk-AA-HNh" firstAttribute="top" secondItem="Zt9-Zd-uX7" secondAttribute="top" constant="45" id="cSn-tD-WNQ"/>
                                             <constraint firstAttribute="trailing" secondItem="gRr-q0-nXg" secondAttribute="trailing" constant="100" id="lMK-o0-OpZ"/>
+                                            <constraint firstItem="ud7-Cz-aGQ" firstAttribute="centerY" secondItem="Zt9-Zd-uX7" secondAttribute="centerY" id="ssX-p9-ovV"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ap-1i-bf7">
@@ -667,6 +706,7 @@
                         <outlet property="marketplaceNameLabel" destination="Lfk-AA-HNh" id="nzq-qg-mfa"/>
                         <outlet property="shoppingDateLabel" destination="gRr-q0-nXg" id="ME4-le-ozE"/>
                         <outlet property="tableView" destination="0Ap-1i-bf7" id="WlA-ua-i2c"/>
+                        <outlet property="totalExpense" destination="yQw-BP-QXW" id="fM6-OD-mNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGF-Ea-IPM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -685,6 +725,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="12" height="21"/>
         <image name="pie-chart-stats" width="31" height="31"/>
         <image name="scanner-icon" width="26" height="26"/>
     </resources>
