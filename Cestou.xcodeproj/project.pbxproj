@@ -33,6 +33,7 @@
 		46D7F75A2278C4A900C60420 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7F7592278C4A900C60420 /* SignUpController.swift */; };
 		6D9D430192CFAB0A94F2C15C /* Pods_Cestou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E16AD09F23399853859437D /* Pods_Cestou.framework */; };
 		E7644D0C2278DA7900BC58B6 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */; };
+		E772150A228EFF2900EDE42C /* HistoricoDetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7721509228EFF2900EDE42C /* HistoricoDetalhesViewController.swift */; };
 		E772A6372280C32900B212B1 /* Sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E772A6352280C32900B212B1 /* Sign.storyboard */; };
 		E7827DB82273919C00585AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB72273919C00585AB3 /* AppDelegate.swift */; };
 		E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7827DB92273919C00585AB3 /* ScanViewController.swift */; };
@@ -71,6 +72,7 @@
 		539941279E3AF2AE84D97E70 /* Pods-Cestou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.release.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.release.xcconfig"; sourceTree = "<group>"; };
 		6E16AD09F23399853859437D /* Pods_Cestou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cestou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7644D0B2278DA7900BC58B6 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
+		E7721509228EFF2900EDE42C /* HistoricoDetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricoDetalhesViewController.swift; sourceTree = "<group>"; };
 		E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Cestou/View/Storyboard/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		E772A6362280C32900B212B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Cestou/Base.lproj/Sign.storyboard; sourceTree = "<group>"; };
 		E7827DB42273919C00585AB3 /* Cestou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cestou.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 			children = (
 				0409A483228B40EE004FA62F /* HistoricoComprasController.swift */,
 				0409A485228B51EC004FA62F /* HistoricoComprasCell.swift */,
+				E7721509228EFF2900EDE42C /* HistoricoDetalhesViewController.swift */,
 			);
 			path = HistoricoCompras;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				0409A484228B40EE004FA62F /* HistoricoComprasController.swift in Sources */,
 				0409A486228B51EC004FA62F /* HistoricoComprasCell.swift in Sources */,
 				1935E786227CF5E90043469F /* DataService.swift in Sources */,
+				E772150A228EFF2900EDE42C /* HistoricoDetalhesViewController.swift in Sources */,
 				46D46C42227B655200A779F7 /* SignInController.swift in Sources */,
 				E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */,
 				19515801228B5C60008001E8 /* DashboardViewController.swift in Sources */,
@@ -591,13 +595,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = Z39J8HS946;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.aaaaass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -610,13 +614,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RL63GUXBB4;
+				DEVELOPMENT_TEAM = Z39J8HS946;
 				INFOPLIST_FILE = "$(SRCROOT)/Cestou/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cestou.aaaaass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

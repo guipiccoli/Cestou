@@ -84,23 +84,11 @@ class HistoricoComprasController: UIViewController {
             }
         }
         
-        
-//         DataService.getDashboard { (balance: [Balance]?) in
-//            DispatchQueue.main.async {
-//                guard let _balance = balance else {
-//                    self.totalExpensesLabel.text = "R$0.00"
-//                    return
-//                }
-//                self.totalExpensesLabel.text = "R$-\(_balance.expense)"
-//                guard let _shoppings = balance?.monthlyShoppings else {
-//                    return
-//                }
-//                self.shoppings = _shoppings
-//                print(self.shoppings)
-//                self.tableView.reloadData()
-//            }
-//        }
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? HistoricoDetalhesViewController else {return}
+        detailVC.shopping = sender as? Shopping
     }
 }
 
@@ -168,20 +156,6 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         }
         
         refreshDataPerMonth(index: indexPath)
-//        DataService.getShopping(month: indexPath.row) { (balance) in
-//            DispatchQueue.main.async {
-//            guard let _balance = balance else {
-//                fatalError()
-//            }
-//            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
-//            guard let _balance = balance?.monthlyShoppings else {
-//                return
-//            }
-//            self.balances = _balance
-//
-//                self.tableView.reloadData()
-//            }
-//        }
     }
 }
 
@@ -200,6 +174,13 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        guard let shopping = shoppings else {return}
+        let shoppingAtIndex = shopping[indexPath.row]
+        performSegue(withIdentifier: "detailShopping", sender: shoppingAtIndex)
     }
 }
 

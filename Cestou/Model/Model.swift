@@ -83,7 +83,7 @@ struct ProductHistory: Codable {
     var product: Product
     var shopping: Shopping
     var valueUnit: Double
-    var unity: String
+    var unit: String
 }
 
 struct Balance: Codable {
@@ -286,6 +286,7 @@ var categories: [String: [String]] =
             "suco",
             "vinho",
             "vodca",
+            "vodka",
             "uisque",
             "cha"
         ],
