@@ -17,9 +17,11 @@ class HistoricoComprasController: UIViewController {
     @IBOutlet var totalExpensesLabel: UILabel!
     
     let cellPercentWidth: CGFloat = 0.2
-    let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-    var totalExpenses: Double = 1500
-    var shoppings: [Shopping] = []
+    let months = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+    var totalExpenses: Double = 0.0
+    var month: Int = 4
+    var balances: [Balance]?
+    var shoppings: [Shopping]?
     
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
@@ -63,20 +65,41 @@ class HistoricoComprasController: UIViewController {
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
         
-        DataService.getShopping(month: 4) { (balance) in
+        
+        let date = Date()
+        let calendar = Calendar.current
+        self.month = calendar.component(.month, from: date) - 1
+        
+        centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
+        DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
-                guard let _balance = balance else {
-                    self.totalExpensesLabel.text = "R$0.00"
-                    return
-                }
-                self.totalExpensesLabel.text = "R$-\(_balance.expense)"
-                guard let _shoppings = balance?.monthlyShoppings else {
-                    return
-                }
-                self.shoppings = _shoppings
+                self.balances = result ?? []
+                self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
+                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+                
+                self.shoppings = self.balances?[self.month].monthlyShoppings
                 self.tableView.reloadData()
+                
             }
         }
+        
+        
+//         DataService.getDashboard { (balance: [Balance]?) in
+//            DispatchQueue.main.async {
+//                guard let _balance = balance else {
+//                    self.totalExpensesLabel.text = "R$0.00"
+//                    return
+//                }
+//                self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+//                guard let _shoppings = balance?.monthlyShoppings else {
+//                    return
+//                }
+//                self.shoppings = _shoppings
+//                print(self.shoppings)
+//                self.tableView.reloadData()
+//            }
+//        }
         
     }
 }
@@ -94,7 +117,7 @@ extension HistoricoComprasController: UICollectionViewDataSource {
         cell.alpha = 0.5
         
         //but makes the centered one with an alpha of 1
-        if indexPath.row == 0 {
+        if indexPath.row == self.month {
             cell.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3) //Resize cell that adjusts to the size of the view
             cell.alpha = 1.0
         }
@@ -109,6 +132,7 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
+            refreshDataPerMonth(index: indexPath)
         }
     }
     
@@ -130,6 +154,8 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         //sets the alpha and size of the centered cell everytime the user scrolls
         cellCentered.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         cellCentered.alpha = 1.0
+        
+        //refreshDataPerMonth(index: index)
     }
     
     //Centers the collectionView on a cell if the user didnt centered it
@@ -140,37 +166,56 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
-        DataService.getShopping(month: indexPath.row) { (balance) in
-            DispatchQueue.main.async {
-            guard let _balance = balance else {
-                fatalError()
-            }
-            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
-            guard let _shoppings = balance?.monthlyShoppings else {
-                return
-            }
-            self.shoppings = _shoppings
-            
-                self.tableView.reloadData()
-            }
-        }
+        
+        refreshDataPerMonth(index: indexPath)
+//        DataService.getShopping(month: indexPath.row) { (balance) in
+//            DispatchQueue.main.async {
+//            guard let _balance = balance else {
+//                fatalError()
+//            }
+//            self.totalExpensesLabel.text = "R$-\(_balance.expense)"
+//            guard let _balance = balance?.monthlyShoppings else {
+//                return
+//            }
+//            self.balances = _balance
+//
+//                self.tableView.reloadData()
+//            }
+//        }
     }
 }
 
 extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shoppings.count
+        return self.shoppings?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
-        let shopping = shoppings[indexPath.row]
-        
-        cell.marketplaceCompra.text = shopping.marketplace.name
-        cell.totalCompra.text = String(shopping.cost)
-        cell.dataCompra.text = shopping.date
+        guard let shopping = shoppings else {return cell}
+                
+        cell.marketplaceCompra.text = shopping[indexPath.row].marketplace.name
+        cell.totalCompra.text = String(format: "R$%.2f", (shopping[indexPath.row].cost))
+        cell.dataCompra.text = shopping[indexPath.row].prettyDate()
         
         return cell
         
+    }
+}
+
+extension HistoricoComprasController {
+    
+    func refreshDataPerMonth(index: IndexPath) {
+        
+        let totalExpensesRounded = String(format: "%.2f", (balances![index.row].expense))
+        
+        for item in balances! {
+            print(item)
+        }
+        
+        
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+        self.month = index.row
+        self.tableView.reloadData()
     }
 }
