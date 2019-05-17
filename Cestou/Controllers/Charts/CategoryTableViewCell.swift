@@ -54,7 +54,7 @@ class CategoryTableViewCell: UITableViewCell {
             }
         }
         
-        print(categories)
+        //print(categories)
         
         for entry in categories {
             categoriesA.append( "\(entry.key): R$ \(entry.value)")
@@ -62,7 +62,7 @@ class CategoryTableViewCell: UITableViewCell {
         }
         
         setChart(dataPoints: categoriesA, values: valueSpent)
-        if mockGet.count == 0 {
+        if categories.count == 0 {
             noDataText.isHidden = false
         }
     }

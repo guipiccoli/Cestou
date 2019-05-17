@@ -98,7 +98,7 @@ extension DashboardViewController: UICollectionViewDataSource {
         cell.alpha = 0.5
         
         //but makes the centered one with an alpha of 1
-        if indexPath.row == 0 {
+        if indexPath.row == month {
             cell.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3) //Resize cell that adjusts to the size of the view
             cell.alpha = 1.0
         }

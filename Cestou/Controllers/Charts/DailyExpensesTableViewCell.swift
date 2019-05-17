@@ -46,7 +46,7 @@ class DailyExpensesTableViewCell: UITableViewCell {
                 }
             }
         }
-        print(expenses)
+        //print(expenses)
         for i in 0 ..< daysPerMonth[getMonth] {
             if expenses[i] != nil {
                 days.append(i)
