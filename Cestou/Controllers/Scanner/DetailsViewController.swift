@@ -108,7 +108,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         //cell.quantity.text = String(product.quantity).lowercased()
         cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unit).lowercased()
         cell.totalPrice.text = "R$" + String(format: "%.2f",(product.unitPrice) * (product.quantity)).lowercased()
-        
+        cell.unitPrice.text = "R$" + String(format: "%.2f",(product.unitPrice))
         return cell
     }
 }

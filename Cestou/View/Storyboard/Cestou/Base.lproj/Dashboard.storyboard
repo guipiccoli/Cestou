@@ -592,8 +592,11 @@
                                                                 <constraint firstAttribute="width" constant="153" id="yWm-dV-VKQ"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 17.90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t66-Ea-dmi">
-                                                            <rect key="frame" x="20.5" y="58" width="58.5" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 17.90" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t66-Ea-dmi">
+                                                            <rect key="frame" x="20.5" y="58" width="100" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="100" id="EP5-uC-vRq"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.5569846034" green="0.56053918599999997" blue="0.57647317649999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -608,7 +611,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Ec4-6J-Y9l" secondAttribute="bottom" constant="32" id="358-PR-3QJ"/>
                                                         <constraint firstItem="t66-Ea-dmi" firstAttribute="leading" secondItem="i8F-2y-VRc" secondAttribute="leading" constant="20.5" id="OvG-Uh-94O"/>
-                                                        <constraint firstItem="fiZ-xN-fTm" firstAttribute="leading" secondItem="t66-Ea-dmi" secondAttribute="trailing" constant="-59" id="PFV-yK-esm"/>
                                                         <constraint firstItem="fiZ-xN-fTm" firstAttribute="top" secondItem="i8F-2y-VRc" secondAttribute="top" constant="8" id="dTq-tT-gA3"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ec4-6J-Y9l" secondAttribute="trailing" constant="21" id="end-ZR-kwJ"/>
                                                         <constraint firstItem="Ec4-6J-Y9l" firstAttribute="leading" secondItem="i8F-2y-VRc" secondAttribute="leading" constant="240" id="iSh-B4-eoa"/>
@@ -622,6 +624,7 @@
                                                     <outlet property="productName" destination="fiZ-xN-fTm" id="Uap-ef-d9N"/>
                                                     <outlet property="totalPrice" destination="OKZ-D5-Ltv" id="Qla-DS-bgj"/>
                                                     <outlet property="unit" destination="u9P-Re-qzC" id="eo3-Cs-Hs9"/>
+                                                    <outlet property="unitPrice" destination="t66-Ea-dmi" id="YYp-8E-F6n"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

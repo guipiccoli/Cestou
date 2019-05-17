@@ -47,6 +47,9 @@ class HistoricoDetalhesViewController: UIViewController {
         
         marketplaceNameLabel.text = shopping?.marketplace.name
         marketplaceNameLabel.adjustsFontSizeToFitWidth = true
+        totalExpense.text = String(format: "%.2f", shopping?.cost ?? 0.0)
+        
+        //unitPriceLabel.text = "\(shopping.)"
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -74,9 +77,16 @@ extension HistoricoDetalhesViewController: UITableViewDelegate, UITableViewDataS
         guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
         //cell.quantity.text = String(product.quantity).lowercased()
-        cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unit).lowercased()
+        var _quantity: String
+        if product.unit == "UN" {
+            _quantity = String(Int(product.quantity))
+        }
+        else {
+            _quantity = String(format: "%.2f", product.quantity)
+        }
+        cell.unit.text = _quantity.lowercased() + String(product.unit).lowercased()
         cell.totalPrice.text = "R$" + String(format: "%.2f",(product.unitPrice) * (product.quantity)).lowercased()
-        
+        cell.unitPrice.text = "R$" + String(format: "%.2f",(product.unitPrice))
         return cell
     }
 }

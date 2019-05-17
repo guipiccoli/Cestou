@@ -72,8 +72,26 @@ class DashboardViewController: UIViewController {
         
         
         centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
+//        DataService.getDashboard { (result: [Balance]?) in
+//            DispatchQueue.main.async {
+//                
+//                print("----------DEU CERTO did Apper")
+//
+//                self.balances = result ?? []
+//                self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
+//                self.graphTableView.reloadData()
+//                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+//                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+//            }
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
+                
+                print("----------DEU CERTO will apper")
+                
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 self.graphTableView.reloadData()
@@ -81,7 +99,6 @@ class DashboardViewController: UIViewController {
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
             }
         }
-        
     }
 }
 

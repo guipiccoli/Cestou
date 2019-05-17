@@ -14,6 +14,7 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var unit: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var unitPrice: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

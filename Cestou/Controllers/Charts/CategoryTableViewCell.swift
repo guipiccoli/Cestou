@@ -41,6 +41,8 @@ class CategoryTableViewCell: UITableViewCell {
         var categoriesA: [String] = []
         var valueSpent: [Double] = []
         
+        self.categories = [:]
+        
         if let _balanceMonth = self.balanceMonth, let shoppings = _balanceMonth.monthlyShoppings {
             for nota in shoppings {
                 for item in nota.products {
@@ -57,13 +59,16 @@ class CategoryTableViewCell: UITableViewCell {
         //print(categories)
         
         for entry in categories {
-            categoriesA.append( "\(entry.key): R$ \(entry.value)")
+            categoriesA.append( "\(entry.key): R$ \(String(format: "%.2f", entry.value))")
             valueSpent.append(entry.value)
         }
         
         setChart(dataPoints: categoriesA, values: valueSpent)
         if categories.count == 0 {
             noDataText.isHidden = false
+        }
+        else {
+            noDataText.isHidden = true
         }
     }
 
