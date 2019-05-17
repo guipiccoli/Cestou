@@ -193,6 +193,12 @@ extension DashboardViewController {
     func refreshDataPerMonth(index: IndexPath) {
         
         let totalExpensesRounded = String(format: "%.2f", (balances![index.row].expense))
+        
+        for item in balances! {
+            print(item)
+        }
+        
+        
         self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         self.month = index.row
         self.graphTableView.reloadData()
