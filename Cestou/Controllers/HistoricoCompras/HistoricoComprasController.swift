@@ -88,6 +88,23 @@ class HistoricoComprasController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+//        DataService.getDashboard { (result: [Balance]?) in
+//            DispatchQueue.main.async {
+//                
+//                print("----------DEU CERTO historico")
+//                self.balances = result ?? []
+//                self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
+//                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+//                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+//                
+//                self.shoppings = self.balances?[self.month].monthlyShoppings
+//                self.tableView.reloadData()
+//                
+//            }
+//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
                 
