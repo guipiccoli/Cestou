@@ -104,7 +104,7 @@ class HistoricoComprasController: UIViewController {
 //        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+     func reloadGet() {
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
                 
@@ -116,9 +116,14 @@ class HistoricoComprasController: UIViewController {
                 
                 self.shoppings = self.balances?[self.month].monthlyShoppings
                 self.tableView.reloadData()
+                print(#function)
                 
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadGet()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

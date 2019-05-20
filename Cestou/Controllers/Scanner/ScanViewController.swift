@@ -74,6 +74,10 @@ class ScanViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if DetailsViewController.didConfirm{
+            
+            guard let historicoVC = self.tabBarController?.viewControllers?.compactMap({ $0 as? HistoricoComprasController }).first else { return }
+            historicoVC.reloadGet()
+            
             self.tabBarController?.selectedIndex = 2
             DetailsViewController.didConfirm = false
         } else {
