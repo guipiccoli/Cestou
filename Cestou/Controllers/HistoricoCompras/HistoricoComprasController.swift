@@ -22,7 +22,8 @@ class HistoricoComprasController: UIViewController {
     var month: Int = 4
     var balances: [Balance]?
     var shoppings: [Shopping]?
-    
+    var currentCenteredPage: Int?
+
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -181,6 +182,19 @@ extension HistoricoComprasController: UICollectionViewDelegate {
         cellCentered.alpha = 1.0
         
         //refreshDataPerMonth(index: index)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let newCurrentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
+        if self.currentCenteredPage != newCurrentCenteredPage {
+            let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
+            guard let indexPath = collectionView.indexPathForItem(at: currentCenteredPoint) else {return}
+            refreshDataPerMonth(index: indexPath)
+        }
     }
     
     //Centers the collectionView on a cell if the user didnt centered it

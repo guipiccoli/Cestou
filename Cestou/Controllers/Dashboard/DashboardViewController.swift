@@ -65,25 +65,12 @@ class DashboardViewController: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         totalExpensesLabel.sizeToFit()
         
-        //TESTE DO REQUEST DE DADOS DO SERVIDOR
         let date = Date()
         let calendar = Calendar.current
         self.month = calendar.component(.month, from: date) - 1
         
         
         centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
-//        DataService.getDashboard { (result: [Balance]?) in
-//            DispatchQueue.main.async {
-//                
-//                print("----------DEU CERTO did Apper")
-//
-//                self.balances = result ?? []
-//                self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
-//                self.graphTableView.reloadData()
-//                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
-//                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
-//            }
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,6 +127,7 @@ extension DashboardViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         guard let collectionView = collectionView else {return}
+        
         let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2) //calculates the central cell
         
         guard let index = collectionView.indexPathForItem(at: currentCenteredPoint) else {return}
@@ -166,7 +154,6 @@ extension DashboardViewController: UICollectionViewDelegate {
         let newCurrentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if self.currentCenteredPage != newCurrentCenteredPage {
             let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
-            print(newCurrentCenteredPage, self.currentCenteredPage!)
             guard let indexPath = collectionView.indexPathForItem(at: currentCenteredPoint) else {return}
             refreshDataPerMonth(index: indexPath)
         }
