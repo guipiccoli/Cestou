@@ -22,7 +22,7 @@ class DashboardViewController: UIViewController {
     var incoming: Double = 0
     var expensesPlanned: Double = 0
     var balances: [Balance]? //Um array contendo os 12 balancos, enumerados de 0 a 11
-
+    var currentCenteredPage: Int?
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     
     @IBOutlet weak var graphTableView: UITableView!
@@ -87,11 +87,12 @@ class DashboardViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        reloadGet()
+    }
+    
+    func reloadGet() {
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
-                
-                print("----------DEU CERTO will apper")
-                
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 self.graphTableView.reloadData()
@@ -125,6 +126,7 @@ extension DashboardViewController: UICollectionViewDataSource {
 }
 
 extension DashboardViewController: UICollectionViewDelegate {
+    
     //Implementa a funcao de clicar para ir ate uma celula vizinha (alternativa ao scroll)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
@@ -134,7 +136,7 @@ extension DashboardViewController: UICollectionViewDelegate {
 
         }
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         guard let collectionView = collectionView else {return}
@@ -153,21 +155,31 @@ extension DashboardViewController: UICollectionViewDelegate {
         //sets the alpha and size of the centered cell everytime the user scrolls
         cellCentered.transform = CGAffineTransform.identity.scaledBy(x: 1.3, y: 1.3)
         cellCentered.alpha = 1.0
-        
-        refreshDataPerMonth(index: index)
-
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
+    }
+    
+    //get data when cell changed
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let newCurrentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
+        if self.currentCenteredPage != newCurrentCenteredPage {
+            let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
+            print(newCurrentCenteredPage, self.currentCenteredPage!)
+            guard let indexPath = collectionView.indexPathForItem(at: currentCenteredPoint) else {return}
+            refreshDataPerMonth(index: indexPath)
+        }
     }
     
     //Centers the collectionView on a cell if the user didnt centered it
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else {return}
-        
+
         let currentCenteredPage = centeredCollectionViewFlowLayout.currentCenteredPage
         if currentCenteredPage != indexPath.row {
             centeredCollectionViewFlowLayout.scrollToPage(index: indexPath.row, animated: true)
         }
-        
-        refreshDataPerMonth(index: indexPath)
     }
 }
 

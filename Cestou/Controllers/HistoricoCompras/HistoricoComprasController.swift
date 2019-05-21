@@ -73,8 +73,6 @@ class HistoricoComprasController: UIViewController {
         centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
-                
-                print("----------DEU CERTO historico")
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
@@ -88,6 +86,7 @@ class HistoricoComprasController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        reloadGet()
 //        DataService.getDashboard { (result: [Balance]?) in
 //            DispatchQueue.main.async {
 //                
@@ -107,8 +106,6 @@ class HistoricoComprasController: UIViewController {
      func reloadGet() {
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
-                
-                print("----------DEU CERTO historico")
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
@@ -123,7 +120,7 @@ class HistoricoComprasController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        reloadGet()
+        //reloadGet()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
