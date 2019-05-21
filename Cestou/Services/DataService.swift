@@ -10,7 +10,8 @@ import Foundation
 
 struct DataService {
     
-    static private let url: String = "http://api.cestou.mocka.site/parse"
+//    static private let url: String = "http://api.cestou.mocka.site/parse"
+    static private let url: String = "https://parseapi.back4app.com/"
     static private let session = URLSession.shared
     
     static func saveShopping(shopping: Shopping, completionHandler completion: @escaping (Bool) -> Void) {
