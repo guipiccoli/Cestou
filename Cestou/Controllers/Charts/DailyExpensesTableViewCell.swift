@@ -112,6 +112,8 @@ class DailyExpensesTableViewCell: UITableViewCell {
         dailyExpensesChart.rightAxis.enabled = false
         dailyExpensesChart.legend.enabled = false
         
+        dailyExpensesChart.animate(yAxisDuration: 1)
+        
         
         lineChartDataSet.mode = .horizontalBezier
         

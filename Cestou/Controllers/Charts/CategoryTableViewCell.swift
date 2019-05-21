@@ -56,9 +56,11 @@ class CategoryTableViewCell: UITableViewCell {
             }
         }
         
+        var categoriesSort = categories.sorted(by: {$0.value > $1.value})
+        
         //print(categories)
         
-        for entry in categories {
+        for entry in categoriesSort {
             categoriesA.append( "\(entry.key): R$ \(String(format: "%.2f", entry.value))")
             valueSpent.append(entry.value)
         }
@@ -86,12 +88,12 @@ class CategoryTableViewCell: UITableViewCell {
             dataEntries.append(dataEntry)
         }
         
-        let categoryChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
+        var categoryChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let categoryChartData = PieChartData(dataSet: categoryChartDataSet)
         
         var colors: [UIColor] = [PieChartColors.lightBlue, PieChartColors.lightGreen, PieChartColors.lightOrange, PieChartColors.lightYellow, PieChartColors.lightSalmon] //receber as cores definidas pelo Leo no processo de design
         
-        
+
         categoryChart.drawEntryLabelsEnabled = false
         categoryChart.highlightPerTapEnabled = false
         categoryChartDataSet.colors = colors
@@ -107,6 +109,9 @@ class CategoryTableViewCell: UITableViewCell {
         //categoryChart.usePercentValuesEnabled = true
 
         categoryChartDataSet.drawValuesEnabled = false
+        
+        categoryChart.animate(yAxisDuration: 1)
+        categoryChart.rotationAngle = 270
         
 //        let formatter = NumberFormatter()
 //        formatter.numberStyle = .percent

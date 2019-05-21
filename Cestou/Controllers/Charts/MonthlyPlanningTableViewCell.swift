@@ -88,6 +88,8 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
         monthlyPlanningChart.legend.enabled = false
         data.setDrawValues(false)
         monthlyPlanningChart.notifyDataSetChanged()
+        
+        monthlyPlanningChart.animate(yAxisDuration: 1)
     }
 
 
