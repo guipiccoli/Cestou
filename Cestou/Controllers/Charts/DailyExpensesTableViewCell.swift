@@ -25,7 +25,7 @@ class DailyExpensesTableViewCell: UITableViewCell {
 
         noDataText.isHidden = false
         dailyExpensesChart.noDataText = ""
-        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.cornerRadius = 16
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false
@@ -93,12 +93,15 @@ class DailyExpensesTableViewCell: UITableViewCell {
         
         lineChartData.setDrawValues(false)
         
+        let lightGreen = UIColor(red: 56.0/255, green: 239.0/255, blue: 125.0/255, alpha: 1.0)
+        let strongGreen = UIColor(red: 21.0/255, green: 150.0/255, blue: 126.0/255, alpha: 1.0)
+
         lineChartDataSet.drawCirclesEnabled = false
-        lineChartDataSet.colors = [UIColor.red]
+        lineChartDataSet.colors = [strongGreen]
         
         
-        let gradientColor = [UIColor.red.cgColor, UIColor.clear.cgColor] as CFArray
-        let colorLocations: [CGFloat] = [0.4, 0.0]
+        let gradientColor = [lightGreen.cgColor, UIColor.clear.cgColor] as CFArray
+        let colorLocations: [CGFloat] = [0.90, 0.0]
         guard let gradients = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColor, locations: colorLocations) else {return}
         lineChartDataSet.fill = Fill.fillWithLinearGradient(gradients, angle: 90.0)
         lineChartDataSet.drawFilledEnabled = true
@@ -115,7 +118,7 @@ class DailyExpensesTableViewCell: UITableViewCell {
         dailyExpensesChart.animate(yAxisDuration: 1)
         
         
-        lineChartDataSet.mode = .horizontalBezier
+        lineChartDataSet.mode = .linear
         
         
         var colors: [UIColor] = [] //receber as cores definidas pelo Leo no processo de design

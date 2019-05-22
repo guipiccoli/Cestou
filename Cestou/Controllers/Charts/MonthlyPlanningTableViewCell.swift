@@ -45,7 +45,7 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
             noDataText.isHidden = true
         }
         
-        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.cornerRadius = 16
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false

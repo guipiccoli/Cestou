@@ -30,7 +30,7 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundCardView.layer.cornerRadius = 12
+        backgroundCardView.layer.cornerRadius = 16
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false
@@ -106,6 +106,7 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChart.legend.verticalAlignment = .center
         categoryChart.legend.horizontalAlignment = .right
         categoryChart.data = categoryChartData
+        
         //categoryChart.usePercentValuesEnabled = true
 
         categoryChartDataSet.drawValuesEnabled = false
