@@ -40,6 +40,8 @@ class DetailsViewController: UIViewController {
         
         gradientLayer.colors = [leftColorGradient,rightColorGradient]
         
+        tableView.tableFooterView = UIView()
+        
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientLayer.frame = headerView.bounds
@@ -53,7 +55,7 @@ class DetailsViewController: UIViewController {
         tableView.dataSource = self
         guard let url = stringQrCode else { fatalError() }
         
-        self.view.addSubview(loadingScreen())
+        self.view.addSubview(loadingScreenWhite())
         
         NFScrapper.getShopping(url: url) { (shopping) in
             self.shopping = shopping
@@ -72,17 +74,30 @@ class DetailsViewController: UIViewController {
         }
     }
     
+
+    
     @IBAction func confirmButton(_ sender: UIButton) {
         guard let _shopping = self.shopping else {
             print("shopping structure bad formatting")
             fatalError()
         }
-        DataService.saveShopping(shopping: _shopping) { (result) in
-            print(result)
-        }
         
-        DetailsViewController.didConfirm = true
-        self.dismiss(animated: true, completion: nil)
+        self.view.addSubview(loadingScreen())
+        
+        DispatchQueue.main.async {
+            DataService.saveShopping(shopping: _shopping) { (result) in
+                print(result)
+                DetailsViewController.didConfirm = true
+                self.dismiss(animated: true, completion: nil)
+                
+                if let loadView = self.view.viewWithTag(4095){
+                    loadView.removeFromSuperview()
+                }
+
+            }
+        }
+//        DetailsViewController.didConfirm = true
+//        self.dismiss(animated: true, completion: nil)
     }
 }
 

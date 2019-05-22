@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loadingScreen: UIView {
+class loadingScreenWhite: UIView {
     let screenRect = UIScreen.main.bounds
     
     //initWithFrame to init view from code
@@ -27,7 +27,7 @@ class loadingScreen: UIView {
     private func setupView() {
         let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
         
-        self.backgroundColor = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
+        self.backgroundColor = .white
         self.tag = 4095 // #fff
         
         actInd.center = self.center
