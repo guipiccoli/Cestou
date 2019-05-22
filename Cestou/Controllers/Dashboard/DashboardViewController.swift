@@ -37,15 +37,15 @@ class DashboardViewController: UIViewController {
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         
         let gradientLayer = CAGradientLayer()
-        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
-        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+        let leftColorGradient = UIColor.init(red: 56.0/255, green: 239.0/255, blue: 125.0/255, alpha: 1.0).cgColor
+        let rightColorGradient = UIColor.init(red: 21.0/255, green: 150.0/255, blue: 126.0/255, alpha: 1.0).cgColor
 
         gradientLayer.colors = [leftColorGradient,rightColorGradient]
 
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: -0.3)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.4)
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
