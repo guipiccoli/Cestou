@@ -12,7 +12,8 @@ import Charts
 class MonthlyPlanningTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var monthlyPlanningChart: HorizontalBarChartView!
+    @IBOutlet weak var balanceMonthlyPlanningChart: HorizontalBarChartView!
+    @IBOutlet weak var expensesMonthlyPlanningChart: HorizontalBarChartView!
     @IBOutlet weak var backgroundCardView: UIView!
     @IBOutlet var noDataView: UIView!
     @IBOutlet var noDataText: UILabel!
@@ -52,34 +53,57 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
     func setChart() {
         
         //valores de entrada pro grafico
-        let entry1 = BarChartDataEntry(x: 2.0, y: getBalance["Planning"]!)
-        let entry2 = BarChartDataEntry(x: 3.0, y: getBalance["Expenses"]!)
+        let expensesEntry1 = BarChartDataEntry(x: 2.0, y: getBalance["Incoming"]!)
+        let expensesEntry2 = BarChartDataEntry(x: 2.0, y: getBalance["Planning"]!)
+        
+        let balanceEntry1 = BarChartDataEntry(x: 3.0, y: getBalance["Incoming"]!)
+        let balanceEntry2 = BarChartDataEntry(x: 3.0, y: getBalance["Expenses"]!)
 
         //dataset
-        let dataSet = BarChartDataSet(entries: [entry2,entry1], label: "Gastos Totais")
-        let data = BarChartData(dataSets: [dataSet])
-        monthlyPlanningChart.data = data
-
-        let blueColor = NSUIColor.init(red: 0.0/255, green: 146.0/255, blue: 186.0/255, alpha: 1.0)
-        let redColor = NSUIColor.init(red: 189.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
-
+        let expensesDataSet = BarChartDataSet(entries: [expensesEntry1,expensesEntry2], label: "Gastos Totais")
+        let expensesData = BarChartData(dataSets: [expensesDataSet])
+        expensesMonthlyPlanningChart.data = expensesData
         
-        dataSet.setColors([blueColor,redColor], alpha: 1.0)
+        let balanceDataSet = BarChartDataSet(entries: [balanceEntry1,balanceEntry2], label: "Balanco")
+        let balanceData = BarChartData(dataSets: [balanceDataSet])
+        balanceMonthlyPlanningChart.data = balanceData
+
+        let blueColor = NSUIColor.init(red: 90/255, green: 200/255, blue: 250/255, alpha: 1.0)
+        let redColor = NSUIColor.init(red: 255.0/255, green: 117/255, blue: 117/255, alpha: 1.0)
+        let lightGray = NSUIColor.init(red: 228.0/255, green: 228.0/255, blue: 228.0/255, alpha: 1.0)
         
+        
+        balanceDataSet.setColors([lightGray,blueColor], alpha: 1.0)
+        expensesDataSet.setColors([lightGray,redColor], alpha: 1.0)
+
     
-        monthlyPlanningChart.leftAxis.enabled = false
-        monthlyPlanningChart.rightAxis.enabled = false
-        monthlyPlanningChart.xAxis.enabled = false
-        monthlyPlanningChart.leftAxis.axisMinimum = 0
-        monthlyPlanningChart.highlightPerTapEnabled = false
-        monthlyPlanningChart.layer.cornerRadius = 10
+        expensesMonthlyPlanningChart.leftAxis.enabled = false
+        expensesMonthlyPlanningChart.rightAxis.enabled = false
+        expensesMonthlyPlanningChart.xAxis.enabled = false
+        expensesMonthlyPlanningChart.leftAxis.axisMinimum = 0
+        expensesMonthlyPlanningChart.highlightPerTapEnabled = false
         
+        balanceMonthlyPlanningChart.leftAxis.enabled = false
+        balanceMonthlyPlanningChart.rightAxis.enabled = false
+        balanceMonthlyPlanningChart.xAxis.enabled = false
+        balanceMonthlyPlanningChart.leftAxis.axisMinimum = 0
+        balanceMonthlyPlanningChart.highlightPerTapEnabled = false
         
-        monthlyPlanningChart.legend.enabled = false
-        data.setDrawValues(false)
-        monthlyPlanningChart.notifyDataSetChanged()
-        
-        monthlyPlanningChart.animate(yAxisDuration: 1)
+        expensesData.barWidth = 0.9
+        balanceData.barWidth = 0.9
+
+        expensesMonthlyPlanningChart.legend.enabled = false
+        balanceMonthlyPlanningChart.legend.enabled = false
+
+        balanceData.setDrawValues(false)
+        expensesData.setDrawValues(false)
+
+        expensesMonthlyPlanningChart.notifyDataSetChanged()
+        balanceMonthlyPlanningChart.notifyDataSetChanged()
+
+        expensesMonthlyPlanningChart.animate(yAxisDuration: 1)
+        balanceMonthlyPlanningChart.animate(yAxisDuration: 1)
+
     }
 
 

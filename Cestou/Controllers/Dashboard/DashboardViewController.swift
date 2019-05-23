@@ -36,16 +36,23 @@ class DashboardViewController: UIViewController {
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         
-        let gradientLayer = CAGradientLayer()
-        let leftColorGradient = UIColor.init(red: 56.0/255, green: 239.0/255, blue: 125.0/255, alpha: 1.0).cgColor
-        let rightColorGradient = UIColor.init(red: 21.0/255, green: 150.0/255, blue: 126.0/255, alpha: 1.0).cgColor
-
-        gradientLayer.colors = [leftColorGradient,rightColorGradient]
-
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: -0.3)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.4)
-        gradientLayer.frame = self.view.bounds
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+//        let gradientLayer = CAGradientLayer()
+//        let leftColorGradient = UIColor.init(red: 56.0/255, green: 239.0/255, blue: 125.0/255, alpha: 1.0).cgColor
+//        let rightColorGradient = UIColor.init(red: 21.0/255, green: 150.0/255, blue: 126.0/255, alpha: 1.0).cgColor
+//
+//        gradientLayer.colors = [leftColorGradient,rightColorGradient]
+//
+//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradientLayer.endPoint = CGPoint(x: 0.8, y: 0.8)
+//        gradientLayer.frame = self.view.bounds
+//        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let background = UIImageView()
+        background.image = UIImage(named: "BG")
+        background.frame = self.view.frame
+        
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
