@@ -103,7 +103,7 @@ class DailyExpensesTableViewCell: UITableViewCell {
         let gradientColor = [lightGreen.cgColor, UIColor.clear.cgColor] as CFArray
         let colorLocations: [CGFloat] = [0.90, 0.0]
         guard let gradients = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColor, locations: colorLocations) else {return}
-        lineChartDataSet.fill = Fill.fillWithLinearGradient(gradients, angle: 90.0)
+        lineChartDataSet.fill = Fill.fillWithLinearGradient(gradients, angle: 90)
         lineChartDataSet.drawFilledEnabled = true
         
         dailyExpensesChart.xAxis.labelPosition = .bottom

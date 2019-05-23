@@ -10,11 +10,11 @@ import UIKit
 import Charts
 
 enum PieChartColors {
-    static let lightBlue = UIColor(red: 140/255, green: 235/255, blue: 255/255, alpha: 1)
-    static let lightOrange = UIColor(red: 255/255, green: 210/255, blue: 139/255, alpha: 1)
-    static let lightYellow = UIColor(red: 255/255, green: 247/255, blue: 140/255, alpha: 1)
-    static let lightGreen = UIColor(red: 197/255, green: 255/255, blue: 139/255, alpha: 1)
-    static let lightSalmon = UIColor(red: 232/255, green: 116/255, blue: 143/255, alpha: 1)
+    static let blue = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1)
+    static let yellow = UIColor(red: 255/255, green: 232/255, blue: 81/255, alpha: 1)
+    static let purple = UIColor(red: 234/255, green: 158/255, blue: 251/255, alpha: 1)
+    static let red = UIColor(red: 255/255, green: 117/255, blue: 117/255, alpha: 1)
+    static let green = UIColor(red: 44/255, green: 203/255, blue: 135/255, alpha: 1)
 }
 
 class CategoryTableViewCell: UITableViewCell {
@@ -91,7 +91,7 @@ class CategoryTableViewCell: UITableViewCell {
         var categoryChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         let categoryChartData = PieChartData(dataSet: categoryChartDataSet)
         
-        var colors: [UIColor] = [PieChartColors.lightBlue, PieChartColors.lightGreen, PieChartColors.lightOrange, PieChartColors.lightYellow, PieChartColors.lightSalmon] //receber as cores definidas pelo Leo no processo de design
+        var colors: [UIColor] = [PieChartColors.blue, PieChartColors.red, PieChartColors.yellow, PieChartColors.purple, PieChartColors.green] //receber as cores definidas pelo Leo no processo de design
         
 
         categoryChart.drawEntryLabelsEnabled = false
@@ -99,7 +99,6 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChartDataSet.colors = colors
         categoryChart.notifyDataSetChanged()
         
-        //categoryChart.extraRightOffset = 50
         
         categoryChart.legend.font = UIFont.systemFont(ofSize: 16)
         categoryChart.legend.orientation = .vertical
@@ -107,17 +106,10 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChart.legend.horizontalAlignment = .right
         categoryChart.data = categoryChartData
         
-        //categoryChart.usePercentValuesEnabled = true
 
         categoryChartDataSet.drawValuesEnabled = false
         
         categoryChart.animate(yAxisDuration: 1)
         categoryChart.rotationAngle = 270
-        
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .percent
-//        formatter.maximumFractionDigits = 1
-//        formatter.multiplier = 1.0
-//        categoryChartDataSet.valueFormatter = DefaultValueFormatter(formatter: formatter)
     }
 }
