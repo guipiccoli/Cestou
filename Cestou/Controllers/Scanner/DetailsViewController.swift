@@ -11,7 +11,9 @@ import UIKit
 class DetailsViewController: UIViewController {
 
 
-    @IBOutlet weak var totalExpense: UILabel!
+    
+    @IBOutlet var expensesInteger: UILabel!
+    @IBOutlet var expensesDecimal: UILabel!
     @IBOutlet weak var shoppingDateLabel: UILabel!
     @IBOutlet weak var marketplaceNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
@@ -25,62 +27,8 @@ class DetailsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }    
+    }
     @IBAction func confirmScanButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let background = UIImageView()
-        background.image = UIImage(named: "BG")
-        background.frame = self.view.frame
-        
-        self.view.addSubview(background)
-        self.view.sendSubviewToBack(background)
-        
-//        let gradientLayer = CAGradientLayer()
-//        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
-//        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
-//
-//        gradientLayer.colors = [leftColorGradient,rightColorGradient]
-//
-//        tableView.tableFooterView = UIView()
-//
-//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-//        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-//        gradientLayer.frame = headerView.bounds
-//        headerView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        guard let url = stringQrCode else { fatalError() }
-        
-        self.view.addSubview(loadingScreenWhite())
-        
-        NFScrapper.getShopping(url: url) { (shopping) in
-            self.shopping = shopping
-            DispatchQueue.main.async {
-                self.marketplaceNameLabel.text = self.shopping?.marketplace.name
-                self.marketplaceNameLabel.adjustsFontSizeToFitWidth = true
-                self.totalExpense.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
-                self.shoppingDateLabel.text = self.shopping?.prettyDate()
-                
-                
-                if let loadView = self.view.viewWithTag(4095){
-                    loadView.removeFromSuperview()
-                }
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-
-    
-    @IBAction func confirmButton(_ sender: UIButton) {
         guard let _shopping = self.shopping else {
             print("shopping structure bad formatting")
             fatalError()
@@ -97,11 +45,52 @@ class DetailsViewController: UIViewController {
                 if let loadView = self.view.viewWithTag(4095){
                     loadView.removeFromSuperview()
                 }
-
+                
             }
         }
-//        DetailsViewController.didConfirm = true
-//        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let background = UIImageView()
+        background.image = UIImage(named: "BG")
+        background.frame = self.view.frame
+        
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
+        
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        guard let url = stringQrCode else { fatalError() }
+        
+        self.view.addSubview(loadingScreenWhite())
+        
+        NFScrapper.getShopping(url: url) { (shopping) in
+            self.shopping = shopping
+            DispatchQueue.main.async {
+                self.marketplaceNameLabel.text = self.shopping?.marketplace.name
+                self.marketplaceNameLabel.adjustsFontSizeToFitWidth = true
+                //self.expensesInteger.text = "R$\(String(floor(self.shopping?.cost ?? 0.0)))"
+                self.expensesInteger.text = "R$\(String(format: "%.0f", floor(self.shopping?.cost ?? 0.0)))"
+                
+                let totalExpensesRounded = floor(self.shopping?.cost ?? 0.0)
+                print(totalExpensesRounded)
+                let totalExpensesDecimal = (((self.shopping?.cost ?? 0.0) - totalExpensesRounded) * 100)
+                print(totalExpensesDecimal)
+                
+                self.expensesDecimal.text = ",\(String(totalExpensesDecimal).prefix(2))"
+                self.shoppingDateLabel.text = self.shopping?.prettyDate()
+                
+                
+                if let loadView = self.view.viewWithTag(4095){
+                    loadView.removeFromSuperview()
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
