@@ -99,15 +99,14 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (self.shopping?.products.count ?? 0) + 1
+        return (self.shopping?.products.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell")!
-            return cell
-        }
+//        if indexPath.row == 0 {
+//            return ProductTableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        }
         
         guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
         
@@ -117,7 +116,7 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 
         
         
-        guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
+        guard let product = shopping?.products[indexPath.row] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
         //cell.quantity.text = String(product.quantity).lowercased()
         cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unit).lowercased()
