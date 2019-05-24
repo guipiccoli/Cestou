@@ -109,7 +109,13 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
+        
+        if(indexPath.row % 2 == 0) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
+        }
+
+        
         
         guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
