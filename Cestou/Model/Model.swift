@@ -244,7 +244,12 @@ var categories: [String: [String]] =
             "doce",
             "pao",
             "salgado",
-            "torta"
+            "torta",
+            "churrasco",
+            "churras",
+            "maminha",
+            "picanha",
+            "sorvete"
         ],
         "Higiene": [
             "absorvente",
@@ -288,7 +293,8 @@ var categories: [String: [String]] =
             "vodca",
             "vodka",
             "uisque",
-            "cha"
+            "cha",
+            "whisky"
         ],
         "Limpeza": [
             "sanitaria",

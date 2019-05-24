@@ -16,6 +16,7 @@ class DashboardViewController: UIViewController {
     var month: Int = 4
     @IBOutlet weak var headerView: UIView!
     @IBOutlet var totalExpensesLabel: UILabel!
+    @IBOutlet weak var totalExpensesDecimal: UILabel!
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     //var totalExpenses: Double = 0
@@ -90,7 +91,10 @@ class DashboardViewController: UIViewController {
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 self.graphTableView.reloadData()
-                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+                guard let _roundedExpense = result?[self.month].expense.rounded(.down) else {fatalError()}
+                let decimals = (result?[self.month].expense)!  - _roundedExpense
+                let totalExpensesRounded = String(Int(_roundedExpense))
+                self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
             }
         }

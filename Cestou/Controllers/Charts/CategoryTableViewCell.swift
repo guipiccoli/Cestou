@@ -33,6 +33,7 @@ class CategoryTableViewCell: UITableViewCell {
         backgroundCardView.layer.cornerRadius = 16
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
+
         backgroundCardView.layer.masksToBounds = false
         noDataText.isHidden = true
     }
@@ -105,6 +106,13 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChart.legend.verticalAlignment = .center
         categoryChart.legend.horizontalAlignment = .right
         categoryChart.data = categoryChartData
+        categoryChart.legend.yEntrySpace = 4.0
+        categoryChart.legend.yOffset = -6.0
+        categoryChart.legend.xOffset = 180.0
+        categoryChart.legend.direction = .rightToLeft
+        categoryChart.legend.form = .circle
+        categoryChart.legend.formToTextSpace = -160
+        categoryChart.holeRadiusPercent = 0.6
         
 
         categoryChartDataSet.drawValuesEnabled = false

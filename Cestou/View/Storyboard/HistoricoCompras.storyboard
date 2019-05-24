@@ -203,7 +203,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gH5-hP-C0b"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Historico" image="history-clock-button" id="Vca-sR-yrf"/>
+                    <tabBarItem key="tabBarItem" title="Historico" image="HistoryIconDisabled" selectedImage="HistoryIcon" id="Vca-sR-yrf"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="nGR-fT-BtL" id="b9Q-nk-emQ"/>
@@ -719,10 +719,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HistoryIcon" width="28" height="27"/>
+        <image name="HistoryIconDisabled" width="28" height="27"/>
         <image name="backButton" width="12" height="21"/>
         <image name="calendar-with-a-clock-time-tools" width="19" height="16"/>
         <image name="dollar-sign-and-piles-of-coins" width="19" height="16"/>
         <image name="groceries" width="96" height="102"/>
-        <image name="history-clock-button" width="31" height="29"/>
     </resources>
 </document>
