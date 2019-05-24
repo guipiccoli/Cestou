@@ -16,7 +16,6 @@
 		0448B4C2228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448B4C1228213B900E1CC81 /* MonthlyPlanningTableViewCell.swift */; };
 		0450EC33229484E000798B7C /* loadingScreenWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0450EC32229484E000798B7C /* loadingScreenWhite.swift */; };
 		190B7E5C2289EBEA00B6AB1F /* ShoppingHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B7E5B2289EBEA00B6AB1F /* ShoppingHistory.swift */; };
-		190B7E5F2289ECD200B6AB1F /* ShoppingHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190B7E5E2289ECD200B6AB1F /* ShoppingHistory.storyboard */; };
 		190B7E612289EEB700B6AB1F /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B7E602289EEB700B6AB1F /* ShoppingTableViewCell.swift */; };
 		1935E786227CF5E90043469F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935E785227CF5E90043469F /* DataService.swift */; };
 		19380B66228C8F2D00EDFAE6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19380B65228C8F2D00EDFAE6 /* TabBarViewController.swift */; };
@@ -59,7 +58,6 @@
 		0450EC32229484E000798B7C /* loadingScreenWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingScreenWhite.swift; sourceTree = "<group>"; };
 		04D892EC227CC5A000B86A45 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		190B7E5B2289EBEA00B6AB1F /* ShoppingHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingHistory.swift; sourceTree = "<group>"; };
-		190B7E5E2289ECD200B6AB1F /* ShoppingHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingHistory.storyboard; sourceTree = "<group>"; };
 		190B7E602289EEB700B6AB1F /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		1935E785227CF5E90043469F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		19380B65228C8F2D00EDFAE6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 				E7A51E64227CB65200B6419D /* Dashboard.storyboard */,
 				E772A6322280A70B00B212B1 /* LaunchScreen.storyboard */,
 				4674F877228496CD00C30E76 /* OnBoard.storyboard */,
-				190B7E5E2289ECD200B6AB1F /* ShoppingHistory.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				0409A481228B401C004FA62F /* HistoricoCompras.storyboard in Resources */,
 				4674F878228496CD00C30E76 /* OnBoard.storyboard in Resources */,
 				E7A51E66227CB65200B6419D /* Dashboard.storyboard in Resources */,
-				190B7E5F2289ECD200B6AB1F /* ShoppingHistory.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
