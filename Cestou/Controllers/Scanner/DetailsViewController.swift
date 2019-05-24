@@ -15,7 +15,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var shoppingDateLabel: UILabel!
     @IBOutlet weak var marketplaceNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
 
     var stringQrCode: String?
@@ -26,29 +25,34 @@ class DetailsViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    @IBAction func backButtonPressed(_ sender: UIButton) {
+    }    
+    @IBAction func confirmScanButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gradientLayer = CAGradientLayer()
-        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
-        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+        let background = UIImageView()
+        background.image = UIImage(named: "BG")
+        background.frame = self.view.frame
         
-        gradientLayer.colors = [leftColorGradient,rightColorGradient]
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
         
-        tableView.tableFooterView = UIView()
-        
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        self.confirmButton.layer.cornerRadius = 26
-        self.confirmButton.clipsToBounds = true
+//        let gradientLayer = CAGradientLayer()
+//        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
+//        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+//
+//        gradientLayer.colors = [leftColorGradient,rightColorGradient]
+//
+//        tableView.tableFooterView = UIView()
+//
+//        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+//        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+//        gradientLayer.frame = headerView.bounds
+//        headerView.layer.insertSublayer(gradientLayer, at: 0)
         
         
         tableView.delegate = self
