@@ -43,6 +43,7 @@
 		E7AAF952227CD23B00968A9A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF951227CD23B00968A9A /* Model.swift */; };
 		E7AAF954227CD23D00968A9A /* NFScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF953227CD23D00968A9A /* NFScrapper.swift */; };
 		E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */; };
+		E7C08F1D229875D300CDCFAC /* ShadowViewExtensionn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C08F1C229875D300CDCFAC /* ShadowViewExtensionn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E7AAF951227CD23B00968A9A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E7AAF953227CD23D00968A9A /* NFScrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFScrapper.swift; sourceTree = "<group>"; };
 		E7AAF955227CD24000968A9A /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		E7C08F1C229875D300CDCFAC /* ShadowViewExtensionn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowViewExtensionn.swift; path = Cestou/View/ShadowViewExtensionn.swift; sourceTree = SOURCE_ROOT; };
 		F42F17B456DEFEEA466FF06C /* Pods-Cestou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cestou.debug.xcconfig"; path = "Target Support Files/Pods-Cestou/Pods-Cestou.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				0450EC32229484E000798B7C /* loadingScreenWhite.swift */,
+				E7C08F1C229875D300CDCFAC /* ShadowViewExtensionn.swift */,
 				465842F0228A3D430077C451 /* loadingScreen.swift */,
 				19EA6FF2228610B100CBE0D0 /* signUITextField.swift */,
 				46BB66E62285ED7C00A16952 /* Segues */,
@@ -441,6 +444,7 @@
 				198888FB2282078D00DFACBA /* ParseRequest.swift in Sources */,
 				46BB66E82285ED9800A16952 /* SegueFromRight.swift in Sources */,
 				19380B66228C8F2D00EDFAE6 /* TabBarViewController.swift in Sources */,
+				E7C08F1D229875D300CDCFAC /* ShadowViewExtensionn.swift in Sources */,
 				E7AAF956227CD24000968A9A /* ProductTableViewCell.swift in Sources */,
 				E7827DBA2273919C00585AB3 /* ScanViewController.swift in Sources */,
 				190B7E5C2289EBEA00B6AB1F /* ShoppingHistory.swift in Sources */,

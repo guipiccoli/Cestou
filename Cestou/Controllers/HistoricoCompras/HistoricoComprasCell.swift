@@ -25,5 +25,6 @@ class HistoricoComprasCell: UITableViewCell {
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
         backgroundCardView.layer.masksToBounds = false
+        backgroundCardView.addShadowToView()
     }
 }
