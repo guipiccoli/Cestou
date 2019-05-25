@@ -18,7 +18,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var marketplaceNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var totalExpensesLabel: UILabel!
+    
     var stringQrCode: String?
     var shopping: Shopping? = nil
     
@@ -77,12 +78,12 @@ class DetailsViewController: UIViewController {
                 self.expensesInteger.text = "R$\(String(format: "%.0f", floor(self.shopping?.cost ?? 0.0)))"
                 
                 let totalExpensesRounded = floor(self.shopping?.cost ?? 0.0)
-                print(totalExpensesRounded)
                 let totalExpensesDecimal = (((self.shopping?.cost ?? 0.0) - totalExpensesRounded) * 100)
-                print(totalExpensesDecimal)
+                print("EXPENSES DECIMAL: \(totalExpensesDecimal)")
                 
-                self.expensesDecimal.text = ",\(String(totalExpensesDecimal).prefix(2))"
+                self.expensesDecimal.text =  String(format: ",%.0f", totalExpensesDecimal)
                 self.shoppingDateLabel.text = self.shopping?.prettyDate()
+                self.totalExpensesLabel.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
                 
                 
                 if let loadView = self.view.viewWithTag(4095){
@@ -108,10 +109,10 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
 //            return ProductTableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 //        }
         
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
         
         if(indexPath.row % 2 == 0) {
-            cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
         }
 
         

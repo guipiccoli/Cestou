@@ -27,7 +27,7 @@ class loadingScreen: UIView {
     private func setupView() {
         let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
         
-        self.backgroundColor = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
+        self.backgroundColor = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 0.4)
         self.tag = 4095 // #fff
         
         actInd.center = self.center
