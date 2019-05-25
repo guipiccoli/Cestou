@@ -81,7 +81,7 @@ class DetailsViewController: UIViewController {
                 let totalExpensesDecimal = (((self.shopping?.cost ?? 0.0) - totalExpensesRounded) * 100)
                 print("EXPENSES DECIMAL: \(totalExpensesDecimal)")
                 
-                self.expensesDecimal.text =  String(format: ",%.0f", totalExpensesDecimal)
+                self.expensesDecimal.text =  String(format: ",%02.0f", totalExpensesDecimal)
                 self.shoppingDateLabel.text = self.shopping?.prettyDate()
                 self.totalExpensesLabel.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
                 
