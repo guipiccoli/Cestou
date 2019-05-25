@@ -259,8 +259,15 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAw-7Q-xfN">
+                                                <rect key="frame" x="8" y="81" width="26" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="backButton"/>
+                                                <connections>
+                                                    <action selector="backButtonPressed:" destination="rp7-Bf-ihx" eventType="touchUpInside" id="6WN-mR-cdz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="MiJ-tl-PxT" firstAttribute="top" secondItem="nZq-Iv-JMz" secondAttribute="bottom" id="13E-Ck-Z6E"/>
                                             <constraint firstAttribute="bottom" secondItem="MiJ-tl-PxT" secondAttribute="bottom" constant="19" id="6uo-9j-4Em"/>
@@ -478,12 +485,17 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eA9-18-fd6" secondAttribute="trailing" id="38G-hc-Uuu"/>
+                                    <constraint firstItem="TWH-3Z-V7k" firstAttribute="leading" secondItem="N8M-3O-jZ7" secondAttribute="leading" id="3mB-pY-OIL"/>
                                     <constraint firstItem="ren-Oz-u1n" firstAttribute="top" secondItem="eA9-18-fd6" secondAttribute="bottom" id="4vh-EI-3WO"/>
-                                    <constraint firstItem="TWH-3Z-V7k" firstAttribute="top" secondItem="25K-YO-lUW" secondAttribute="bottom" id="508-gj-UBl"/>
+                                    <constraint firstItem="25K-YO-lUW" firstAttribute="leading" secondItem="N8M-3O-jZ7" secondAttribute="leading" id="993-TR-DeF"/>
                                     <constraint firstAttribute="bottom" secondItem="ren-Oz-u1n" secondAttribute="bottom" id="Den-8H-W3j"/>
+                                    <constraint firstAttribute="trailing" secondItem="TWH-3Z-V7k" secondAttribute="trailing" id="FVV-cP-dTF"/>
+                                    <constraint firstItem="eA9-18-fd6" firstAttribute="top" secondItem="TWH-3Z-V7k" secondAttribute="bottom" id="IGl-Od-JGH"/>
                                     <constraint firstAttribute="trailing" secondItem="ren-Oz-u1n" secondAttribute="trailing" id="LBz-cE-kSo"/>
                                     <constraint firstItem="eA9-18-fd6" firstAttribute="leading" secondItem="N8M-3O-jZ7" secondAttribute="leading" id="Oqe-6i-yaR"/>
-                                    <constraint firstItem="eA9-18-fd6" firstAttribute="top" secondItem="TWH-3Z-V7k" secondAttribute="bottom" id="aWB-X9-BD2"/>
+                                    <constraint firstItem="25K-YO-lUW" firstAttribute="top" secondItem="N8M-3O-jZ7" secondAttribute="top" id="PJ4-YZ-kdr"/>
+                                    <constraint firstAttribute="trailing" secondItem="25K-YO-lUW" secondAttribute="trailing" id="Ssg-Yx-6SX"/>
+                                    <constraint firstItem="TWH-3Z-V7k" firstAttribute="top" secondItem="25K-YO-lUW" secondAttribute="bottom" id="aLV-VK-RgE"/>
                                     <constraint firstItem="ren-Oz-u1n" firstAttribute="leading" secondItem="N8M-3O-jZ7" secondAttribute="leading" id="oYy-Zd-1nx"/>
                                 </constraints>
                             </stackView>
@@ -512,6 +524,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="12" height="21"/>
         <image name="basketIcon" width="34" height="34"/>
         <image name="history-clock-button" width="31" height="29"/>
     </resources>
