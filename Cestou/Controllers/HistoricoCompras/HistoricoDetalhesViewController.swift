@@ -10,12 +10,13 @@ import UIKit
 
 class HistoricoDetalhesViewController: UIViewController {
 
-  
-    @IBOutlet weak var totalExpense: UILabel!
-    @IBOutlet weak var shoppingDateLabel: UILabel!
-    @IBOutlet weak var marketplaceNameLabel: UILabel!
-    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet var expensesInteger: UILabel!
+    @IBOutlet var expensesDecimal: UILabel!
+    @IBOutlet var marketplaceNameLabel: UILabel!
+    @IBOutlet var shoppingDateLabel: UILabel!
+    @IBOutlet var totalExpensesLabel: UILabel!
     
     var shopping: Shopping?
     
@@ -26,30 +27,30 @@ class HistoricoDetalhesViewController: UIViewController {
         return .lightContent
     }
     
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
        // print(shopping)
-        let gradientLayer = CAGradientLayer()
-        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
-        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
+        //adding the background image
+        let background = UIImageView()
+        background.image = UIImage(named: "BG")
+        background.frame = self.view.frame
         
-        gradientLayer.colors = [leftColorGradient,rightColorGradient]
-        
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.insertSublayer(gradientLayer, at: 0)
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
         
         marketplaceNameLabel.text = shopping?.marketplace.name
         marketplaceNameLabel.adjustsFontSizeToFitWidth = true
-        totalExpense.text = String(format: "%.2f", shopping?.cost ?? 0.0)
+        //self.expensesInteger.text = "R$\(String(floor(self.shopping?.cost ?? 0.0)))"
+        self.expensesInteger.text = "R$\(String(format: "%.0f", floor(self.shopping?.cost ?? 0.0)))"
         
-        //unitPriceLabel.text = "\(shopping.)"
+        let totalExpensesRounded = floor(self.shopping?.cost ?? 0.0)
+        let totalExpensesDecimal = (((self.shopping?.cost ?? 0.0) - totalExpensesRounded) * 100)
+        print("EXPENSES DECIMAL: \(totalExpensesDecimal)")
+        
+        self.expensesDecimal.text =  String(format: ",%.0f", totalExpensesDecimal)
+        self.shoppingDateLabel.text = self.shopping?.prettyDate()
+        self.totalExpensesLabel.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,19 +63,18 @@ extension HistoricoDetalhesViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (self.shopping?.products.count ?? 0) + 1
+        return (self.shopping?.products.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell")!
-            return cell
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
+        
+        if(indexPath.row % 2 == 0) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
-        
-        guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
+        guard let product = shopping?.products[indexPath.row] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
         //cell.quantity.text = String(product.quantity).lowercased()
         var _quantity: String
