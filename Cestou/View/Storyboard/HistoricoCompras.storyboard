@@ -212,7 +212,6 @@
         <!--Historico Detalhes View Controller-->
         <scene sceneID="A1r-cp-bEV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9gS-7Z-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="rp7-Bf-ihx" customClass="HistoricoDetalhesViewController" customModule="Cestou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vdI-or-aNv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -268,7 +267,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="MiJ-tl-PxT" firstAttribute="top" secondItem="nZq-Iv-JMz" secondAttribute="bottom" id="13E-Ck-Z6E"/>
                                             <constraint firstAttribute="bottom" secondItem="MiJ-tl-PxT" secondAttribute="bottom" constant="19" id="6uo-9j-4Em"/>
@@ -520,6 +518,7 @@
                         <outlet property="totalExpensesLabel" destination="52Z-md-ycM" id="6FR-yX-VMU"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gS-7Z-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1366.6666666666667" y="164.73214285714286"/>
         </scene>
