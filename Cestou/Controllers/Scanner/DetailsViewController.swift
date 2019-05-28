@@ -11,13 +11,15 @@ import UIKit
 class DetailsViewController: UIViewController {
 
 
-    @IBOutlet weak var totalExpense: UILabel!
+    
+    @IBOutlet var expensesInteger: UILabel!
+    @IBOutlet var expensesDecimal: UILabel!
     @IBOutlet weak var shoppingDateLabel: UILabel!
     @IBOutlet weak var marketplaceNameLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet var totalExpensesLabel: UILabel!
+    
     var stringQrCode: String?
     var shopping: Shopping? = nil
     
@@ -27,56 +29,7 @@ class DetailsViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let gradientLayer = CAGradientLayer()
-        let leftColorGradient = UIColor.init(red: 152.0/255, green: 247.0/255, blue: 167.0/255, alpha: 1.0).cgColor
-        let rightColorGradient = UIColor.init(red: 7.0/255, green: 208.0/255, blue: 210.0/255, alpha: 1.0).cgColor
-        
-        gradientLayer.colors = [leftColorGradient,rightColorGradient]
-        
-        tableView.tableFooterView = UIView()
-        
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradientLayer.frame = headerView.bounds
-        headerView.layer.insertSublayer(gradientLayer, at: 0)
-        
-        self.confirmButton.layer.cornerRadius = 26
-        self.confirmButton.clipsToBounds = true
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        guard let url = stringQrCode else { fatalError() }
-        
-        self.view.addSubview(loadingScreenWhite())
-        
-        NFScrapper.getShopping(url: url) { (shopping) in
-            self.shopping = shopping
-            DispatchQueue.main.async {
-                self.marketplaceNameLabel.text = self.shopping?.marketplace.name
-                self.marketplaceNameLabel.adjustsFontSizeToFitWidth = true
-                self.totalExpense.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
-                self.shoppingDateLabel.text = self.shopping?.prettyDate()
-                
-                
-                if let loadView = self.view.viewWithTag(4095){
-                    loadView.removeFromSuperview()
-                }
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-
-    
-    @IBAction func confirmButton(_ sender: UIButton) {
+    @IBAction func confirmScanButton(_ sender: UIButton) {
         guard let _shopping = self.shopping else {
             print("shopping structure bad formatting")
             fatalError()
@@ -93,11 +46,52 @@ class DetailsViewController: UIViewController {
                 if let loadView = self.view.viewWithTag(4095){
                     loadView.removeFromSuperview()
                 }
-
+                
             }
         }
-//        DetailsViewController.didConfirm = true
-//        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let background = UIImageView()
+        background.image = UIImage(named: "BG")
+        background.frame = self.view.frame
+        
+        self.view.addSubview(background)
+        self.view.sendSubviewToBack(background)
+        
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        guard let url = stringQrCode else { fatalError() }
+        
+        self.view.addSubview(loadingScreenWhite())
+        
+        NFScrapper.getShopping(url: url) { (shopping) in
+            self.shopping = shopping
+            DispatchQueue.main.async {
+                self.marketplaceNameLabel.text = self.shopping?.marketplace.name
+                self.marketplaceNameLabel.adjustsFontSizeToFitWidth = true
+                //self.expensesInteger.text = "R$\(String(floor(self.shopping?.cost ?? 0.0)))"
+                self.expensesInteger.text = "R$\(String(format: "%.0f", floor(self.shopping?.cost ?? 0.0)))"
+                
+                let totalExpensesRounded = floor(self.shopping?.cost ?? 0.0)
+                let totalExpensesDecimal = (((self.shopping?.cost ?? 0.0) - totalExpensesRounded) * 100)
+                print("EXPENSES DECIMAL: \(totalExpensesDecimal)")
+                
+                self.expensesDecimal.text =  String(format: ",%02.0f", totalExpensesDecimal)
+                self.shoppingDateLabel.text = self.shopping?.prettyDate()
+                self.totalExpensesLabel.text = "R$\(String(format: "%.2f", self.shopping?.cost ?? 0.0))"
+                
+                
+                if let loadView = self.view.viewWithTag(4095){
+                    loadView.removeFromSuperview()
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -106,19 +100,24 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (self.shopping?.products.count ?? 0) + 1
+        return (self.shopping?.products.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell")!
-            return cell
+//        if indexPath.row == 0 {
+//            return ProductTableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        }
+        
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
+        
+        if(indexPath.row % 2 == 0) {
+            cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
         }
+
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
         
-        guard let product = shopping?.products[indexPath.row-1] else {fatalError()}
+        guard let product = shopping?.products[indexPath.row] else {fatalError()}
         cell.productName.text = product.name.prefix(1).uppercased() + product.name.lowercased().dropFirst()
         //cell.quantity.text = String(product.quantity).lowercased()
         cell.unit.text = String(format: "%.2f",product.quantity).lowercased() + String(product.unit).lowercased()

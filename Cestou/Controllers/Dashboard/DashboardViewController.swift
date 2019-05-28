@@ -192,12 +192,14 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let categoryCell = graphTableView.dequeueReusableCell(withIdentifier: "Category") as! CategoryTableViewCell
             categoryCell.balanceMonth = self.balances![month]
+            categoryCell.contentView.addShadowToView()
             categoryCell.configure()
             return categoryCell
         }
         else if indexPath.row == 1 {
             let dailyExpensesCell = graphTableView.dequeueReusableCell(withIdentifier: "DailyExpenses") as! DailyExpensesTableViewCell
             dailyExpensesCell.getMonth = self.month
+            dailyExpensesCell.contentView.addShadowToView()
             dailyExpensesCell.balanceMonth = self.balances![month]
             dailyExpensesCell.configure()
             return dailyExpensesCell
@@ -205,6 +207,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
         else if indexPath.row == 2 {
             let monthlyPlanningCell = graphTableView.dequeueReusableCell(withIdentifier: "MonthlyPlanning") as! MonthlyPlanningTableViewCell
             monthlyPlanningCell.balanceMonth = self.balances![month]
+            monthlyPlanningCell.contentView.addShadowToView()
             monthlyPlanningCell.configure()
             return monthlyPlanningCell
         }
