@@ -222,6 +222,12 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
         cell.totalCompra.text = String(format: "Total: R$%.2f", (shopping[indexPath.row].cost))
         cell.dataCompra.text = shopping[indexPath.row].prettyDate()
         
+        //Acessibility settings
+        cell.marketplaceCompra.isAccessibilityElement = true
+        cell.totalCompra.isAccessibilityElement = true
+        cell.dataCompra.isAccessibilityElement = true
+        cell.dataCompra.accessibilityHint = "The date in which the purchase was made."
+        
         return cell
         
     }
