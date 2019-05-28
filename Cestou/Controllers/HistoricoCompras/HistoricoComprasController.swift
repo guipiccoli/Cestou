@@ -40,7 +40,7 @@ class HistoricoComprasController: UIViewController {
         
         
         let backgroundHeader = UIImageView()
-        backgroundHeader.frame = headerView.frame
+        backgroundHeader.frame = self.view.frame
         backgroundHeader.image = UIImage(named: "BG")
         
         self.view.addSubview(backgroundHeader)
