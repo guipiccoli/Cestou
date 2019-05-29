@@ -216,8 +216,10 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
-        guard let shopping = shoppings else {return cell}
-                
+        guard var shopping = shoppings else {return cell}
+        
+        shopping = shopping.sorted( by: { $0 > $1 })
+        
         cell.marketplaceCompra.text = shopping[indexPath.row].marketplace.name
         cell.totalCompra.text = String(format: "Total: R$%.2f", (shopping[indexPath.row].cost))
         cell.dataCompra.text = shopping[indexPath.row].prettyDate()
