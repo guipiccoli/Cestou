@@ -49,7 +49,7 @@ class HistoricoComprasController: UIViewController {
         
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -58,7 +58,7 @@ class HistoricoComprasController: UIViewController {
             height: view.bounds.height * cellPercentWidth * cellPercentWidth)
         
         centeredCollectionViewFlowLayout.minimumLineSpacing = 40
-        
+
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         
@@ -74,10 +74,12 @@ class HistoricoComprasController: UIViewController {
         let date = Date()
         let calendar = Calendar.current
         self.month = calendar.component(.month, from: date) - 1
-        
-        centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
+    
+        centeredCollectionViewFlowLayout.scrollToPage(index: self.month, animated: false)
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
+                self.centeredCollectionViewFlowLayout.scrollToPage(index: self.month, animated: false)
+
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 
@@ -89,7 +91,7 @@ class HistoricoComprasController: UIViewController {
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
                 
                 
-                self.shoppings = self.balances?[self.month].monthlyShoppings
+                self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
                 self.tableView.reloadData()
                 
             }
@@ -115,7 +117,7 @@ class HistoricoComprasController: UIViewController {
                 self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
                 
-                self.shoppings = self.balances?[self.month].monthlyShoppings
+                self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
                 self.tableView.reloadData()
                 //print(#function)
                 
@@ -218,8 +220,6 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
         guard var shopping = shoppings else {return cell}
         
-        shopping = shopping.sorted( by: { $0 > $1 })
-        
         cell.marketplaceCompra.text = shopping[indexPath.row].marketplace.name
         cell.totalCompra.text = String(format: "Total: R$%.2f", (shopping[indexPath.row].cost))
         cell.dataCompra.text = shopping[indexPath.row].prettyDate()
@@ -260,7 +260,7 @@ extension HistoricoComprasController {
         
         
         self.month = index.row
-        self.shoppings = self.balances?[self.month].monthlyShoppings
+        self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted(by: { $0 > $1 } )
         self.tableView.reloadData()
     }
 }
