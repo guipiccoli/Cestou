@@ -26,13 +26,17 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-vindo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLE-tE-UJr">
                                 <rect key="frame" x="20" y="324" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" label="Bem-vindo"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dds-li-Flc">
                                 <rect key="frame" x="20" y="415" width="374" height="81.5"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mauris in urna tempor cursus. Sed pharetra feugiat sapien, id maximus augue auctor sit amet.</string>
+                                <accessibility key="accessibilityConfiguration">
+                                    <string key="label">Ao se cadastrar no Cestou, você deu o seu primeiro passo para começar a entender o seu padrão de consumo no mercado e assim entender como pode economizar.</string>
+                                </accessibility>
+                                <string key="text">Ao se cadastrar no Cestou, você deu o seu primeiro passo para começar a entender o seu padrão de consumo no mercado e assim entender como pode economizar.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,6 +51,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-WF-lHn">
                                 <rect key="frame" x="312" y="829" width="62" height="33"/>
+                                <accessibility key="accessibilityConfiguration" label="Botão avançar para próxima etapa."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Avançar">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,13 +241,14 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rendimento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTd-qN-Em7">
                                 <rect key="frame" x="20" y="324" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" label="Rendimento"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-8I-aBP">
-                                <rect key="frame" x="20" y="415" width="374" height="81.5"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mauris in urna tempor cursus. Sed pharetra feugiat sapien, id maximus augue auctor sit amet.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb9-8I-aBP">
+                                <rect key="frame" x="20" y="415" width="374" height="61"/>
+                                <accessibility key="accessibilityConfiguration" label="Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -251,7 +257,7 @@
                                 <rect key="frame" x="182" y="758" width="50" height="10"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rendimento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSB-tm-YRY" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                <rect key="frame" x="20" y="544.5" width="374" height="48"/>
+                                <rect key="frame" x="20" y="524" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9xd-dz-st4"/>
                                 </constraints>
@@ -261,6 +267,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUs-rW-5un">
                                 <rect key="frame" x="302" y="819" width="62" height="33"/>
+                                <accessibility key="accessibilityConfiguration" label="Botão avançar para próxima etapa."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Avançar">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,18 +276,8 @@
                                     <action selector="goToSpent:" destination="H8Q-xH-Ipv" eventType="touchUpInside" id="GqD-Wa-bmk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KnD-1n-Whv">
-                                <rect key="frame" x="50" y="819" width="45" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Voltar">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xsE-3n-Z5T" kind="show" customClass="SegueFromLeft" customModule="Cestou" customModuleProvider="target" id="h7r-wn-P4y"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90l-8e-70b">
-                                <rect key="frame" x="20" y="516.5" width="374" height="18"/>
+                                <rect key="frame" x="20" y="496" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -297,7 +294,6 @@
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="5Sx-Tl-Bqn" secondAttribute="trailing" constant="182" id="PNi-Dv-4gF"/>
                             <constraint firstItem="JSB-tm-YRY" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="20" id="UOf-Ak-Pii"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="eb9-8I-aBP" secondAttribute="trailing" constant="20" id="US3-kP-cBw"/>
-                            <constraint firstItem="dGX-fC-2hv" firstAttribute="bottom" secondItem="KnD-1n-Whv" secondAttribute="bottom" constant="10" id="X0O-Et-1j0"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="AQG-j2-60i" secondAttribute="trailing" constant="107" id="dPC-Gk-kQO"/>
                             <constraint firstItem="eb9-8I-aBP" firstAttribute="top" secondItem="qTd-qN-Em7" secondAttribute="bottom" constant="50" id="hOl-6V-ii7"/>
                             <constraint firstItem="AQG-j2-60i" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="107" id="jZi-tV-i4P"/>
@@ -308,7 +304,6 @@
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="90l-8e-70b" secondAttribute="trailing" constant="20" id="oNv-Cb-C11"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="trailing" secondItem="JSB-tm-YRY" secondAttribute="trailing" constant="20" id="pes-ez-n3K"/>
                             <constraint firstItem="JSB-tm-YRY" firstAttribute="top" secondItem="90l-8e-70b" secondAttribute="bottom" constant="10" id="qZR-mc-TaM"/>
-                            <constraint firstItem="KnD-1n-Whv" firstAttribute="leading" secondItem="dGX-fC-2hv" secondAttribute="leading" constant="50" id="tfd-tq-O7y"/>
                             <constraint firstItem="dGX-fC-2hv" firstAttribute="bottom" secondItem="5Sx-Tl-Bqn" secondAttribute="bottom" constant="94" id="yQH-N6-now"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dGX-fC-2hv"/>
@@ -339,13 +334,14 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gasto Projetado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APm-OD-JUb">
                                 <rect key="frame" x="20" y="324" width="374" height="41"/>
+                                <accessibility key="accessibilityConfiguration" label="Gasto Projetado"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSa-xe-19e">
-                                <rect key="frame" x="20" y="415" width="374" height="81.5"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget mauris in urna tempor cursus. Sed pharetra feugiat sapien, id maximus augue auctor sit amet.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSa-xe-19e">
+                                <rect key="frame" x="20" y="415" width="374" height="61"/>
+                                <accessibility key="accessibilityConfiguration" label="Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -354,9 +350,10 @@
                                 <rect key="frame" x="182" y="758" width="50" height="10"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDw-ee-bbu">
-                                <rect key="frame" x="312" y="819" width="62" height="33"/>
+                                <rect key="frame" x="344" y="819" width="30" height="33"/>
+                                <accessibility key="accessibilityConfiguration" label="Botão para avançar para o dashboard."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Avançar">
+                                <state key="normal" title="Fim">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -365,6 +362,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HII-Zo-w8P">
                                 <rect key="frame" x="50" y="819" width="45" height="33"/>
+                                <accessibility key="accessibilityConfiguration" label="Botão voltar para etapa anterior."/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -374,13 +372,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7R-kg-x7l">
-                                <rect key="frame" x="20" y="516.5" width="374" height="18"/>
+                                <rect key="frame" x="20" y="496" width="374" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gasto Projetado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ope-Zh-mEj" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                <rect key="frame" x="20" y="544.5" width="374" height="48"/>
+                                <rect key="frame" x="20" y="524" width="374" height="48"/>
+                                <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu gasto projetado."/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="uQG-vY-kNn"/>
                                 </constraints>
@@ -452,6 +451,6 @@
         <image name="welcome" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iGe-yi-6Sl"/>
+        <segue reference="Tzz-h1-kRS"/>
     </inferredMetricsTieBreakers>
 </document>
