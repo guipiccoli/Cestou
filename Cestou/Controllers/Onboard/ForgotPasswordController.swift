@@ -16,11 +16,17 @@ class ForgotPassowrdController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTextField.delegate = self
+        self.styleSignInInputs()
         self.styleSignInBtn()
     }
-    
+
+    private func styleSignInInputs() {
+        self.emailTextField.layer.cornerRadius = 18
+        self.emailTextField.clipsToBounds = true
+    }
+
     private func styleSignInBtn() {
-        self.sendEmailBtn.layer.cornerRadius = 26
+        self.sendEmailBtn.layer.cornerRadius = 18
         self.sendEmailBtn.clipsToBounds = true
     }
     

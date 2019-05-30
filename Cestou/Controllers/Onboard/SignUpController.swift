@@ -25,8 +25,17 @@ class SignUpController: UIViewController {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
+        self.styleSignUpInputs()
         self.styleSignUpBtn()
-        // Do any additional setup after loading the view.
+    }
+    
+    private func styleSignUpInputs() {
+        self.fullname.layer.cornerRadius = 18
+        self.fullname.clipsToBounds = true
+        self.email.layer.cornerRadius = 18
+        self.email.clipsToBounds = true
+        self.password.layer.cornerRadius = 18
+        self.password.clipsToBounds = true
     }
     
     private func isValidEmail(testStr:String) -> Bool {
@@ -37,7 +46,7 @@ class SignUpController: UIViewController {
     }
     
     private func styleSignUpBtn() {
-        self.signUpBtn.layer.cornerRadius = 26
+        self.signUpBtn.layer.cornerRadius = 18
         self.signUpBtn.clipsToBounds = true
     }
     
