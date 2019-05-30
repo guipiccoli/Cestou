@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="16"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="K2M-kq-o3k" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
@@ -99,7 +99,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="elI-26-Ddx" secondAttribute="trailing" id="61K-Xd-Orh"/>
                                     <constraint firstItem="elI-26-Ddx" firstAttribute="leading" secondItem="0PT-Qj-31d" secondAttribute="leading" id="9wq-5P-vWk"/>
-                                    <constraint firstItem="elI-26-Ddx" firstAttribute="top" secondItem="kpj-fp-Mlk" secondAttribute="bottom" constant="30" id="Ax0-XT-2E5"/>
+                                    <constraint firstItem="elI-26-Ddx" firstAttribute="top" secondItem="kpj-fp-Mlk" secondAttribute="bottom" constant="25" id="Ax0-XT-2E5"/>
                                     <constraint firstAttribute="height" constant="164" id="EbO-Iu-oKZ"/>
                                     <constraint firstItem="kpj-fp-Mlk" firstAttribute="top" secondItem="0PT-Qj-31d" secondAttribute="top" constant="64" id="ZJJ-nr-WFg"/>
                                     <constraint firstItem="kpj-fp-Mlk" firstAttribute="centerX" secondItem="0PT-Qj-31d" secondAttribute="centerX" id="fwo-gI-722"/>

@@ -15,6 +15,7 @@ class HistoricoComprasController: UIViewController {
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var totalExpensesLabel: UILabel!
+    @IBOutlet weak var totalExpensesDecimal: UILabel!
     
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
@@ -40,7 +41,7 @@ class HistoricoComprasController: UIViewController {
         
         
         let backgroundHeader = UIImageView()
-        backgroundHeader.frame = headerView.frame
+        backgroundHeader.frame = self.view.frame
         backgroundHeader.image = UIImage(named: "BG")
         
         self.view.addSubview(backgroundHeader)
@@ -48,7 +49,7 @@ class HistoricoComprasController: UIViewController {
         
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -57,10 +58,15 @@ class HistoricoComprasController: UIViewController {
             height: view.bounds.height * cellPercentWidth * cellPercentWidth)
         
         centeredCollectionViewFlowLayout.minimumLineSpacing = 40
-        
+
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        var totalExpensesRounded = String(format: "%.2f", totalExpenses) //Arredonda o Double para 2 digitos
+        
+        let _roundedExpense = totalExpenses.rounded(.down)
+        let decimals = totalExpenses - _roundedExpense
+        let totalExpensesRounded = String(Int(_roundedExpense))
+        
+        self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
         totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         totalExpensesLabel.sizeToFit()
         
@@ -68,16 +74,24 @@ class HistoricoComprasController: UIViewController {
         let date = Date()
         let calendar = Calendar.current
         self.month = calendar.component(.month, from: date) - 1
-        
-        centeredCollectionViewFlowLayout.scrollToPage(index: month, animated: true)
+    
+        centeredCollectionViewFlowLayout.scrollToPage(index: self.month, animated: false)
         DataService.getDashboard { (result: [Balance]?) in
             DispatchQueue.main.async {
+                self.centeredCollectionViewFlowLayout.scrollToPage(index: self.month, animated: false)
+
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
-                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+                
+                let _roundedExpense = (result?[self.month].expense)!.rounded(.down)
+                let decimals = (result?[self.month].expense)! - _roundedExpense
+                let totalExpensesRounded = String(Int(_roundedExpense))
+                
+                self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
                 
-                self.shoppings = self.balances?[self.month].monthlyShoppings
+                
+                self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
                 self.tableView.reloadData()
                 
             }
@@ -95,10 +109,15 @@ class HistoricoComprasController: UIViewController {
             DispatchQueue.main.async {
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
-                let totalExpensesRounded = String(format: "%.2f", (result?[self.month].expense)!)
+
+                let _roundedExpense = (result?[self.month].expense)!.rounded(.down)
+                let decimals = (result?[self.month].expense)! - _roundedExpense
+                let totalExpensesRounded = String(Int(_roundedExpense))
+                
+                self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
                 
-                self.shoppings = self.balances?[self.month].monthlyShoppings
+                self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
                 self.tableView.reloadData()
                 //print(#function)
                 
@@ -199,11 +218,17 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HistoricoComprasCell
-        guard let shopping = shoppings else {return cell}
-                
+        guard var shopping = shoppings else {return cell}
+        
         cell.marketplaceCompra.text = shopping[indexPath.row].marketplace.name
         cell.totalCompra.text = String(format: "Total: R$%.2f", (shopping[indexPath.row].cost))
         cell.dataCompra.text = shopping[indexPath.row].prettyDate()
+        
+        //Acessibility settings
+        cell.marketplaceCompra.isAccessibilityElement = true
+        cell.totalCompra.isAccessibilityElement = true
+        cell.dataCompra.isAccessibilityElement = true
+        cell.dataCompra.accessibilityHint = "The date in which the purchase was made."
         
         return cell
         
@@ -221,16 +246,21 @@ extension HistoricoComprasController {
     
     func refreshDataPerMonth(index: IndexPath) {
         
-        let totalExpensesRounded = String(format: "%.2f", (balances![index.row].expense))
+        
+        let _roundedExpense = (balances![index.row].expense).rounded(.down)
+        let decimals = (balances![index.row].expense) - _roundedExpense
+        let totalExpensesRounded = String(Int(_roundedExpense))
+        
+        self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         
         for item in balances! {
             print(item)
         }
         
         
-        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         self.month = index.row
-        self.shoppings = self.balances?[self.month].monthlyShoppings
+        self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted(by: { $0 > $1 } )
         self.tableView.reloadData()
     }
 }

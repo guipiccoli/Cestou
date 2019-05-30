@@ -91,11 +91,6 @@ class DashboardViewController: UIViewController {
                 self.balances = result ?? []
                 self.refreshDataPerMonth(index: IndexPath(row: self.centeredCollectionViewFlowLayout!.currentCenteredPage ?? self.month, section: 0))
                 self.graphTableView.reloadData()
-                guard let _roundedExpense = result?[self.month].expense.rounded(.down) else {fatalError()}
-                let decimals = (result?[self.month].expense)!  - _roundedExpense
-                let totalExpensesRounded = String(Int(_roundedExpense))
-                self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
-                self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
             }
         }
     }
@@ -222,14 +217,18 @@ extension DashboardViewController {
     
     func refreshDataPerMonth(index: IndexPath) {
         
-        let totalExpensesRounded = String(format: "%.2f", (balances![index.row].expense))
+        let _roundedExpense = balances![index.row].expense.rounded(.down)
+        let decimals = balances![index.row].expense - _roundedExpense
+        let totalExpensesRounded = String(Int(_roundedExpense))
+        self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
+        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
+
         
         for item in balances! {
             print(item)
         }
         
         
-        self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
         self.month = index.row
         self.graphTableView.reloadData()
     }
