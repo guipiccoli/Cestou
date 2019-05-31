@@ -17,6 +17,7 @@ class HistoricoDetalhesViewController: UIViewController {
     @IBOutlet var marketplaceNameLabel: UILabel!
     @IBOutlet var shoppingDateLabel: UILabel!
     @IBOutlet var totalExpensesLabel: UILabel!
+    @IBOutlet weak var totalExpensesView: UIView!
     
     var shopping: Shopping?
     
@@ -59,6 +60,8 @@ class HistoricoDetalhesViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        totalExpensesView.accessibilityLabel = "O valor total da compra foi de" + totalExpensesLabel.text!
         
     }
 }

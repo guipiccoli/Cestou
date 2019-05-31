@@ -498,6 +498,9 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="L4Y-US-Wz7" secondAttribute="trailing" id="0VR-5d-YG5"/>
                                             <constraint firstItem="52Z-md-ycM" firstAttribute="top" secondItem="ren-Oz-u1n" secondAttribute="top" constant="10" id="R1u-zy-wHg"/>
@@ -544,6 +547,7 @@
                         <outlet property="shoppingDateLabel" destination="MiJ-tl-PxT" id="hqT-qK-Ufs"/>
                         <outlet property="tableView" destination="eA9-18-fd6" id="U2y-4d-1ob"/>
                         <outlet property="totalExpensesLabel" destination="52Z-md-ycM" id="6FR-yX-VMU"/>
+                        <outlet property="totalExpensesView" destination="ren-Oz-u1n" id="cxg-PW-oGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gS-7Z-yfY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -40,6 +40,8 @@ class HistoricoComprasController: UIViewController {
         tableView.dataSource = self
         
         
+        
+        
         let backgroundHeader = UIImageView()
         backgroundHeader.frame = self.view.frame
         backgroundHeader.image = UIImage(named: "BG")
@@ -119,6 +121,12 @@ class HistoricoComprasController: UIViewController {
                 
                 self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
                 self.tableView.reloadData()
+                
+//                self.headerView.isAccessibilityElement = true
+//
+//                self.headerView.accessibilityLabel = "Mês atual do balanço \(self.months[self.month]). Gasto mensal \(self.totalExpensesLabel.text!) e \(self.totalExpensesDecimal.text!) centavos"
+                
+                
                 //print(#function)
                 
             }
@@ -225,12 +233,12 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
         cell.dataCompra.text = shopping[indexPath.row].prettyDate()
         
         //Acessibility settings
-        cell.marketplaceCompra.isAccessibilityElement = true
-        cell.totalCompra.isAccessibilityElement = true
-        cell.dataCompra.isAccessibilityElement = true
-        //cell.dataCompra.accessibilityHint = "The date in which the purchase was made."
+//        cell.marketplaceCompra.isAccessibilityElement = true
+//        cell.totalCompra.isAccessibilityElement = true
+//        cell.dataCompra.isAccessibilityElement = true
+        cell.isAccessibilityElement = true
         let valorLegivel = cell.dataCompra.text?.components(separatedBy: "/")
-        cell.dataCompra.accessibilityLabel = "A compra foi feita no dia \(valorLegivel![0]) de \(months[Int(valorLegivel![1])! - 1]) de \(valorLegivel![2])"
+        cell.accessibilityLabel = "Compra realizada no mercado \(cell.marketplaceCompra.text!), com o valor \(cell.totalCompra.text!), no dia \(valorLegivel![0]) de \(months[Int(valorLegivel![1])! - 1]) de \(valorLegivel![2])"
         cell.dataCompra.accessibilityLanguage = "pt-BR"
         return cell
         
