@@ -47,7 +47,7 @@ class DashboardViewController: UIViewController {
 //        gradientLayer.endPoint = CGPoint(x: 0.8, y: 0.8)
 //        gradientLayer.frame = self.view.bounds
 //        self.view.layer.insertSublayer(gradientLayer, at: 0)
-        
+                
         let background = UIImageView()
         background.image = UIImage(named: "BG")
         background.frame = self.view.frame

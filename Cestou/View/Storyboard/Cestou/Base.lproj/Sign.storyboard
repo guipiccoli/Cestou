@@ -29,7 +29,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-rK-xH1">
                                 <rect key="frame" x="100" y="50" width="120" height="120"/>
                                 <accessibility key="accessibilityConfiguration" label="Logotipo do Cestou App">
-                                    <bool key="isElement" value="YES"/>
+                                    <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="NnO-Zh-4Vc"/>
@@ -88,7 +88,6 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-x3-d56" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="53" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821340560913" green="0.86786812543869019" blue="0.75293499231338501" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
@@ -96,7 +95,6 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-0P-lb4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar a sua senha."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -148,7 +146,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" label="Tela inicial do app para efetuar o login.">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="hKN-O7-gIb" firstAttribute="trailing" secondItem="cMr-Qc-dDs" secondAttribute="trailing" id="6mD-Hl-TNs"/>
@@ -201,7 +199,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="A3n-HL-LDK">
                                 <rect key="frame" x="100" y="50" width="120" height="120"/>
                                 <accessibility key="accessibilityConfiguration" label="Logotipo do Cestou App">
-                                    <bool key="isElement" value="YES"/>
+                                    <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="2JV-U0-jJC"/>
@@ -224,6 +222,7 @@
                                         <rect key="frame" x="0.0" y="48" width="288" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu nome completo."/>
+                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -232,6 +231,7 @@
                                         <rect key="frame" x="0.0" y="96" width="288" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
+                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -240,6 +240,7 @@
                                         <rect key="frame" x="0.0" y="144" width="288" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o sua senha."/>
+                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -293,7 +294,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" label="Tela do app para criação de uma nova conta.">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="daV-SE-5Z7" firstAttribute="leading" secondItem="C12-xm-hDa" secondAttribute="leading" id="2hS-y7-qWg"/>
@@ -335,7 +336,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="Zbl-Qd-pLM">
                                 <rect key="frame" x="100" y="50" width="120" height="120"/>
                                 <accessibility key="accessibilityConfiguration" label="Logotipo do Cestou App">
-                                    <bool key="isElement" value="YES"/>
+                                    <bool key="isElement" value="NO"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="W9o-qH-9BD"/>
@@ -348,7 +349,6 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-wK-PD5" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -395,7 +395,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration" label="Tela do app para recuperar a senha do seu login.">
-                            <bool key="isElement" value="YES"/>
+                            <bool key="isElement" value="NO"/>
                         </accessibility>
                         <constraints>
                             <constraint firstItem="Sqg-Hy-eT1" firstAttribute="leading" secondItem="MGf-iI-nPi" secondAttribute="leading" id="59c-P1-MDM"/>
@@ -425,6 +425,6 @@
         <image name="signBackground" width="125" height="193"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A5H-OR-rmm"/>
+        <segue reference="BD6-Hc-CB3"/>
     </inferredMetricsTieBreakers>
 </document>
