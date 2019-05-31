@@ -105,16 +105,17 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if indexPath.row == 0 {
-//            return ProductTableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//        }
-        
         guard var cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifierGray", for: indexPath) as? ProductTableViewCell else {return UITableViewCell()}
         
         if(indexPath.row % 2 == 0) {
             cell = tableView.dequeueReusableCell(withIdentifier: "productCellIdentifier", for: indexPath) as? ProductTableViewCell ?? UITableViewCell() as! ProductTableViewCell
         }
 
+        //Acessibility Settings
+        cell.productName.isAccessibilityElement = true
+        cell.unit.isAccessibilityElement = true //settar custom label
+        cell.totalPrice.isAccessibilityElement = true
+        cell.unitPrice.isAccessibilityElement = true
         
         
         guard let product = shopping?.products[indexPath.row] else {fatalError()}

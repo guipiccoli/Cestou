@@ -226,8 +226,10 @@ extension HistoricoComprasController: UITableViewDataSource, UITableViewDelegate
         cell.marketplaceCompra.isAccessibilityElement = true
         cell.totalCompra.isAccessibilityElement = true
         cell.dataCompra.isAccessibilityElement = true
-        cell.dataCompra.accessibilityHint = "The date in which the purchase was made."
-        
+        //cell.dataCompra.accessibilityHint = "The date in which the purchase was made."
+        let valorLegivel = cell.dataCompra.text?.components(separatedBy: "/")
+        cell.dataCompra.accessibilityLabel = "A compra foi feita no dia \(valorLegivel![0]) de \(months[Int(valorLegivel![1])! - 1]) de \(valorLegivel![2])"
+        cell.dataCompra.accessibilityLanguage = "pt-BR"
         return cell
         
     }
