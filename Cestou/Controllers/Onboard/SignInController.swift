@@ -23,11 +23,19 @@ class SignInController: UIViewController {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
+        self.styleSignInInputs()
         self.styleSignInBtn()
     }
     
+    private func styleSignInInputs() {
+        self.email.layer.cornerRadius = 18
+        self.email.clipsToBounds = true
+        self.password.layer.cornerRadius = 18
+        self.password.clipsToBounds = true
+    }
+    
     private func styleSignInBtn() {
-        self.signInBtn.layer.cornerRadius = 26
+        self.signInBtn.layer.cornerRadius = 18
         self.signInBtn.clipsToBounds = true
     }
     
