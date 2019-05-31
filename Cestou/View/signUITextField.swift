@@ -18,7 +18,7 @@ open class signUITextField: UITextField {
         self.border.borderColor = UIColor.darkGray.cgColor
         self.border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
         self.border.borderWidth = width
-        self.border.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+        self.border.borderColor = UIColor.clear.cgColor
         self.border.name = "border"
         self.layer.addSublayer(self.border)
         self.layer.masksToBounds = true
@@ -40,7 +40,7 @@ open class signUITextField: UITextField {
                     $0.borderColor = UIColor.red.cgColor
                 }
                 else {
-                   $0.borderColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1.0).cgColor
+                   $0.borderColor = UIColor.clear.cgColor
                 }
             }
         }

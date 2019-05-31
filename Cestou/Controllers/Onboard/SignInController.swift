@@ -29,6 +29,7 @@ class SignInController: UIViewController {
     
     private func styleSignInInputs() {
         self.email.layer.cornerRadius = 18
+        self.email.border(type: "")
         self.email.clipsToBounds = true
         self.password.layer.cornerRadius = 18
         self.password.clipsToBounds = true

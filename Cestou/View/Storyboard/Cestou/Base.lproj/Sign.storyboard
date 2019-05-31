@@ -74,18 +74,27 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p6Y-O5-kGO">
-                                <rect key="frame" x="16" y="255.5" width="288" height="182"/>
+                                <rect key="frame" x="16" y="207.5" width="288" height="230"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-x3-d56" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdQ-nJ-hWV">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Jxe-TB-QuP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-x3-d56" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="48" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821340560913" green="0.86786812543869019" blue="0.75293499231338501" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-0P-lb4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="48" width="288" height="38"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-0P-lb4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar a sua senha."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,7 +102,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-2L-77p">
-                                        <rect key="frame" x="63.5" y="96" width="161" height="38"/>
+                                        <rect key="frame" x="63.5" y="144" width="161" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão com a função de entrar no app após o preenchimento do e-mail e senha."/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -106,7 +115,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRh-gj-FrW">
-                                        <rect key="frame" x="82.5" y="144" width="123" height="38"/>
+                                        <rect key="frame" x="82.5" y="192" width="123" height="38"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de recuperar a senha."/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -129,9 +138,11 @@
                                     <constraint firstItem="Cjb-0P-lb4" firstAttribute="top" secondItem="Caq-x3-d56" secondAttribute="bottom" constant="10" id="7HV-iy-HbX"/>
                                     <constraint firstItem="mRh-gj-FrW" firstAttribute="centerX" secondItem="p6Y-O5-kGO" secondAttribute="centerX" id="8Ja-M5-z9O"/>
                                     <constraint firstItem="Caq-x3-d56" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="9Nn-h7-k5q"/>
+                                    <constraint firstAttribute="trailing" secondItem="OdQ-nJ-hWV" secondAttribute="trailing" id="ORC-DU-JYk"/>
                                     <constraint firstItem="Cjb-0P-lb4" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="d5e-7E-LtK"/>
                                     <constraint firstAttribute="trailing" secondItem="Cjb-0P-lb4" secondAttribute="trailing" id="eAJ-Ku-MvT"/>
                                     <constraint firstAttribute="trailing" secondItem="Caq-x3-d56" secondAttribute="trailing" id="hcc-mO-ah1"/>
+                                    <constraint firstItem="OdQ-nJ-hWV" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="l2J-M2-lJT"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -147,7 +158,7 @@
                             <constraint firstItem="5DP-gN-SiD" firstAttribute="top" secondItem="p6Y-O5-kGO" secondAttribute="bottom" multiplier="1.18" id="NXk-en-iNA"/>
                             <constraint firstItem="5DP-gN-SiD" firstAttribute="leading" secondItem="cMr-Qc-dDs" secondAttribute="leading" id="O0a-za-5fU"/>
                             <constraint firstItem="TmM-rK-xH1" firstAttribute="centerX" secondItem="wSe-14-Su5" secondAttribute="centerX" id="PgQ-wU-7hf"/>
-                            <constraint firstItem="hKN-O7-gIb" firstAttribute="bottom" secondItem="cMr-Qc-dDs" secondAttribute="bottom" id="Spl-wU-sHG"/>
+                            <constraint firstItem="hKN-O7-gIb" firstAttribute="bottom" secondItem="wSe-14-Su5" secondAttribute="bottom" id="Spl-wU-sHG"/>
                             <constraint firstItem="5DP-gN-SiD" firstAttribute="trailing" secondItem="cMr-Qc-dDs" secondAttribute="trailing" id="Urq-Zk-fPV"/>
                             <constraint firstItem="p6Y-O5-kGO" firstAttribute="width" secondItem="wSe-14-Su5" secondAttribute="width" multiplier="0.9" id="ZX9-ES-hXc"/>
                             <constraint firstItem="hKN-O7-gIb" firstAttribute="height" secondItem="wSe-14-Su5" secondAttribute="height" multiplier="0.7" id="eNT-Kc-f38"/>
@@ -158,6 +169,7 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="Caq-x3-d56" id="eAf-v1-0RQ"/>
+                        <outlet property="errorText" destination="OdQ-nJ-hWV" id="LbA-ZJ-I3b"/>
                         <outlet property="password" destination="Cjb-0P-lb4" id="Jas-pv-Kwb"/>
                         <outlet property="signInBtn" destination="UN1-2L-77p" id="lEM-2O-D86"/>
                         <segue destination="NhK-6Y-Ggc" kind="show" id="zLj-uo-Uoq"/>
@@ -197,26 +209,35 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="apv-Wk-DgC">
-                                <rect key="frame" x="16" y="252.5" width="288" height="230"/>
+                                <rect key="frame" x="16" y="228.5" width="288" height="278"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nome Completo" borderStyle="roundedRect" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-fs-aKz" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-7T-I24">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="bzx-9V-fvW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-fs-aKz" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="48" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu nome completo."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-0d-yWI" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="48" width="288" height="38"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-0d-yWI" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Senha" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-xX-7yK" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="288" height="38"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-xX-7yK" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="144" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o sua senha."/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,7 +245,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eva-g5-BTQ">
-                                        <rect key="frame" x="48" y="144" width="192" height="38"/>
+                                        <rect key="frame" x="48" y="192" width="192" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão com a função de cadastrar uma nova conta no app após o preenchimento do nome completo,  e-mail e senha."/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -237,7 +258,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-dR-FrM">
-                                        <rect key="frame" x="77" y="192" width="134" height="38"/>
+                                        <rect key="frame" x="77" y="240" width="134" height="38"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de login."/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -257,12 +278,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TZa-xX-7yK" secondAttribute="trailing" id="0s6-4d-HjC"/>
+                                    <constraint firstItem="GRj-7T-I24" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="45o-DS-3ED"/>
                                     <constraint firstItem="eva-g5-BTQ" firstAttribute="centerX" secondItem="apv-Wk-DgC" secondAttribute="centerX" id="Deg-Hf-gj3"/>
                                     <constraint firstAttribute="trailing" secondItem="N9u-0d-yWI" secondAttribute="trailing" id="Dnm-uP-kKb"/>
                                     <constraint firstItem="TZa-xX-7yK" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="Eqp-KQ-WWA"/>
                                     <constraint firstItem="HP5-fs-aKz" firstAttribute="width" secondItem="apv-Wk-DgC" secondAttribute="width" id="FwX-Bb-AfZ"/>
                                     <constraint firstItem="N9u-0d-yWI" firstAttribute="top" secondItem="HP5-fs-aKz" secondAttribute="bottom" constant="10" id="JTn-k6-Kz7"/>
                                     <constraint firstItem="TZa-xX-7yK" firstAttribute="top" secondItem="N9u-0d-yWI" secondAttribute="bottom" constant="10" id="Nai-rL-bzc"/>
+                                    <constraint firstAttribute="trailing" secondItem="GRj-7T-I24" secondAttribute="trailing" id="ZNF-EE-aN4"/>
                                     <constraint firstItem="yPG-dR-FrM" firstAttribute="centerX" secondItem="apv-Wk-DgC" secondAttribute="centerX" id="bFg-sa-i7Q"/>
                                     <constraint firstItem="N9u-0d-yWI" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="iTg-Qs-d6C"/>
                                 </constraints>
@@ -280,17 +303,18 @@
                             <constraint firstItem="apv-Wk-DgC" firstAttribute="width" secondItem="bpt-f4-f1v" secondAttribute="width" multiplier="0.9" id="e3c-H4-4cS"/>
                             <constraint firstItem="apv-Wk-DgC" firstAttribute="centerX" secondItem="bpt-f4-f1v" secondAttribute="centerX" id="o7v-tq-6ww"/>
                             <constraint firstItem="apv-Wk-DgC" firstAttribute="centerY" secondItem="C12-xm-hDa" secondAttribute="centerY" multiplier="1.25" id="qdv-KG-7sF"/>
-                            <constraint firstItem="daV-SE-5Z7" firstAttribute="bottom" secondItem="C12-xm-hDa" secondAttribute="bottom" id="vfp-YL-yZP"/>
+                            <constraint firstItem="daV-SE-5Z7" firstAttribute="bottom" secondItem="bpt-f4-f1v" secondAttribute="bottom" id="vfp-YL-yZP"/>
                             <constraint firstItem="daV-SE-5Z7" firstAttribute="height" secondItem="bpt-f4-f1v" secondAttribute="height" multiplier="0.7" id="xG4-Sq-6h8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C12-xm-hDa"/>
                     </view>
                     <connections>
                         <outlet property="email" destination="N9u-0d-yWI" id="Qm3-Uh-3hP"/>
+                        <outlet property="errorLabel" destination="GRj-7T-I24" id="tjK-9T-LZ6"/>
                         <outlet property="fullname" destination="HP5-fs-aKz" id="fhk-6U-0St"/>
                         <outlet property="password" destination="TZa-xX-7yK" id="d4o-0L-rno"/>
                         <outlet property="signUpBtn" destination="eva-g5-BTQ" id="CaR-Uc-MKI"/>
-                        <segue destination="v37-6G-Wfh" kind="show" id="I5Q-Hl-FYB"/>
+                        <segue destination="v37-6G-Wfh" kind="show" identifier="onboard" id="I5Q-Hl-FYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggO-it-nbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,7 +345,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="piu-Tf-Cjr">
                                 <rect key="frame" x="16" y="300.5" width="288" height="134"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-wK-PD5" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-wK-PD5" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
                                         <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
@@ -377,7 +401,7 @@
                             <constraint firstItem="Sqg-Hy-eT1" firstAttribute="leading" secondItem="MGf-iI-nPi" secondAttribute="leading" id="59c-P1-MDM"/>
                             <constraint firstItem="piu-Tf-Cjr" firstAttribute="centerY" secondItem="MGf-iI-nPi" secondAttribute="centerY" multiplier="1.25" id="Fel-zX-SEm"/>
                             <constraint firstItem="Zbl-Qd-pLM" firstAttribute="top" secondItem="MGf-iI-nPi" secondAttribute="top" multiplier="2.5" id="Mpt-Ft-4wh"/>
-                            <constraint firstItem="Sqg-Hy-eT1" firstAttribute="bottom" secondItem="MGf-iI-nPi" secondAttribute="bottom" id="Nln-fX-uhA"/>
+                            <constraint firstItem="Sqg-Hy-eT1" firstAttribute="bottom" secondItem="ORy-BC-5YD" secondAttribute="bottom" id="Nln-fX-uhA"/>
                             <constraint firstItem="Sqg-Hy-eT1" firstAttribute="trailing" secondItem="MGf-iI-nPi" secondAttribute="trailing" id="ZON-oy-4kZ"/>
                             <constraint firstItem="Zbl-Qd-pLM" firstAttribute="centerX" secondItem="ORy-BC-5YD" secondAttribute="centerX" id="c7O-cM-Zvs"/>
                             <constraint firstItem="Sqg-Hy-eT1" firstAttribute="height" secondItem="ORy-BC-5YD" secondAttribute="height" multiplier="0.7" id="hIB-eB-FlW"/>
