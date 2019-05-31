@@ -111,7 +111,7 @@ class CategoryTableViewCell: UITableViewCell {
         categoryChart.legend.xOffset = 180.0
         categoryChart.legend.direction = .rightToLeft
         categoryChart.legend.form = .circle
-        categoryChart.legend.formToTextSpace = -160
+        categoryChart.legend.formToTextSpace = -170
         categoryChart.holeRadiusPercent = 0.6
         
 

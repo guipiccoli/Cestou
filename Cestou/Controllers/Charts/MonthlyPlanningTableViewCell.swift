@@ -12,7 +12,6 @@ import Charts
 class MonthlyPlanningTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var balanceMonthlyPlanningChart: HorizontalBarChartView!
     @IBOutlet weak var expensesMonthlyPlanningChart: HorizontalBarChartView!
     @IBOutlet weak var backgroundCardView: UIView!
     @IBOutlet var noDataView: UIView!
@@ -53,56 +52,68 @@ class MonthlyPlanningTableViewCell: UITableViewCell {
     func setChart() {
         
         //valores de entrada pro grafico
-        let expensesEntry1 = BarChartDataEntry(x: 2.0, y: getBalance["Incoming"]!)
-        let expensesEntry2 = BarChartDataEntry(x: 2.0, y: getBalance["Planning"]!)
         
-        let balanceEntry1 = BarChartDataEntry(x: 3.0, y: getBalance["Incoming"]!)
-        let balanceEntry2 = BarChartDataEntry(x: 3.0, y: getBalance["Expenses"]!)
+        let expensesEntry1 = BarChartDataEntry(x: 2.0, y: getBalance["Incoming"]!)
+        let expensesEntry2 = BarChartDataEntry(x: 2.0, y: getBalance["Expenses"]!)
 
         //dataset
         let expensesDataSet = BarChartDataSet(entries: [expensesEntry1,expensesEntry2], label: "Gastos Totais")
         let expensesData = BarChartData(dataSets: [expensesDataSet])
-        expensesMonthlyPlanningChart.data = expensesData
         
-        let balanceDataSet = BarChartDataSet(entries: [balanceEntry1,balanceEntry2], label: "Balanco")
-        let balanceData = BarChartData(dataSets: [balanceDataSet])
-        balanceMonthlyPlanningChart.data = balanceData
-
-        let blueColor = NSUIColor.init(red: 90/255, green: 200/255, blue: 250/255, alpha: 1.0)
+        let greenColor = NSUIColor.init(red: 43/255, green: 203/255, blue: 136/255, alpha: 1.0)
         let redColor = NSUIColor.init(red: 255.0/255, green: 117/255, blue: 117/255, alpha: 1.0)
         let lightGray = NSUIColor.init(red: 228.0/255, green: 228.0/255, blue: 228.0/255, alpha: 1.0)
         
-        
-        balanceDataSet.setColors([lightGray,blueColor], alpha: 1.0)
-        expensesDataSet.setColors([lightGray,redColor], alpha: 1.0)
+        let expenseColor: NSUIColor = getBalance["Expenses"]! < getBalance["Planning"]! ? greenColor : redColor
+        let targetColor: NSUIColor = getBalance["Expenses"]! < getBalance["Planning"]! ? redColor : NSUIColor.white
+        let targetLabelColor: NSUIColor = getBalance["Expenses"]! < getBalance["Planning"]! ? NSUIColor.darkGray : NSUIColor.white
+        expensesDataSet.setColors([lightGray, expenseColor], alpha: 1.0)
 
+        expensesData.barWidth = 1.0
+        expensesMonthlyPlanningChart.drawGridBackgroundEnabled = false
+        expensesMonthlyPlanningChart.leftAxis.drawBottomYLabelEntryEnabled = false
+        expensesMonthlyPlanningChart.leftAxis.drawTopYLabelEntryEnabled = false
+
+        expensesData.setDrawValues(false)
     
-        expensesMonthlyPlanningChart.leftAxis.enabled = false
+        
+        expensesMonthlyPlanningChart.leftAxis.enabled = true
+        expensesMonthlyPlanningChart.borderColor = .darkGray
+        expensesMonthlyPlanningChart.leftAxis.labelTextColor = .white
+        expensesMonthlyPlanningChart.leftAxis.axisMinimum = 0
+        expensesMonthlyPlanningChart.leftAxis.axisMaximum = getBalance["Incoming"]!
+        
+        let expense = ChartLimitLine(limit: self.getBalance["Expenses"]!, label: "R$" + String(format: "%.0f", self.getBalance["Expenses"]!) )
+        expense.labelPosition = .topLeft
+        expense.lineColor = expenseColor
+        expense.valueTextColor = .white
+        
+        let target = ChartLimitLine(limit: self.getBalance["Planning"]!, label: "R$" + String(format: "%.0f", self.getBalance["Planning"]!) )
+        target.labelPosition = .bottomLeft
+        target.lineColor = targetColor
+        target.valueTextColor = targetLabelColor
+        target.lineWidth = 0.5
+        let incoming = ChartLimitLine(limit: self.getBalance["Incoming"]!, label: "R$" + String(format: "%.0f", self.getBalance["Incoming"]!) )
+        incoming.labelPosition = .bottomLeft
+        incoming.lineWidth = 0.5
+        incoming.drawLabelEnabled = false
+        incoming.lineColor = UIColor.darkGray
+        
+        expensesMonthlyPlanningChart.leftAxis.addLimitLine(target)
+        expensesMonthlyPlanningChart.leftAxis.addLimitLine(expense)
+        expensesMonthlyPlanningChart.leftAxis.addLimitLine(incoming)
         expensesMonthlyPlanningChart.rightAxis.enabled = false
         expensesMonthlyPlanningChart.xAxis.enabled = false
-        expensesMonthlyPlanningChart.leftAxis.axisMinimum = 0
         expensesMonthlyPlanningChart.highlightPerTapEnabled = false
-        
-        balanceMonthlyPlanningChart.leftAxis.enabled = false
-        balanceMonthlyPlanningChart.rightAxis.enabled = false
-        balanceMonthlyPlanningChart.xAxis.enabled = false
-        balanceMonthlyPlanningChart.leftAxis.axisMinimum = 0
-        balanceMonthlyPlanningChart.highlightPerTapEnabled = false
-        
-        expensesData.barWidth = 0.9
-        balanceData.barWidth = 0.9
 
+        expensesMonthlyPlanningChart.drawValueAboveBarEnabled = true
+        expensesMonthlyPlanningChart.data = expensesData
+        
         expensesMonthlyPlanningChart.legend.enabled = false
-        balanceMonthlyPlanningChart.legend.enabled = false
-
-        balanceData.setDrawValues(false)
-        expensesData.setDrawValues(false)
 
         expensesMonthlyPlanningChart.notifyDataSetChanged()
-        balanceMonthlyPlanningChart.notifyDataSetChanged()
 
         expensesMonthlyPlanningChart.animate(yAxisDuration: 1)
-        balanceMonthlyPlanningChart.animate(yAxisDuration: 1)
 
     }
 

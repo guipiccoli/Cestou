@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PT-Qj-31d">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="elI-26-Ddx">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="16"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="27"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="K2M-kq-o3k" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
@@ -99,15 +99,15 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="elI-26-Ddx" secondAttribute="trailing" id="61K-Xd-Orh"/>
                                     <constraint firstItem="elI-26-Ddx" firstAttribute="leading" secondItem="0PT-Qj-31d" secondAttribute="leading" id="9wq-5P-vWk"/>
-                                    <constraint firstItem="elI-26-Ddx" firstAttribute="top" secondItem="kpj-fp-Mlk" secondAttribute="bottom" constant="30" id="Ax0-XT-2E5"/>
-                                    <constraint firstAttribute="height" constant="164" id="EbO-Iu-oKZ"/>
+                                    <constraint firstItem="elI-26-Ddx" firstAttribute="top" secondItem="kpj-fp-Mlk" secondAttribute="bottom" constant="25" id="Ax0-XT-2E5"/>
+                                    <constraint firstAttribute="height" constant="170" id="EbO-Iu-oKZ"/>
                                     <constraint firstItem="kpj-fp-Mlk" firstAttribute="top" secondItem="0PT-Qj-31d" secondAttribute="top" constant="64" id="ZJJ-nr-WFg"/>
                                     <constraint firstItem="kpj-fp-Mlk" firstAttribute="centerX" secondItem="0PT-Qj-31d" secondAttribute="centerX" id="fwo-gI-722"/>
                                     <constraint firstAttribute="bottom" secondItem="elI-26-Ddx" secondAttribute="bottom" id="oTE-GY-jgV"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="55g-bQ-DWB">
-                                <rect key="frame" x="0.0" y="164" width="414" height="753"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="747"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Category" rowHeight="230" id="YPK-Ur-et5" customClass="CategoryTableViewCell" customModule="Cestou" customModuleProvider="target">
@@ -264,8 +264,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6S-oO-Cy8">
                                                     <rect key="frame" x="23" y="5" width="368" height="175"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balanço mensal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpj-w3-3To">
-                                                            <rect key="frame" x="122.5" y="8" width="123" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balanço Mensal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpj-w3-3To">
+                                                            <rect key="frame" x="122.5" y="8" width="123" height="67.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                             <color key="textColor" red="0.33087325099999998" green="0.68436020610000003" blue="0.50978177790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
@@ -284,42 +284,26 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I80-vT-1ix" userLabel="Line">
-                                                            <rect key="frame" x="129" y="36.5" width="110" height="1"/>
+                                                            <rect key="frame" x="129" y="83.5" width="110" height="1"/>
                                                             <color key="backgroundColor" red="0.33087325099999998" green="0.68436020610000003" blue="0.50978177790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="Jb8-Vi-fcy"/>
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="b3P-SE-ogL">
-                                                            <rect key="frame" x="5" y="43" width="358" height="117"/>
+                                                            <rect key="frame" x="5" y="90" width="358" height="70"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAV-Ez-SR0" customClass="HorizontalBarChartView" customModule="Charts">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
-                                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="40" id="MIF-DF-ea0"/>
-                                                                    </constraints>
-                                                                </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balanço: - R$ 3.000,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELq-gZ-4Rh">
-                                                                    <rect key="frame" x="0.0" y="41" width="358" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                                    <color key="textColor" red="0.37912994623184204" green="0.6335563063621521" blue="0.92552369832992554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbO-V1-Iwd" customClass="HorizontalBarChartView" customModule="Charts">
-                                                                    <rect key="frame" x="0.0" y="59" width="358" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
                                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="40" id="H8Q-tS-iWW"/>
+                                                                        <constraint firstAttribute="height" constant="70" id="H8Q-tS-iWW"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Despesas: - R$ 3.000,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8Z-HV-6rf">
-                                                                    <rect key="frame" x="0.0" y="100" width="358" height="17"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                                    <color key="textColor" red="0.93144047260284424" green="0.4907914400100708" blue="0.47449576854705811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="dbO-V1-Iwd" firstAttribute="centerY" secondItem="b3P-SE-ogL" secondAttribute="centerY" id="ydm-4T-9P5"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -350,7 +334,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="backgroundCardView" destination="r6S-oO-Cy8" id="bW8-HK-sWb"/>
-                                            <outlet property="balanceMonthlyPlanningChart" destination="gAV-Ez-SR0" id="Kyc-sC-yzc"/>
                                             <outlet property="expensesMonthlyPlanningChart" destination="dbO-V1-Iwd" id="rWA-ZW-bZG"/>
                                             <outlet property="noDataText" destination="8DW-ZH-plX" id="baz-Ty-AqC"/>
                                             <outlet property="noDataView" destination="YCv-Qo-nhU" id="Lch-HB-cIj"/>

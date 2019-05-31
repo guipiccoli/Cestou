@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "basketIcon.png",
+      "filename" : "Basket Icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "basketIcon@2x.png",
+      "filename" : "Basket Icon 2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "basketIcon@3x.png",
+      "filename" : "Basket Icon 3.png",
       "scale" : "3x"
     }
   ],

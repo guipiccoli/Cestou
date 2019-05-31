@@ -48,6 +48,27 @@ struct Shopping: Codable {
         self.marketplace = marketplace
         self.date = date
         cost = products.reduce(0.0) { $0 + $1.quantity * $1.unitPrice}
+    
+    }
+    
+    static func <(lhs: Shopping, rhs: Shopping) -> Bool {
+        guard
+            let l: Int = Int(String(lhs.prettyDate().prefix(2))),
+            let r: Int = Int(String(rhs.prettyDate().prefix(2)))
+            else {
+                fatalError()
+        }
+        return l < r
+    }
+    
+    static func >(lhs: Shopping, rhs: Shopping) -> Bool {
+        guard
+            let l: Int = Int(String(lhs.prettyDate().prefix(2))),
+            let r: Int = Int(String(rhs.prettyDate().prefix(2)))
+            else {
+                fatalError()
+        }
+        return l > r
     }
     
     func prettyDate() ->String {
