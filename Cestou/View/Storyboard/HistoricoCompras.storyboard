@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq7-Lp-tSF" userLabel="Header">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nGR-fT-BtL">
-                                        <rect key="frame" x="0.0" y="140" width="414" height="24"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="27"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="9pc-2s-2Gt" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                         <cells>
@@ -53,7 +53,7 @@
                                         </cells>
                                     </collectionView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lc0-Pt-c8e">
-                                        <rect key="frame" x="139" y="40" width="136.5" height="84.5"/>
+                                        <rect key="frame" x="139" y="43" width="136.5" height="84.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gasto Mensal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcP-PL-emQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="136.5" height="14.5"/>
@@ -85,7 +85,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="6MI-ao-Tb7"/>
+                                    <constraint firstAttribute="height" constant="170" id="6MI-ao-Tb7"/>
                                     <constraint firstAttribute="bottom" secondItem="nGR-fT-BtL" secondAttribute="bottom" id="Cu6-6W-KL1"/>
                                     <constraint firstItem="Lc0-Pt-c8e" firstAttribute="centerX" secondItem="wq7-Lp-tSF" secondAttribute="centerX" id="OzK-Tv-z66"/>
                                     <constraint firstItem="nGR-fT-BtL" firstAttribute="top" secondItem="Lc0-Pt-c8e" secondAttribute="bottom" constant="15.5" id="QEb-mZ-vfa"/>
@@ -95,7 +95,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MAb-ce-7Ls">
-                                <rect key="frame" x="0.0" y="164" width="414" height="732"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="726"/>
                                 <color key="backgroundColor" red="0.92157477140426636" green="0.92155748605728149" blue="0.92156922817230225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="183" id="4Ss-Qf-EBE" customClass="HistoricoComprasCell" customModule="Cestou" customModuleProvider="target">
