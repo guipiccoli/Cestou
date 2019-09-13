@@ -13,6 +13,11 @@ class OnboardController: UIViewController {
     let mainImageString: [String] = ["welcome", "income", "spent"]
     let ballsImage: [String] = ["balls1", "balls2", "balls3"]
     let titleText: [String] = ["Bem-vindo", "Rendimento", "Gasto Projetado"]
+    let texts: [String] = [
+        "Ao se cadastrar no Cestou, você deu o seu primeiro passo para começar a entender o seu padrão de consumo no mercado e assim entender como pode economizar.",
+        "Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo.",
+        "Está informação é necessária para gerar os gráficos que serão exibidos para você compreender o seu padrão de consumo."
+    ]
     private var balance: [String: Double] = ["incoming": 0.0, "expenseProjected": 0.0]
     
     @IBOutlet weak var collView: UICollectionView!
@@ -90,8 +95,9 @@ class OnboardController: UIViewController {
                                         }
                                     }
                                     else {
-                                        print(result)
                                         DispatchQueue.main.async {
+                                            let defaults = UserDefaults.standard
+                                            defaults.set(true, forKey: "viewOnboard")
                                             self.performSegue(withIdentifier: "toMain", sender: nil)
                                         }
                                     }
@@ -120,7 +126,6 @@ class OnboardController: UIViewController {
                 break
             }
         }
-        print(self.balance)
     }
     
     @IBAction func scrollRightAction(_ sender: Any) {
@@ -146,6 +151,7 @@ extension OnboardController: UICollectionViewDataSource, UICollectionViewDelegat
         
         cell.symbolImage.image = UIImage(named: self.mainImageString[indexPath.row])
         cell.titleLabel.text = self.titleText[indexPath.row]
+        cell.textLabel.text = self.texts[indexPath.row]
         cell.ballsImage.image = UIImage(named: self.ballsImage[indexPath.row])
         
         if indexPath.row == 0 {
@@ -154,7 +160,8 @@ extension OnboardController: UICollectionViewDataSource, UICollectionViewDelegat
             cell.backBtn.isHidden = true
         }
         else {
-            cell.inputTextField.placeholder = self.titleText[indexPath.row]
+            cell.inputTextField.attributedPlaceholder = NSAttributedString(string: self.titleText[indexPath.row],
+                                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             cell.errorLabel.text = " "
             cell.inputTextField.delegate = self
         }
@@ -179,4 +186,8 @@ extension OnboardController: UICollectionViewDataSource, UICollectionViewDelegat
             }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

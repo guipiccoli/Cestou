@@ -55,12 +55,12 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let background = UIImageView()
-        background.image = UIImage(named: "BG")
-        background.frame = self.view.frame
-        
-        self.view.addSubview(background)
-        self.view.sendSubviewToBack(background)
+//        let background = UIImageView()
+//        background.image = UIImage(named: "BG")
+//        background.frame = self.view.frame
+//        
+//        self.view.addSubview(background)
+//        self.view.sendSubviewToBack(background)
         
 
         tableView.delegate = self

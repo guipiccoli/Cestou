@@ -35,14 +35,16 @@ class CategoryTableViewCell: UITableViewCell {
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
 
         backgroundCardView.layer.masksToBounds = false
-        noDataText.isHidden = true
+        noDataText.isHidden = false
+        categoryChart.holeColor = .clear
+        categoryChart.legend.textColor = .white
     }
     
     func configure() {
         var categoriesA: [String] = []
         var valueSpent: [Double] = []
         
-        self.categories = [:]
+        categories = [:]
         
         if let _balanceMonth = self.balanceMonth, let shoppings = _balanceMonth.monthlyShoppings {
             for nota in shoppings {
@@ -59,19 +61,18 @@ class CategoryTableViewCell: UITableViewCell {
         
         var categoriesSort = categories.sorted(by: {$0.value > $1.value})
         
-        //print(categories)
-        
         for entry in categoriesSort {
             categoriesA.append( "\(entry.key): R$ \(String(format: "%.2f", entry.value))")
             valueSpent.append(entry.value)
         }
         
-        setChart(dataPoints: categoriesA, values: valueSpent)
-        if categories.count == 0 {
-            noDataText.isHidden = false
-        }
-        else {
+        if categories.count > 0 {
             noDataText.isHidden = true
+            categoryChart.isHidden = false
+            setChart(dataPoints: categoriesA, values: valueSpent)
+        } else {
+            noDataText.isHidden = false
+            categoryChart.isHidden = true
         }
     }
 

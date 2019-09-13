@@ -9,6 +9,12 @@
 import UIKit
 import CenteredCollectionView
 import SwiftKeychainWrapper
+
+enum StatesVisibility {
+    case noData
+    case readyData
+}
+
 class HistoricoComprasController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +22,19 @@ class HistoricoComprasController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var totalExpensesLabel: UILabel!
     @IBOutlet weak var totalExpensesDecimal: UILabel!
+    @IBOutlet weak var noDataText: UILabel!
+    var screenState: StatesVisibility = .noData {
+        didSet {
+            switch screenState {
+            case .noData:
+                tableView.isHidden = true
+                noDataText.isHidden = false
+            case .readyData:
+                tableView.isHidden = false
+                noDataText.isHidden = true
+            }
+        }
+    }
     
     let cellPercentWidth: CGFloat = 0.2
     let months = ["Janeiro","Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
@@ -33,6 +52,7 @@ class HistoricoComprasController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.isHidden = true
         //initializes our collectionViewLayout as a FlowLayout (pod)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         
@@ -42,12 +62,12 @@ class HistoricoComprasController: UIViewController {
         
         
         
-        let backgroundHeader = UIImageView()
-        backgroundHeader.frame = self.view.frame
-        backgroundHeader.image = UIImage(named: "BG")
-        
-        self.view.addSubview(backgroundHeader)
-        self.view.sendSubviewToBack(backgroundHeader)
+//        let backgroundHeader = UIImageView()
+//        backgroundHeader.frame = self.view.frame
+//        backgroundHeader.image = UIImage(named: "BG")
+//        
+//        self.view.addSubview(backgroundHeader)
+//        self.view.sendSubviewToBack(backgroundHeader)
         
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -94,7 +114,13 @@ class HistoricoComprasController: UIViewController {
                 
                 
                 self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
-                self.tableView.reloadData()
+                
+                if let shoppings = self.shoppings, shoppings.isEmpty {
+                    self.screenState = .noData
+                } else {
+                    self.screenState = .readyData
+                    self.tableView.reloadData()
+                }
                 
             }
         }
@@ -120,7 +146,13 @@ class HistoricoComprasController: UIViewController {
                 self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
                 
                 self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted( by: { $0 > $1 })
-                self.tableView.reloadData()
+                
+                if let shoppings = self.shoppings, shoppings.isEmpty {
+                    self.screenState = .noData
+                } else {
+                    self.screenState = .readyData
+                    self.tableView.reloadData()
+                }
                 
 //                self.headerView.isAccessibilityElement = true
 //
@@ -271,6 +303,12 @@ extension HistoricoComprasController {
         
         self.month = index.row
         self.shoppings = self.balances?[self.month].monthlyShoppings?.sorted(by: { $0 > $1 } )
-        self.tableView.reloadData()
+        
+        if let shoppings = self.shoppings, shoppings.isEmpty {
+            self.screenState = .noData
+        } else {
+            self.screenState = .readyData
+            self.tableView.reloadData()
+        }
     }
 }

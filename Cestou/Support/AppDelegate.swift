@@ -20,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //KeychainWrapper.standard.removeAllKeys() //Descomentar essa linha se quiser que peca o login sempre
         DataService.verifySessionToken { (isValidToken) in
             if isValidToken {
-                self.storyboardName = "Dashboard"
+                let defaults = UserDefaults.standard
+                let viewOnboard = defaults.bool(forKey: "viewOnboard")
+                if (!viewOnboard) {
+                    self.storyboardName = "OnBoard"
+                } else {
+                    self.storyboardName = "Dashboard"
+                }
             }
             else {
                 KeychainWrapper.standard.removeAllKeys()

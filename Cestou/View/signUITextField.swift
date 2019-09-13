@@ -10,18 +10,15 @@ import UIKit
 @IBDesignable
 open class signUITextField: UITextField {
     
-    var border = CALayer()
+    let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 5)
     
     func setup() {
-        let width = CGFloat(1.0)
-        
-        self.border.borderColor = UIColor.darkGray.cgColor
-        self.border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
-        self.border.borderWidth = width
-        self.border.borderColor = UIColor.clear.cgColor
-        self.border.name = "border"
-        self.layer.addSublayer(self.border)
-        self.layer.masksToBounds = true
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.cornerRadius = 18
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        self.clipsToBounds = true
     }
     
     override init(frame: CGRect) {
@@ -34,15 +31,22 @@ open class signUITextField: UITextField {
     }
 
     open func border(type: String) {
-        let _ = self.layer.sublayers?.map {
-            if $0.name == "border" {
-                if type == "warning" {
-                    $0.borderColor = UIColor.red.cgColor
-                }
-                else {
-                   $0.borderColor = UIColor.clear.cgColor
-                }
-            }
+        if type == "warning" {
+            self.layer.borderColor = UIColor.red.cgColor
         }
+        else {
+            self.layer.borderColor = UIColor.clear.cgColor
+        }
+
+    }
+    
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
     }
 }

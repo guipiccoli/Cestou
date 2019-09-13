@@ -48,12 +48,12 @@ class DashboardViewController: UIViewController {
 //        gradientLayer.frame = self.view.bounds
 //        self.view.layer.insertSublayer(gradientLayer, at: 0)
                 
-        let background = UIImageView()
-        background.image = UIImage(named: "BG")
-        background.frame = self.view.frame
+        //  background = UIImageView()
+        // background.image = UIImage(named: "BG")
+        // background.frame = self.view.frame
         
-        self.view.addSubview(background)
-        self.view.sendSubviewToBack(background)
+        // self.view.addSubview(background)
+        // self.view.sendSubviewToBack(background)
         
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         
@@ -216,19 +216,11 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
 extension DashboardViewController {
     
     func refreshDataPerMonth(index: IndexPath) {
-        
         let _roundedExpense = balances![index.row].expense.rounded(.down)
         let decimals = balances![index.row].expense - _roundedExpense
         let totalExpensesRounded = String(Int(_roundedExpense))
         self.totalExpensesDecimal.text = "," + String(decimals*1000).replacingOccurrences(of: ".", with: "").prefix(2)
         self.totalExpensesLabel.text = "R$\(totalExpensesRounded)"
-
-        
-        for item in balances! {
-            print(item)
-        }
-        
-        
         self.month = index.row
         self.graphTableView.reloadData()
     }

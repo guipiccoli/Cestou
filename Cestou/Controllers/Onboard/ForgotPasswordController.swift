@@ -86,7 +86,11 @@ extension ForgotPassowrdController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendEmail(textField)
+        if (textField.returnKeyType == .done) {
+            sendEmail(textField)
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
 }

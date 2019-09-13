@@ -23,19 +23,10 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fullname.delegate = self;
         email.delegate = self;
         password.delegate = self;
-        self.styleSignUpInputs()
         self.styleSignUpBtn()
-    }
-    
-    private func styleSignUpInputs() {
-        self.fullname.layer.cornerRadius = 18
-        self.fullname.clipsToBounds = true
-        self.email.layer.cornerRadius = 18
-        self.email.clipsToBounds = true
-        self.password.layer.cornerRadius = 18
-        self.password.clipsToBounds = true
     }
     
     private func isValidEmail(testStr:String) -> Bool {
@@ -132,20 +123,17 @@ extension SignUpController: UITextFieldDelegate {
             self.errorLabel.text = " "
         }
         
-        switch textField {
-        
-        case self.email:
-            if self.isValidEmail(testStr: textField.text ?? "") { self.warningField = false }
+        if (textField == self.email) {
+            if self.isValidEmail(testStr: textField.text ?? "") {
+                self.warningField = false }
             else { self.warningField = true }
-        
-        case self.password:
-            if let pass = textField.text {
-                if pass.count < 8 { self.warningField = false }
+        } else {
+            if let password = textField.text {
+                if password.count < 8 { self.warningField = false }
                 else { self.warningField = true }
             }
-        default:
-            print("default")
         }
+        
         return true
     }
     
@@ -157,7 +145,11 @@ extension SignUpController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        sendBtnClick(textField)
+        if (textField.returnKeyType == .done) {
+            sendBtnClick(textField)
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
 }

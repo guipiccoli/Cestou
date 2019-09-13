@@ -25,6 +25,8 @@ class DailyExpensesTableViewCell: UITableViewCell {
 
         noDataText.isHidden = false
         dailyExpensesChart.noDataText = ""
+        dailyExpensesChart.xAxis.labelTextColor = .white
+        dailyExpensesChart.leftAxis.labelTextColor = .white
         backgroundCardView.layer.cornerRadius = 16
         backgroundCardView.layer.borderWidth = 0.5
         backgroundCardView.layer.borderColor = UIColor.lightGray.cgColor
@@ -62,9 +64,7 @@ class DailyExpensesTableViewCell: UITableViewCell {
             noDataText.isHidden = true
             dailyExpensesChart.isHidden = false
             setChart(dataPoints: days, values: valueSpent)
-        }
-        else {
-//           falta trazer a mensagem de erro
+        } else {
             noDataText.isHidden = false
             dailyExpensesChart.isHidden = true
             

@@ -26,11 +26,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hKN-O7-gIb">
+                                <rect key="frame" x="0.0" y="170.5" width="320" height="397.5"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-rK-xH1">
                                 <rect key="frame" x="100" y="50" width="120" height="120"/>
-                                <accessibility key="accessibilityConfiguration" label="Logotipo do Cestou App">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="NnO-Zh-4Vc"/>
                                     <constraint firstAttribute="height" constant="120" id="g7K-pB-1B4"/>
@@ -40,21 +40,26 @@
                                 <rect key="frame" x="0.0" y="516" width="320" height="32"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kjZ-BC-Ggy">
-                                        <rect key="frame" x="63" y="4" width="194.5" height="24"/>
+                                        <rect key="frame" x="35" y="1.5" width="250" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem uma conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf1-2g-fpR">
-                                                <rect key="frame" x="0.0" y="5" width="116.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="0.0" y="5" width="150" height="19.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ime-js-Aoa">
-                                                <rect key="frame" x="119.5" y="0.0" width="75" height="24"/>
-                                                <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de criação de conta."/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <rect key="frame" x="153" y="0.0" width="97" height="29"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="4.5" maxX="0.0" maxY="4.5"/>
                                                 <state key="normal" title="Cadastre-se">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="yOR-F1-PUZ" kind="show" id="xaL-Wu-J8c"/>
@@ -63,16 +68,13 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.19605264067649841" green="0.19609326124191284" blue="0.19605004787445068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="kjZ-BC-Ggy" firstAttribute="centerX" secondItem="5DP-gN-SiD" secondAttribute="centerX" id="EdC-pb-nf5"/>
                                     <constraint firstAttribute="height" constant="32" id="Poa-em-fG4"/>
                                     <constraint firstItem="kjZ-BC-Ggy" firstAttribute="centerY" secondItem="5DP-gN-SiD" secondAttribute="centerY" id="pxr-hx-r6Z"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hKN-O7-gIb">
-                                <rect key="frame" x="0.0" y="170.5" width="320" height="397.5"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="p6Y-O5-kGO">
                                 <rect key="frame" x="16" y="187.5" width="288" height="250"/>
                                 <subviews>
@@ -85,25 +87,33 @@
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-x3-d56" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Caq-x3-d56" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="53" width="288" height="38"/>
-                                        <color key="backgroundColor" red="0.63987821340560913" green="0.86786812543869019" blue="0.75293499231338501" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-0P-lb4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-0P-lb4" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="288" height="38"/>
-                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN1-2L-77p">
-                                        <rect key="frame" x="63.5" y="159" width="161" height="38"/>
+                                        <rect key="frame" x="0.0" y="159" width="288" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" label="Botão com a função de entrar no app após o preenchimento do e-mail e senha."/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="56" minY="8" maxX="56" maxY="8"/>
                                         <state key="normal" title="Entrar">
                                             <color key="titleColor" red="0.33069005608558655" green="0.68404299020767212" blue="0.50978630781173706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -112,19 +122,14 @@
                                             <action selector="signIn:" destination="2aV-d8-sW8" eventType="touchUpInside" id="QFG-qb-pkS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRh-gj-FrW">
-                                        <rect key="frame" x="81.5" y="212" width="125" height="38"/>
-                                        <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de recuperar a senha."/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Esqueceu a senha?">
-                                                    <attributes>
-                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRh-gj-FrW">
+                                        <rect key="frame" x="65" y="212" width="158" height="38"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" name=".SFNSText" family=".SF NS Text" pointSize="18"/>
+                                        <state key="normal" title="Esqueceu a senha?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="KZV-u0-CJL" kind="show" id="JPD-bG-Nv3"/>
@@ -136,15 +141,17 @@
                                     <constraint firstItem="Cjb-0P-lb4" firstAttribute="top" secondItem="Caq-x3-d56" secondAttribute="bottom" constant="15" id="7HV-iy-HbX"/>
                                     <constraint firstItem="mRh-gj-FrW" firstAttribute="centerX" secondItem="p6Y-O5-kGO" secondAttribute="centerX" id="8Ja-M5-z9O"/>
                                     <constraint firstItem="Caq-x3-d56" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="9Nn-h7-k5q"/>
+                                    <constraint firstAttribute="trailing" secondItem="UN1-2L-77p" secondAttribute="trailing" id="IFO-Ie-Wf0"/>
                                     <constraint firstAttribute="trailing" secondItem="OdQ-nJ-hWV" secondAttribute="trailing" id="ORC-DU-JYk"/>
                                     <constraint firstItem="Cjb-0P-lb4" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="d5e-7E-LtK"/>
                                     <constraint firstAttribute="trailing" secondItem="Cjb-0P-lb4" secondAttribute="trailing" id="eAJ-Ku-MvT"/>
                                     <constraint firstAttribute="trailing" secondItem="Caq-x3-d56" secondAttribute="trailing" id="hcc-mO-ah1"/>
+                                    <constraint firstItem="UN1-2L-77p" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="k6i-Q4-jqY"/>
                                     <constraint firstItem="OdQ-nJ-hWV" firstAttribute="leading" secondItem="p6Y-O5-kGO" secondAttribute="leading" id="l2J-M2-lJT"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.19605264067649841" green="0.19609326124191284" blue="0.19605004787445068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="Tela inicial do app para efetuar o login.">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -171,6 +178,7 @@
                         <outlet property="password" destination="Cjb-0P-lb4" id="Jas-pv-Kwb"/>
                         <outlet property="signInBtn" destination="UN1-2L-77p" id="lEM-2O-D86"/>
                         <segue destination="NhK-6Y-Ggc" kind="show" identifier="toDashboard" id="zLj-uo-Uoq"/>
+                        <segue destination="v37-6G-Wfh" kind="show" identifier="onboard" id="6bU-wH-bPg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj0-gG-v34" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,38 +226,41 @@
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-fs-aKz" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP5-fs-aKz" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="48" width="288" height="38"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu nome completo."/>
-                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.20389500260353088" green="0.2039368748664856" blue="0.20389232039451599" alpha="0.49855522260273971" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-0d-yWI" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9u-0d-yWI" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="96" width="288" height="38"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o seu email."/>
-                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.20389500260353088" green="0.2039368748664856" blue="0.20389232039451599" alpha="0.46944563356164382" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-xX-7yK" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZa-xX-7yK" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="144" width="288" height="38"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration" label="Campo de texto para informar o sua senha."/>
-                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eva-g5-BTQ">
-                                        <rect key="frame" x="48" y="192" width="192" height="38"/>
+                                        <rect key="frame" x="0.0" y="192" width="288" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão com a função de cadastrar uma nova conta no app após o preenchimento do nome completo,  e-mail e senha."/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="56" minY="8" maxX="56" maxY="8"/>
                                         <state key="normal" title="Cadastrar">
                                             <color key="titleColor" red="0.33069005610000002" green="0.68404299020000003" blue="0.5097863078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -258,19 +269,12 @@
                                             <action selector="sendBtnClick:" destination="yOR-F1-PUZ" eventType="touchUpInside" id="gNu-cT-SYP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-dR-FrM">
-                                        <rect key="frame" x="74.5" y="240" width="139" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-dR-FrM">
+                                        <rect key="frame" x="57.5" y="240" width="173" height="38"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de login."/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Voltar à Tela de Login">
-                                                    <attributes>
-                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                        <state key="normal" title="Voltar à Tela de Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="2aV-d8-sW8" kind="show" id="A5H-OR-rmm"/>
@@ -280,6 +284,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TZa-xX-7yK" secondAttribute="trailing" id="0s6-4d-HjC"/>
                                     <constraint firstItem="GRj-7T-I24" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="45o-DS-3ED"/>
+                                    <constraint firstItem="eva-g5-BTQ" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="63N-HL-gxJ"/>
                                     <constraint firstItem="eva-g5-BTQ" firstAttribute="centerX" secondItem="apv-Wk-DgC" secondAttribute="centerX" id="Deg-Hf-gj3"/>
                                     <constraint firstAttribute="trailing" secondItem="N9u-0d-yWI" secondAttribute="trailing" id="Dnm-uP-kKb"/>
                                     <constraint firstItem="TZa-xX-7yK" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="Eqp-KQ-WWA"/>
@@ -289,10 +294,11 @@
                                     <constraint firstAttribute="trailing" secondItem="GRj-7T-I24" secondAttribute="trailing" id="ZNF-EE-aN4"/>
                                     <constraint firstItem="yPG-dR-FrM" firstAttribute="centerX" secondItem="apv-Wk-DgC" secondAttribute="centerX" id="bFg-sa-i7Q"/>
                                     <constraint firstItem="N9u-0d-yWI" firstAttribute="leading" secondItem="apv-Wk-DgC" secondAttribute="leading" id="iTg-Qs-d6C"/>
+                                    <constraint firstAttribute="trailing" secondItem="eva-g5-BTQ" secondAttribute="trailing" id="rKO-bt-CJn"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.19605264067649841" green="0.19609326124191284" blue="0.19605004787445068" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="Tela do app para criação de uma nova conta.">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -346,18 +352,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="piu-Tf-Cjr">
                                 <rect key="frame" x="16" y="300.5" width="288" height="134"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-wK-PD5" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D7N-wK-PD5" customClass="signUITextField" customModule="Cestou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="38"/>
-                                        <color key="backgroundColor" red="0.63987821339999995" green="0.86786812540000002" blue="0.75293499230000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.19605264067649841" green="0.19609326124191284" blue="0.19605004787445068" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2E-zQ-ZnJ">
-                                        <rect key="frame" x="18.5" y="48" width="251" height="38"/>
+                                        <rect key="frame" x="0.0" y="48" width="288" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão com a função de recuperar a senha no app após o preenchimento do e-mail."/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="56" minY="8" maxX="56" maxY="8"/>
                                         <state key="normal" title="Recuperar Senha">
                                             <color key="titleColor" red="0.33069005610000002" green="0.68404299020000003" blue="0.5097863078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -366,19 +372,12 @@
                                             <action selector="sendEmail:" destination="KZV-u0-CJL" eventType="touchUpInside" id="SmB-v8-6pd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-7P-3tb">
-                                        <rect key="frame" x="74.5" y="96" width="139" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-7P-3tb">
+                                        <rect key="frame" x="57.5" y="96" width="173" height="38"/>
                                         <accessibility key="accessibilityConfiguration" label="Botão que irá redirecionar para tela de login."/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Voltar à Tela de Login">
-                                                    <attributes>
-                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" metaFont="system" size="14"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                        <state key="normal" title="Voltar à Tela de Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="2aV-d8-sW8" kind="show" id="BD6-Hc-CB3"/>
@@ -389,11 +388,13 @@
                                     <constraint firstItem="E2E-zQ-ZnJ" firstAttribute="centerX" secondItem="piu-Tf-Cjr" secondAttribute="centerX" id="8dV-bs-E8H"/>
                                     <constraint firstItem="M6J-7P-3tb" firstAttribute="centerX" secondItem="piu-Tf-Cjr" secondAttribute="centerX" id="XWX-qo-LV4"/>
                                     <constraint firstItem="D7N-wK-PD5" firstAttribute="leading" secondItem="piu-Tf-Cjr" secondAttribute="leading" id="bWP-ku-Pr6"/>
+                                    <constraint firstItem="E2E-zQ-ZnJ" firstAttribute="leading" secondItem="piu-Tf-Cjr" secondAttribute="leading" id="jWI-pz-g6G"/>
                                     <constraint firstAttribute="trailing" secondItem="D7N-wK-PD5" secondAttribute="trailing" id="jy2-ov-MHz"/>
+                                    <constraint firstAttribute="trailing" secondItem="E2E-zQ-ZnJ" secondAttribute="trailing" id="nFh-Ul-aqS"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <accessibility key="accessibilityConfiguration" label="Tela do app para recuperar a senha do seu login.">
                             <bool key="isElement" value="NO"/>
                         </accessibility>
@@ -425,6 +426,7 @@
         <image name="signBackground" width="125" height="193"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BD6-Hc-CB3"/>
+        <segue reference="A5H-OR-rmm"/>
+        <segue reference="6bU-wH-bPg"/>
     </inferredMetricsTieBreakers>
 </document>

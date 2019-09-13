@@ -23,16 +23,7 @@ class SignInController: UIViewController {
         super.viewDidLoad()
         email.delegate = self;
         password.delegate = self;
-        self.styleSignInInputs()
         self.styleSignInBtn()
-    }
-    
-    private func styleSignInInputs() {
-        self.email.layer.cornerRadius = 18
-        self.email.border(type: "")
-        self.email.clipsToBounds = true
-        self.password.layer.cornerRadius = 18
-        self.password.clipsToBounds = true
     }
     
     private func styleSignInBtn() {
@@ -78,25 +69,28 @@ class SignInController: UIViewController {
                             }
                         }
                         else {
-                            print(result)
                             DispatchQueue.main.async {
                                 guard
                                     let objectId = result["objectId"] as? String,
                                     let sessionToken = result["sessionToken"] as? String,
                                     let username = result["username"] as? String
                                     else {
-                                        print("Error trying to parse Login confirmation response from server")
                                         fatalError()
                                 }
                                 KeychainWrapper.standard.set(sessionToken, forKey: "sessionToken")
                                 KeychainWrapper.standard.set(objectId, forKey: "objectId")
                                 KeychainWrapper.standard.set(username, forKey: "username")
-                                self.performSegue(withIdentifier: "toDashboard", sender: nil)
+                                let defaults = UserDefaults.standard
+                                let viewOnboard = defaults.bool(forKey: "viewOnboard")
+                                if (!viewOnboard) {
+                                    self.performSegue(withIdentifier: "onboard", sender: nil)
+                                } else {
+                                    self.performSegue(withIdentifier: "toDashboard", sender: nil)
+                                }
                             }
                         }
                     }
                     else {
-                        print("Unknow error.")
                         DispatchQueue.main.async {
                             self.errorText.text = "Servidor indisponível."
                         }
@@ -105,7 +99,6 @@ class SignInController: UIViewController {
             }
         }
         else {
-            print("Incorrect field.")
             email.border(type: "warning")
             password.border(type: "warning")
             errorText.text = "Os campos estão incorretos."
@@ -121,21 +114,17 @@ extension SignInController: UITextFieldDelegate {
             errorText.text = " "
         }
         
-        switch textField {
-        
-        case self.email:
+        if (textField == self.email) {
             if self.isValidEmail(testStr: textField.text ?? "") {
                 self.warningField = false }
             else { self.warningField = true }
-        
-        case self.password:
+        } else {
             if let password = textField.text {
                 if password.count < 8 { self.warningField = false }
                 else { self.warningField = true }
             }
-        default:
-            print("default")
         }
+        
         return true
     }
     
@@ -147,7 +136,11 @@ extension SignInController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        signIn(textField)
+        if (textField.returnKeyType == .done) {
+            signIn(textField)
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
 }
